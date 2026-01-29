@@ -1,24 +1,37 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, XCircle, Zap } from "lucide-react";
+import { CheckCircle, XCircle, Zap, AlertTriangle, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import confetti from "canvas-confetti";
 import { Question } from "@/data/mathsLevels";
 
+const MAX_ERRORS = 4;
+
 interface MathsGameProps {
   title: string;
   questions: Question[];
   onComplete: (score: number, totalQuestions: number) => void;
+  onBlocked?: () => void;
+  isLevelMode?: boolean;
   accentColor?: string;
 }
 
-const MathsGame = ({ title, questions, onComplete, accentColor = "text-maths" }: MathsGameProps) => {
+const MathsGame = ({ 
+  title, 
+  questions, 
+  onComplete, 
+  onBlocked,
+  isLevelMode = false,
+  accentColor = "text-maths" 
+}: MathsGameProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [score, setScore] = useState(0);
+  const [errors, setErrors] = useState(0);
   const [showFeedback, setShowFeedback] = useState<"correct" | "incorrect" | null>(null);
   const [streak, setStreak] = useState(0);
+  const [isBlocked, setIsBlocked] = useState(false);
 
   const currentQuestion = questions[currentQuestionIndex];
   const totalQuestions = questions.length;
@@ -34,7 +47,7 @@ const MathsGame = ({ title, questions, onComplete, accentColor = "text-maths" }:
   }, []);
 
   const handleSubmit = () => {
-    if (!currentQuestion || userAnswer === "") return;
+    if (!currentQuestion || userAnswer === "" || isBlocked) return;
 
     const numericAnswer = parseFloat(userAnswer.replace(",", "."));
     const isCorrect = Math.abs(numericAnswer - currentQuestion.answer) < 0.01;
@@ -49,6 +62,16 @@ const MathsGame = ({ title, questions, onComplete, accentColor = "text-maths" }:
     } else {
       setStreak(0);
       setShowFeedback("incorrect");
+      const newErrors = errors + 1;
+      setErrors(newErrors);
+      
+      // Check if blocked (only in level mode)
+      if (isLevelMode && newErrors > MAX_ERRORS) {
+        setTimeout(() => {
+          setIsBlocked(true);
+        }, 1500);
+        return;
+      }
     }
 
     setTimeout(() => {
@@ -68,10 +91,59 @@ const MathsGame = ({ title, questions, onComplete, accentColor = "text-maths" }:
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && showFeedback === null) {
+    if (e.key === "Enter" && showFeedback === null && !isBlocked) {
       handleSubmit();
     }
   };
+
+  // Blocked screen
+  if (isBlocked) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-400 via-red-400 to-pink-500 p-4 md:p-8 flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-card rounded-3xl p-8 shadow-2xl max-w-md w-full text-center"
+        >
+          <motion.div
+            animate={{ rotate: [0, -5, 5, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          >
+            <AlertTriangle className="w-20 h-20 mx-auto mb-4 text-destructive" />
+          </motion.div>
+
+          <h2 className="text-2xl font-bold text-foreground mb-2">
+            Trop d'erreurs ! 😅
+          </h2>
+          
+          <p className="text-muted-foreground mb-2">
+            Tu as fait plus de {MAX_ERRORS} erreurs dans ce niveau.
+          </p>
+          
+          <p className="text-lg text-foreground mb-6">
+            Pas de panique ! Révise un peu avant de continuer. 📚
+          </p>
+
+          <div className="bg-muted/50 rounded-xl p-4 mb-6">
+            <p className="text-sm text-muted-foreground">
+              Score actuel : <span className="font-bold text-foreground">{score}/{currentQuestionIndex + 1}</span>
+            </p>
+            <p className="text-sm text-destructive font-medium">
+              Erreurs : {errors}
+            </p>
+          </div>
+
+          <Button
+            onClick={onBlocked}
+            className="w-full py-4 text-lg font-bold bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 rounded-xl text-primary-foreground"
+          >
+            <BookOpen className="w-5 h-5 mr-2" />
+            Aller aux révisions
+          </Button>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-maths via-primary to-maths-dark p-4 md:p-8 flex items-center justify-center">
@@ -85,6 +157,19 @@ const MathsGame = ({ title, questions, onComplete, accentColor = "text-maths" }:
           <div className="flex justify-between items-center mb-2">
             <span className={`font-bold ${accentColor}`}>{title}</span>
             <div className="flex items-center gap-4">
+              {/* Error counter for level mode */}
+              {isLevelMode && errors > 0 && (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className={`flex items-center gap-1 ${
+                    errors >= MAX_ERRORS - 1 ? "text-destructive" : "text-muted-foreground"
+                  }`}
+                >
+                  <XCircle className="w-4 h-4" />
+                  <span className="text-sm font-medium">{errors}/{MAX_ERRORS + 1}</span>
+                </motion.div>
+              )}
               {streak >= 3 && (
                 <motion.div
                   initial={{ scale: 0 }}

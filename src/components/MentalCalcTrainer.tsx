@@ -70,6 +70,12 @@ const MentalCalcTrainer = () => {
     setGameState("menu");
   }, []);
 
+  const handleBlocked = useCallback(() => {
+    // Redirect to revisions tab
+    setActiveTab("revisions");
+    setGameState("menu");
+  }, []);
+
   // Get current game data
   const getCurrentGameData = () => {
     if (gameMode === "level") {
@@ -114,6 +120,8 @@ const MentalCalcTrainer = () => {
         title={title}
         questions={questions}
         onComplete={handleGameComplete}
+        onBlocked={handleBlocked}
+        isLevelMode={gameMode === "level"}
       />
     );
   }
