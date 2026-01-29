@@ -1,15 +1,38 @@
 import { motion } from "framer-motion";
-import { Pencil, Calculator, Brain } from "lucide-react";
+import { Pencil, Calculator, Brain, LogOut } from "lucide-react";
 import FloatingBubbles from "@/components/FloatingBubbles";
 import WelcomeHeader from "@/components/WelcomeHeader";
 import ModuleButton from "@/components/ModuleButton";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
+  const handleLogout = () => {
+    // For now, just show an alert - will be connected to auth later
+    console.log("Logout clicked");
+    // Future: supabase.auth.signOut()
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       <FloatingBubbles />
       
       <main className="relative z-10 container py-8 px-4 max-w-4xl mx-auto">
+        {/* Logout button */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex justify-end mb-4"
+        >
+          <Button
+            variant="outline"
+            onClick={handleLogout}
+            className="bg-card/90 hover:bg-destructive/10 text-foreground hover:text-destructive shadow-md hover:shadow-lg transition-all"
+          >
+            <LogOut className="w-4 h-4" />
+            <span className="hidden sm:inline ml-2">Déconnexion</span>
+          </Button>
+        </motion.div>
+
         <WelcomeHeader />
         
         <motion.div 
