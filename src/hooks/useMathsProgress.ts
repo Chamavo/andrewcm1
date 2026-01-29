@@ -41,6 +41,13 @@ const getDefaultProgress = (): MathsProgress => ({
   lastUpdated: new Date().toISOString(),
 });
 
+// Get max allowed errors for a level
+export const getMaxErrorsForLevel = (levelIndex: number): number => {
+  // Levels 1-2 (index 0-1): 0 errors allowed
+  // Levels 3+ (index 2+): 1 error allowed
+  return levelIndex < 2 ? 0 : 1;
+};
+
 export const useMathsProgress = () => {
   const [progress, setProgress] = useState<MathsProgress>(() => {
     try {
@@ -66,17 +73,22 @@ export const useMathsProgress = () => {
   const updateLevelProgress = useCallback((
     levelIndex: number,
     score: number,
-    totalQuestions: number
+    totalQuestions: number,
+    errors: number
   ) => {
     setProgress((prev) => {
       const existingLevel = prev.levels[levelIndex];
       const isNewBest = !existingLevel || score > existingLevel.bestScore;
-      const isPerfect = score === totalQuestions;
+      
+      // Check if level is passed based on error rules
+      const maxErrors = getMaxErrorsForLevel(levelIndex);
+      const isPassed = errors <= maxErrors && score >= totalQuestions - maxErrors;
       
       // Calculate stars earned
       let starsEarned = 0;
+      const isPerfect = score === totalQuestions;
       if (isPerfect && (!existingLevel || !existingLevel.completed)) {
-        starsEarned = 3; // 3 stars for first perfect
+        starsEarned = 3;
       } else if (score >= totalQuestions * 0.8 && !existingLevel?.completed) {
         starsEarned = 2;
       } else if (score >= totalQuestions * 0.6 && !existingLevel?.completed) {
@@ -88,7 +100,7 @@ export const useMathsProgress = () => {
         levels: {
           ...prev.levels,
           [levelIndex]: {
-            completed: isPerfect || existingLevel?.completed || false,
+            completed: isPassed || existingLevel?.completed || false,
             bestScore: isNewBest ? score : (existingLevel?.bestScore || 0),
             totalQuestions,
             attempts: (existingLevel?.attempts || 0) + 1,
@@ -166,6 +178,16 @@ export const useMathsProgress = () => {
     return progress.sujets[sujetId];
   }, [progress.sujets]);
 
+  // Check if a level is unlocked
+  const isLevelUnlocked = useCallback((levelIndex: number): boolean => {
+    // Level 1 (index 0) is always unlocked
+    if (levelIndex === 0) return true;
+    
+    // Check if previous level is completed
+    const previousLevel = progress.levels[levelIndex - 1];
+    return previousLevel?.completed === true;
+  }, [progress.levels]);
+
   const getCompletedLevelsCount = useCallback((): number => {
     return Object.values(progress.levels).filter(l => l.completed).length;
   }, [progress.levels]);
@@ -182,6 +204,7 @@ export const useMathsProgress = () => {
     getLevelProgress,
     getRevisionProgress,
     getSujetProgress,
+    isLevelUnlocked,
     getCompletedLevelsCount,
     resetProgress,
   };

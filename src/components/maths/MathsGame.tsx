@@ -6,24 +6,26 @@ import { Progress } from "@/components/ui/progress";
 import confetti from "canvas-confetti";
 import { Question } from "@/data/mathsLevels";
 
-const MAX_ERRORS = 4;
-
 interface MathsGameProps {
   title: string;
   questions: Question[];
-  onComplete: (score: number, totalQuestions: number) => void;
+  onComplete: (score: number, totalQuestions: number, errors: number) => void;
   onBlocked?: () => void;
   isLevelMode?: boolean;
+  maxErrors?: number;
+  levelIndex?: number;
   accentColor?: string;
 }
 
-const MathsGame = ({ 
-  title, 
-  questions, 
-  onComplete, 
+const MathsGame = ({
+  title,
+  questions,
+  onComplete,
   onBlocked,
   isLevelMode = false,
-  accentColor = "text-maths" 
+  maxErrors,
+  levelIndex,
+  accentColor = "text-maths",
 }: MathsGameProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
@@ -36,6 +38,9 @@ const MathsGame = ({
   const currentQuestion = questions[currentQuestionIndex];
   const totalQuestions = questions.length;
   const progress = (currentQuestionIndex / totalQuestions) * 100;
+
+  // Determine max errors allowed
+  const effectiveMaxErrors = maxErrors !== undefined ? maxErrors : 999;
 
   const triggerConfetti = useCallback(() => {
     confetti({
@@ -64,9 +69,9 @@ const MathsGame = ({
       setShowFeedback("incorrect");
       const newErrors = errors + 1;
       setErrors(newErrors);
-      
+
       // Check if blocked (only in level mode)
-      if (isLevelMode && newErrors > MAX_ERRORS) {
+      if (isLevelMode && newErrors > effectiveMaxErrors) {
         setTimeout(() => {
           setIsBlocked(true);
         }, 1500);
@@ -80,10 +85,11 @@ const MathsGame = ({
 
       if (currentQuestionIndex + 1 >= totalQuestions) {
         const finalScore = score + (isCorrect ? 1 : 0);
+        const finalErrors = errors + (isCorrect ? 0 : 1);
         if (finalScore === totalQuestions) {
           triggerConfetti();
         }
-        onComplete(finalScore, totalQuestions);
+        onComplete(finalScore, totalQuestions, finalErrors);
       } else {
         setCurrentQuestionIndex((prev) => prev + 1);
       }
@@ -99,7 +105,7 @@ const MathsGame = ({
   // Blocked screen
   if (isBlocked) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-400 via-red-400 to-pink-500 p-4 md:p-8 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-destructive via-destructive/80 to-accent p-4 md:p-8 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -115,11 +121,11 @@ const MathsGame = ({
           <h2 className="text-2xl font-bold text-foreground mb-2">
             Trop d'erreurs ! 😅
           </h2>
-          
+
           <p className="text-muted-foreground mb-2">
-            Tu as fait plus de {MAX_ERRORS} erreurs dans ce niveau.
+            Tu as fait plus de {effectiveMaxErrors} erreur{effectiveMaxErrors > 1 ? "s" : ""} dans ce niveau.
           </p>
-          
+
           <p className="text-lg text-foreground mb-6">
             Pas de panique ! Révise un peu avant de continuer. 📚
           </p>
@@ -135,7 +141,7 @@ const MathsGame = ({
 
           <Button
             onClick={onBlocked}
-            className="w-full py-4 text-lg font-bold bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 rounded-xl text-primary-foreground"
+            className="w-full py-4 text-lg font-bold bg-gradient-to-r from-concentration to-concentration-dark hover:opacity-90 rounded-xl text-primary-foreground"
           >
             <BookOpen className="w-5 h-5 mr-2" />
             Aller aux révisions
@@ -158,16 +164,16 @@ const MathsGame = ({
             <span className={`font-bold ${accentColor}`}>{title}</span>
             <div className="flex items-center gap-4">
               {/* Error counter for level mode */}
-              {isLevelMode && errors > 0 && (
+              {isLevelMode && (
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   className={`flex items-center gap-1 ${
-                    errors >= MAX_ERRORS - 1 ? "text-destructive" : "text-muted-foreground"
+                    errors >= effectiveMaxErrors ? "text-destructive" : "text-muted-foreground"
                   }`}
                 >
                   <XCircle className="w-4 h-4" />
-                  <span className="text-sm font-medium">{errors}/{MAX_ERRORS + 1}</span>
+                  <span className="text-sm font-medium">{errors}/{effectiveMaxErrors + 1}</span>
                 </motion.div>
               )}
               {streak >= 3 && (

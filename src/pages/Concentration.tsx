@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FloatingBubbles from "@/components/FloatingBubbles";
-import BackButton from "@/components/BackButton";
+import NavigationHeader from "@/components/NavigationHeader";
 import ExerciseCard from "@/components/ExerciseCard";
 import ProgressBar from "@/components/ProgressBar";
 import SuccessOverlay from "@/components/SuccessOverlay";
@@ -127,9 +127,7 @@ const Concentration = () => {
       <FloatingBubbles />
       
       <main className="relative z-10 container py-8 px-4 max-w-2xl mx-auto">
-        <div className="mb-8">
-          <BackButton />
-        </div>
+        <NavigationHeader showHome showLogout={false} />
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}

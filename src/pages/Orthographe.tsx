@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import FloatingBubbles from "@/components/FloatingBubbles";
-import BackButton from "@/components/BackButton";
+import NavigationHeader from "@/components/NavigationHeader";
 import ExerciseCard from "@/components/ExerciseCard";
 import AnswerButton from "@/components/AnswerButton";
 import ProgressBar from "@/components/ProgressBar";
@@ -84,9 +84,7 @@ const Orthographe = () => {
       <FloatingBubbles />
       
       <main className="relative z-10 container py-8 px-4 max-w-2xl mx-auto">
-        <div className="mb-8">
-          <BackButton />
-        </div>
+        <NavigationHeader showHome showLogout={false} />
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}
