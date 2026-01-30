@@ -157,6 +157,7 @@ const MentalCalcTrainer = () => {
         questions={questions}
         onComplete={handleGameComplete}
         onBlocked={handleBlocked}
+        onBack={handleBackToMenu}
         isLevelMode={gameMode === "level"}
         maxErrors={maxErrors}
         levelIndex={gameMode === "level" ? currentLevelIndex : undefined}

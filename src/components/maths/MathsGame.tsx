@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, XCircle, Zap, AlertTriangle, BookOpen } from "lucide-react";
+import { CheckCircle, XCircle, Zap, AlertTriangle, BookOpen, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import confetti from "canvas-confetti";
@@ -11,6 +11,7 @@ interface MathsGameProps {
   questions: Question[];
   onComplete: (score: number, totalQuestions: number, errors: number) => void;
   onBlocked?: () => void;
+  onBack?: () => void;
   isLevelMode?: boolean;
   maxErrors?: number;
   levelIndex?: number;
@@ -22,6 +23,7 @@ const MathsGame = ({
   questions,
   onComplete,
   onBlocked,
+  onBack,
   isLevelMode = false,
   maxErrors,
   levelIndex,
@@ -161,7 +163,19 @@ const MathsGame = ({
           className="bg-card/95 rounded-2xl p-4 mb-4 shadow-lg"
         >
           <div className="flex justify-between items-center mb-2">
-            <span className="font-bold text-[hsl(190,100%,35%)]">{title}</span>
+            {onBack ? (
+              <Button
+                onClick={onBack}
+                variant="ghost"
+                size="sm"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <ArrowLeft className="w-4 h-4 mr-1" />
+                Retour
+              </Button>
+            ) : (
+              <span className="font-bold text-[hsl(190,100%,35%)]">{title}</span>
+            )}
             <div className="flex items-center gap-4">
               {/* Error counter for level mode */}
               {isLevelMode && (
