@@ -8,81 +8,89 @@
 @import '@fontsource/nunito/800.css';
 
 /* Espace de Travail Andrew - Design System
-   A playful, colorful, game-like educational platform for kids
+   Inspired by Maître Lucas: bright, high-contrast, playful educational colors
    All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Base colors - Soft, friendly light theme */
-    --background: 220 60% 97%;
-    --foreground: 230 25% 25%;
+    /* Base colors - Clean white with good contrast */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 230 25% 25%;
+    --card-foreground: 220 20% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 25%;
+    --popover-foreground: 220 20% 20%;
 
-    /* Primary - Playful blue */
-    --primary: 200 85% 50%;
+    /* Primary - Maître Lucas cyan/turquoise */
+    --primary: 190 100% 45%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Soft lavender */
-    --secondary: 270 50% 92%;
-    --secondary-foreground: 270 40% 35%;
+    /* Secondary - Soft light gray */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 20% 30%;
 
-    --muted: 220 30% 92%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 45 95% 60%;
-    --accent-foreground: 30 60% 25%;
+    /* Accent - Warm orange for highlights */
+    --accent: 25 100% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 55%;
+    --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 30% 88%;
-    --input: 220 30% 88%;
-    --ring: 200 85% 50%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 190 100% 45%;
 
     --radius: 1rem;
 
-    /* Module Colors */
-    --orthographe: 20 90% 55%;
-    --orthographe-light: 20 90% 95%;
-    --orthographe-dark: 20 80% 40%;
+    /* Module Colors - Bright and high contrast */
+    --orthographe: 25 100% 55%;
+    --orthographe-light: 25 100% 95%;
+    --orthographe-dark: 25 90% 42%;
     
-    --maths: 180 70% 45%;
-    --maths-light: 180 60% 92%;
-    --maths-dark: 180 70% 30%;
+    --maths: 190 100% 45%;
+    --maths-light: 190 100% 95%;
+    --maths-dark: 190 90% 35%;
     
-    --concentration: 270 60% 55%;
-    --concentration-light: 270 60% 94%;
-    --concentration-dark: 270 50% 40%;
+    --concentration: 280 80% 55%;
+    --concentration-light: 280 80% 95%;
+    --concentration-dark: 280 70% 42%;
 
-    /* Success/Celebration */
-    --success: 145 70% 45%;
-    --success-light: 145 70% 92%;
+    /* Success/Celebration - Bright green */
+    --success: 145 85% 42%;
+    --success-light: 145 85% 95%;
     --success-foreground: 0 0% 100%;
 
-    /* Stars/Rewards */
-    --star: 45 95% 55%;
-    --star-glow: 45 100% 70%;
+    /* Stars/Rewards - Bright gold */
+    --star: 45 100% 50%;
+    --star-glow: 45 100% 65%;
 
-    /* Gradients */
-    --gradient-background: linear-gradient(135deg, hsl(220 60% 97%) 0%, hsl(270 40% 95%) 50%, hsl(200 50% 95%) 100%);
-    --gradient-orthographe: linear-gradient(135deg, hsl(20 90% 55%) 0%, hsl(35 95% 60%) 100%);
-    --gradient-maths: linear-gradient(135deg, hsl(180 70% 45%) 0%, hsl(200 80% 50%) 100%);
-    --gradient-concentration: linear-gradient(135deg, hsl(270 60% 55%) 0%, hsl(290 70% 60%) 100%);
-    --gradient-success: linear-gradient(135deg, hsl(145 70% 45%) 0%, hsl(160 75% 50%) 100%);
+    /* Problèmes - Bright pink/magenta */
+    --problemes: 330 90% 55%;
+    --problemes-light: 330 90% 95%;
+    --problemes-dark: 330 80% 42%;
 
-    /* Shadows for depth */
-    --shadow-soft: 0 4px 20px -4px hsl(230 30% 50% / 0.15);
-    --shadow-button: 0 8px 30px -6px hsl(230 30% 40% / 0.25);
-    --shadow-card: 0 10px 40px -10px hsl(230 30% 50% / 0.2);
-    --shadow-glow-orange: 0 10px 40px -8px hsl(20 90% 55% / 0.4);
-    --shadow-glow-teal: 0 10px 40px -8px hsl(180 70% 45% / 0.4);
-    --shadow-glow-purple: 0 10px 40px -8px hsl(270 60% 55% / 0.4);
+    /* Gradients - More vibrant */
+    --gradient-background: linear-gradient(180deg, hsl(190 100% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-orthographe: linear-gradient(135deg, hsl(25 100% 55%) 0%, hsl(35 100% 60%) 100%);
+    --gradient-maths: linear-gradient(135deg, hsl(190 100% 45%) 0%, hsl(200 100% 50%) 100%);
+    --gradient-concentration: linear-gradient(135deg, hsl(280 80% 55%) 0%, hsl(290 85% 60%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(145 85% 42%) 0%, hsl(160 90% 45%) 100%);
+    --gradient-problemes: linear-gradient(135deg, hsl(330 90% 55%) 0%, hsl(350 95% 60%) 100%);
+
+    /* Shadows for depth - More pronounced */
+    --shadow-soft: 0 4px 20px -4px hsl(220 30% 40% / 0.12);
+    --shadow-button: 0 8px 30px -6px hsl(220 30% 30% / 0.25);
+    --shadow-card: 0 10px 40px -10px hsl(220 30% 40% / 0.2);
+    --shadow-glow-orange: 0 12px 40px -8px hsl(25 100% 55% / 0.5);
+    --shadow-glow-teal: 0 12px 40px -8px hsl(190 100% 45% / 0.5);
+    --shadow-glow-purple: 0 12px 40px -8px hsl(280 80% 55% / 0.5);
+    --shadow-glow-pink: 0 12px 40px -8px hsl(330 90% 55% / 0.5);
 
     /* Sidebar (keeping defaults) */
     --sidebar-background: 0 0% 98%;
@@ -92,7 +100,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 190 100% 45%;
   }
 }
 

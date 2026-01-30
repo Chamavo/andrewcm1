@@ -4,13 +4,13 @@ import { useMathsProgress, getMaxErrorsForLevel } from "@/hooks/useMathsProgress
 import MathsSubMenu from "./maths/MathsSubMenu";
 import ProgressionView from "./maths/ProgressionView";
 import RevisionsView from "./maths/RevisionsView";
-import SujetsView from "./maths/SujetsView";
+import ProblemesView from "./maths/ProblemesView";
 import MathsGame from "./maths/MathsGame";
 import MathsResult from "./maths/MathsResult";
 
-type Tab = "progression" | "revisions" | "sujets";
+type Tab = "progression" | "revisions" | "problemes";
 type GameState = "submenu" | "tab-view" | "playing" | "result";
-type GameMode = "level" | "revision" | "sujet";
+type GameMode = "level" | "revision" | "probleme";
 
 const MentalCalcTrainer = () => {
   const [gameState, setGameState] = useState<GameState>("submenu");
@@ -18,7 +18,7 @@ const MentalCalcTrainer = () => {
   const [gameMode, setGameMode] = useState<GameMode>("level");
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [currentCategoryId, setCurrentCategoryId] = useState("");
-  const [currentSujetId, setCurrentSujetId] = useState("");
+  const [currentProblemeId, setCurrentProblemeId] = useState("");
   const [lastScore, setLastScore] = useState(0);
   const [lastTotal, setLastTotal] = useState(0);
   const [lastErrors, setLastErrors] = useState(0);
@@ -47,9 +47,9 @@ const MentalCalcTrainer = () => {
     setGameState("playing");
   }, []);
 
-  const startSujet = useCallback((sujetId: string) => {
-    setCurrentSujetId(sujetId);
-    setGameMode("sujet");
+  const startProbleme = useCallback((problemeId: string) => {
+    setCurrentProblemeId(problemeId);
+    setGameMode("probleme");
     setGameState("playing");
   }, []);
 
@@ -63,12 +63,12 @@ const MentalCalcTrainer = () => {
       updateLevelProgress(currentLevelIndex, score, totalQuestions, errors);
     } else if (gameMode === "revision") {
       updateRevisionProgress(currentCategoryId, score, totalQuestions);
-    } else if (gameMode === "sujet") {
-      updateSujetProgress(currentSujetId, score, totalQuestions);
+    } else if (gameMode === "probleme") {
+      updateSujetProgress(currentProblemeId, score, totalQuestions);
     }
 
     setGameState("result");
-  }, [gameMode, currentLevelIndex, currentCategoryId, currentSujetId, updateLevelProgress, updateRevisionProgress, updateSujetProgress]);
+  }, [gameMode, currentLevelIndex, currentCategoryId, currentProblemeId, updateLevelProgress, updateRevisionProgress, updateSujetProgress]);
 
   const handleRetry = useCallback(() => {
     setGameState("playing");
@@ -108,11 +108,11 @@ const MentalCalcTrainer = () => {
         maxErrors: undefined, // No blocking for revisions
       };
     } else {
-      const sujet = sujets.find((s) => s.id === currentSujetId);
+      const probleme = sujets.find((s) => s.id === currentProblemeId);
       return {
-        title: sujet?.name || "Sujet",
-        questions: sujet?.questions || [],
-        maxErrors: undefined, // No blocking for sujets
+        title: probleme?.name || "Problèmes",
+        questions: probleme?.questions || [],
+        maxErrors: undefined, // No blocking for problemes
       };
     }
   };
@@ -140,8 +140,8 @@ const MentalCalcTrainer = () => {
       );
     } else {
       return (
-        <SujetsView
-          onStartSujet={startSujet}
+        <ProblemesView
+          onStartProbleme={startProbleme}
           onBack={handleBackToSubMenu}
         />
       );

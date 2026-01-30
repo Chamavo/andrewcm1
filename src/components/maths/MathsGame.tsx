@@ -152,7 +152,7 @@ const MathsGame = ({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-maths via-primary to-maths-dark p-4 md:p-8 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-[hsl(190,100%,97%)] to-white p-4 md:p-8 flex items-center justify-center">
       <div className="w-full max-w-lg">
         {/* Header */}
         <motion.div
@@ -161,7 +161,7 @@ const MathsGame = ({
           className="bg-card/95 rounded-2xl p-4 mb-4 shadow-lg"
         >
           <div className="flex justify-between items-center mb-2">
-            <span className={`font-bold ${accentColor}`}>{title}</span>
+            <span className="font-bold text-[hsl(190,100%,35%)]">{title}</span>
             <div className="flex items-center gap-4">
               {/* Error counter for level mode */}
               {isLevelMode && (
@@ -221,7 +221,7 @@ const MathsGame = ({
                 onKeyPress={handleKeyPress}
                 disabled={showFeedback !== null}
                 placeholder="Ta réponse..."
-                className="w-full text-center text-3xl md:text-4xl font-bold p-4 border-4 border-maths/30 rounded-2xl focus:border-maths focus:outline-none transition-colors bg-background text-foreground"
+                className="w-full text-center text-3xl md:text-4xl font-bold p-4 border-4 border-[hsl(190,100%,80%)] rounded-2xl focus:border-[hsl(190,100%,45%)] focus:outline-none transition-colors bg-background text-foreground"
                 autoFocus
               />
 
@@ -239,7 +239,7 @@ const MathsGame = ({
                     }`}
                   >
                     {showFeedback === "correct" ? (
-                      <div className="flex items-center gap-2 text-success">
+                      <div className="flex items-center gap-2 text-[hsl(145,85%,35%)]">
                         <CheckCircle className="w-12 h-12" />
                         <span className="text-3xl font-bold">Bravo !</span>
                       </div>
@@ -268,7 +268,7 @@ const MathsGame = ({
               <Button
                 onClick={handleSubmit}
                 disabled={userAnswer === "" || showFeedback !== null}
-                className="w-full py-6 text-xl font-bold bg-gradient-to-r from-maths to-primary hover:opacity-90 rounded-2xl text-primary-foreground"
+                className="w-full py-6 text-xl font-bold bg-gradient-to-r from-[hsl(190,100%,45%)] to-[hsl(200,100%,50%)] hover:opacity-90 rounded-2xl text-white shadow-lg"
               >
                 Valider ✓
               </Button>
