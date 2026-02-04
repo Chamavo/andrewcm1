@@ -20,13 +20,13 @@ const WelcomeHeader = () => {
       </motion.div>
       
       <h1 className="text-display text-foreground mb-4">
-        Bienvenue dans l'espace de travail de{" "}
+        Bienvenue dans l'espace de travail d'
         <motion.span
           className="inline-block text-primary"
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          Duke Koungou
+          Andrew
         </motion.span>
         {" "}! 🎮
       </h1>
