@@ -58,6 +58,7 @@
     --gradient-orthographe: linear-gradient(180deg, #FF9E2C 0%, #FF8A00 100%);
     --gradient-maths: linear-gradient(180deg, #5D99FF 0%, #2979FF 100%);
     --gradient-concentration: linear-gradient(180deg, #B54ED1 0%, #9C27B0 100%);
+    --gradient-background: linear-gradient(135deg, #f5f7fa 0%, #e4ecff 100%);
   }
 }
 
@@ -146,5 +147,38 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-bg {
+    background: var(--gradient-background);
+  }
+
+  .kumon-shape {
+    @apply absolute rounded-full opacity-10 pointer-events-none;
+    filter: blur(40px);
+  }
+
+  .kumon-shape-1 {
+    width: 300px;
+    height: 300px;
+    background: hsl(var(--orange));
+    top: -100px;
+    left: -100px;
+  }
+
+  .kumon-shape-2 {
+    width: 400px;
+    height: 400px;
+    background: hsl(var(--primary));
+    bottom: -150px;
+    right: -100px;
+  }
+
+  .kumon-shape-3 {
+    width: 250px;
+    height: 250px;
+    background: hsl(var(--purple));
+    top: 20%;
+    right: 5%;
   }
 }

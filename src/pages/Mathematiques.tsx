@@ -17,9 +17,11 @@ const Mathematiques: React.FC = () => {
     });
 
     useEffect(() => {
-        // Load initial level from blocking system
-        const level = getCurrentLevel('Élève', 'progression');
-        setSession(prev => ({ ...prev, level }));
+        const loadLevel = async () => {
+            const level = await getCurrentLevel('Élève', 'progression');
+            setSession(prev => ({ ...prev, level }));
+        };
+        loadLevel();
     }, []);
 
     const handleUpdateSession = (updatedSession: AppSession) => {
