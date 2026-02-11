@@ -1,4 +1,4 @@
-```javascript
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -46,7 +46,7 @@ const Concentration: React.FC = () => {
             <main className="container mx-auto px-4 py-8 max-w-4xl">
                 <AnimatePresence mode="wait">
                     {view === 'home' ? (
-                        <motion.div 
+                        <motion.div
                             key="home"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const Concentration: React.FC = () => {
                             </p>
 
                             <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                                <motion.div 
+                                <motion.div
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => startSession('core')}
@@ -73,7 +73,7 @@ const Concentration: React.FC = () => {
                                     <span className="inline-block mt-4 px-4 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-bold">Recommandé</span>
                                 </motion.div>
 
-                                <motion.div 
+                                <motion.div
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => startSession('warmup')}
@@ -88,7 +88,7 @@ const Concentration: React.FC = () => {
                             </div>
                         </motion.div>
                     ) : (
-                        <SessionRunner 
+                        <SessionRunner
                             key="session"
                             exercises={currentSession}
                             phase={sessionPhase}
@@ -102,4 +102,4 @@ const Concentration: React.FC = () => {
 };
 
 export default Concentration;
-```
+
