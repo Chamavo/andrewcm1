@@ -4,6 +4,7 @@ import { ConcentrationExercise, SessionPhase } from '@/types/concentrationTypes'
 import { CheckCircle, Timer, XCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { playSound } from '@/utils/sounds';
+import ExerciseRenderer from './ExerciseRenderer';
 
 interface SessionRunnerProps {
     exercises: ConcentrationExercise[];
@@ -93,24 +94,20 @@ const SessionRunner: React.FC<SessionRunnerProps> = ({ exercises, phase, onCompl
                     exit={{ opacity: 0, x: -50 }}
                     className="bg-white rounded-[2rem] shadow-2xl p-8 min-h-[400px] flex flex-col items-center justify-center relative overflow-hidden"
                 >
-                    {/* Placeholder Exercise View */}
-                    <div className="text-center">
-                        <span className="inline-block px-4 py-1 bg-gray-100 rounded-full text-sm font-bold text-gray-500 mb-4">
-                            Exercice {currentIndex + 1} / {exercises.length} • {currentExercise.category}
-                        </span>
-                        <h3 className="text-3xl font-bold text-gray-800 mb-8">{currentExercise.question}</h3>
-
-                        <div className="p-12 border-4 border-dashed border-gray-200 rounded-xl mb-8 bg-gray-50">
-                            <p className="text-gray-400 italic">Zone de jeu (Placeholder)</p>
+                    {/* Exercise View */}
+                    <div className="w-full h-full flex flex-col">
+                        <div className="text-center mb-6">
+                            <span className="inline-block px-4 py-1 bg-gray-100 rounded-full text-sm font-bold text-gray-500 mb-2">
+                                Exercice {currentIndex + 1} / {exercises.length} • {currentExercise.category}
+                            </span>
+                            <h3 className="text-2xl md:text-3xl font-bold text-gray-800">{currentExercise.question}</h3>
                         </div>
 
-                        <div className="flex gap-4 justify-center">
-                            <Button variant="outline" onClick={() => handleAnswer(false)} className="border-red-200 hover:bg-red-50 text-red-600">
-                                Simuler Échec
-                            </Button>
-                            <Button onClick={() => handleAnswer(true)} className="bg-green-600 hover:bg-green-700">
-                                Simuler Succès
-                            </Button>
+                        <div className="flex-grow flex items-center justify-center">
+                            <ExerciseRenderer
+                                exercise={currentExercise}
+                                onAnswer={handleAnswer}
+                            />
                         </div>
                     </div>
 

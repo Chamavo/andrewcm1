@@ -1,4 +1,3 @@
-```
 import React from 'react';
 import { ConcentrationExercise } from '@/types/concentrationTypes';
 import AttentionIntruder from './exercises/AttentionIntruder';
