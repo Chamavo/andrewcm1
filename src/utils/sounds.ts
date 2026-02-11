@@ -139,3 +139,25 @@ export function playAllCompleteSound() {
         console.warn('Could not play all complete sound:', e);
     }
 }
+
+/**
+ * Compatibility wrapper for legacy code calling playSound('type')
+ */
+export function playSound(type: 'correct' | 'incorrect' | 'level-up' | 'complete') {
+    switch (type) {
+        case 'correct':
+            playCorrectSound();
+            break;
+        case 'incorrect':
+            playWrongSound();
+            break;
+        case 'level-up':
+            playLevelUpSound();
+            break;
+        case 'complete':
+            playAllCompleteSound();
+            break;
+        default:
+            console.warn(`Sound type not found: ${type}`);
+    }
+}
