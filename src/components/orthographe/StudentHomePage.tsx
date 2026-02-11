@@ -5,9 +5,9 @@ import {
     PenTool,
     FileText,
     Award,
-    LogOut,
     ArrowRight,
-    Lock
+    Lock,
+    Home
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/orthographeClient';
@@ -55,8 +55,8 @@ export const StudentHomePage = ({
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
             <div className="flex justify-end p-4">
-                <Button variant="outline" onClick={onLogout} className="bg-white/10 border-white/20 text-white hover:bg-white/20 gap-2">
-                    <LogOut className="w-4 h-4" /> Quitter
+                <Button variant="default" size="lg" onClick={onLogout} className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3">
+                    <Home className="w-6 h-6" /> Accueil
                 </Button>
             </div>
 
