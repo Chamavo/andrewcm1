@@ -340,8 +340,8 @@ const GlobalLockoutScreen = ({ lockoutRemaining }: { lockoutRemaining: number })
 const ProgressionHeader = ({ onBack, currentLevel, percentage, exercisesDone, totalExercises, errors }: any) => (
     <header className="bg-white/10 backdrop-blur-sm p-4 relative z-20">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-            <Button variant="ghost" size="sm" onClick={onBack} className="text-white hover:bg-white/20">
-                <ArrowLeft className="w-4 h-4 mr-2" /> Retour
+            <Button variant="ghost" size="sm" onClick={onBack} className="text-white hover:bg-white/20 gap-2">
+                <ArrowLeft className="w-4 h-4" /> Menu Ortho
             </Button>
             <div className="flex items-center gap-3">
                 <Mountain className="w-6 h-6 text-emerald-300" />

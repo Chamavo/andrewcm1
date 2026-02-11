@@ -9,7 +9,7 @@ type View = 'home' | 'progression' | 'dictee' | 'etude' | 'orthographe' | 'redac
 
 const OrthographePage = () => {
     const [view, setView] = useState<View>('home');
-    const [studentName] = useState('Invité'); // Bypass login as requested
+    const [studentName] = useState('Andrew'); // Bypass login as requested
     const navigate = useNavigate();
 
     const {

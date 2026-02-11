@@ -32,8 +32,8 @@ const Concentration: React.FC = () => {
                 </div>
                 <div className="flex gap-2">
                     {view === 'session' && (
-                        <Button variant="ghost" onClick={() => setView('home')} className="text-amber-800">
-                            Quitter
+                        <Button variant="ghost" onClick={() => setView('home')} className="text-amber-800 hover:bg-amber-100/50">
+                            Quitter la session
                         </Button>
                     )}
                     <Button variant="ghost" onClick={() => navigate('/')} className="gap-2 text-amber-800 hover:text-amber-900 hover:bg-amber-100/50">

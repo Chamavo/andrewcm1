@@ -53,9 +53,9 @@ const MathDashboard: React.FC<MathDashboardProps> = ({ currentLevel, username, o
 
                     <button
                         onClick={onBack}
-                        className="text-slate-400 hover:text-slate-600 font-medium text-sm px-4 py-2 hover:bg-slate-100 rounded-lg transition-colors"
+                        className="text-slate-400 hover:text-slate-600 font-medium text-sm px-4 py-2 hover:bg-slate-100 rounded-lg transition-colors flex items-center gap-2"
                     >
-                        Quitter
+                        🏠 Accueil
                     </button>
                 </div>
             </div>

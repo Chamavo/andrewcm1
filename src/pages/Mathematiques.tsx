@@ -21,7 +21,7 @@ const Mathematiques: React.FC = () => {
     const [lastTime, setLastTime] = useState(0);
     const [lastSuccess, setLastSuccess] = useState(false);
 
-    const [username] = useState('Élève'); // Hardcoded based on current session logic
+    const [username] = useState('Andrew'); // Hardcoded based on current session logic
 
     useEffect(() => {
         const loadLevel = async () => {

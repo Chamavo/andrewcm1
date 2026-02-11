@@ -138,9 +138,9 @@ const MathSession: React.FC<MathSessionProps> = ({ level, exercises, onComplete,
 
                     <button
                         onClick={onExit}
-                        className="absolute bottom-4 left-4 text-slate-400 hover:text-slate-600 text-sm font-medium"
+                        className="absolute bottom-4 left-4 text-slate-400 hover:text-slate-600 text-sm font-medium flex items-center gap-2"
                     >
-                        Abandonner
+                        🏠 Menu Maths
                     </button>
                 </motion.div>
 

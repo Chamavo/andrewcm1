@@ -73,8 +73,8 @@ const MathLevelEnd: React.FC<MathLevelEndProps> = ({ score, total, timeSpent, on
                     <button
                         onClick={onRetry}
                         className={`w-full text-xl font-bold py-4 rounded-xl shadow-sm border-2 flex items-center justify-center gap-2 transition-transform hover:-translate-y-1 active:translate-y-0 ${!isSuccess
-                                ? 'bg-blue-500 hover:bg-blue-600 text-white border-transparent'
-                                : 'bg-white hover:bg-slate-50 text-slate-600 border-slate-200'
+                            ? 'bg-blue-500 hover:bg-blue-600 text-white border-transparent'
+                            : 'bg-white hover:bg-slate-50 text-slate-600 border-slate-200'
                             }`}
                     >
                         <RefreshCw className={isSuccess ? "w-5 h-5" : "w-6 h-6"} />
@@ -83,9 +83,9 @@ const MathLevelEnd: React.FC<MathLevelEndProps> = ({ score, total, timeSpent, on
 
                     <button
                         onClick={onHome}
-                        className="mt-2 text-slate-400 hover:text-slate-600 font-medium py-2"
+                        className="mt-2 text-slate-400 hover:text-slate-600 font-medium py-2 flex items-center gap-2 justify-center w-full"
                     >
-                        Retour au menu
+                        🏠 Retour au menu Maths
                     </button>
                 </div>
             </motion.div>
