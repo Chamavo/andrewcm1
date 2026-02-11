@@ -67,6 +67,7 @@ const Index = () => {
               variant="concentration"
               delay={0.7}
               to="/concentration"
+              inactive={false}
             />
           </motion.div>
 
