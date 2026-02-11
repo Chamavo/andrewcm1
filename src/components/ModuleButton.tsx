@@ -14,61 +14,92 @@ interface ModuleButtonProps {
 
 const variantStyles = {
   orthographe: {
-    gradient: "from-[hsl(25,100%,55%)] to-[hsl(35,100%,60%)]",
-    shadow: "shadow-[0_12px_40px_-8px_hsl(25,100%,55%,0.5)]",
+    gradient: "from-[#FF9E2C] to-[#FF8A00]",
+    shadow: "shadow-[0_20px_50px_-12px_rgba(255,138,0,0.5)]",
+    border: "border-[#FFB04D]",
+    iconBg: "bg-white/30",
   },
   maths: {
-    gradient: "from-[hsl(190,100%,45%)] to-[hsl(200,100%,50%)]",
-    shadow: "shadow-[0_12px_40px_-8px_hsl(190,100%,45%,0.5)]",
+    gradient: "from-[#5D99FF] to-[#2979FF]",
+    shadow: "shadow-[0_20px_50px_-12px_rgba(41,121,255,0.5)]",
+    border: "border-[#85B2FF]",
+    iconBg: "bg-white/30",
   },
   concentration: {
-    gradient: "from-[hsl(280,80%,55%)] to-[hsl(290,85%,60%)]",
-    shadow: "shadow-[0_12px_40px_-8px_hsl(280,80%,55%,0.5)]",
+    gradient: "from-[#B54ED1] to-[#9C27B0]",
+    shadow: "shadow-[0_20px_50px_-12px_rgba(156,39,176,0.5)]",
+    border: "border-[#C576DA]",
+    iconBg: "bg-white/30",
   },
   soon: {
     gradient: "from-slate-400 to-slate-500",
-    shadow: "shadow-[0_12px_40px_-8px_rgba(148,163,184,0.5)]",
+    shadow: "shadow-[0_20px_50px_-12px_rgba(148,163,184,0.4)]",
+    border: "border-slate-300",
+    iconBg: "bg-white/20",
   }
 };
 
 const ModuleButton = ({ to, icon: Icon, title, subtitle, variant, delay = 0, inactive = false }: ModuleButtonProps) => {
   const content = (
     <div
-      className={`rounded-3xl p-8 flex flex-col items-center justify-center gap-4 text-white min-h-[200px] md:min-h-[240px] bg-gradient-to-br ${variantStyles[variant].gradient} ${variantStyles[variant].shadow} transition-all duration-300 border-4 border-white/30 ${inactive ? 'opacity-70 cursor-not-allowed grayscale-[0.2]' : 'hover:shadow-2xl'}`}
+      className={`
+        relative overflow-hidden rounded-[32px] p-10 flex flex-col items-center justify-center gap-6 
+        text-white min-h-[260px] md:min-h-[300px] bg-gradient-to-b ${variantStyles[variant].gradient} 
+        ${variantStyles[variant].shadow} transition-all duration-300 border-[6px] ${variantStyles[variant].border}
+        ${inactive ? 'opacity-60 cursor-not-allowed grayscale-[0.3]' : 'hover:brightness-110 active:scale-[0.98]'}
+        group shimmer
+      `}
+      style={{
+        boxShadow: !inactive ? `
+          0 15px 35px rgba(0,0,0,0.15),
+          0 10px 0 ${variant === 'orthographe' ? '#CC6E00' : variant === 'maths' ? '#1D5CC2' : variant === 'concentration' ? '#7B1FA2' : '#64748b'},
+          inset 0 -8px 0 rgba(0,0,0,0.1),
+          inset 0 8px 0 rgba(255,255,255,0.2)
+        ` : undefined
+      }}
     >
       <motion.div
-        className="rounded-full bg-white/25 p-5 backdrop-blur-sm"
-        whileHover={inactive ? {} : { rotate: [0, -10, 10, 0] }}
-        transition={{ duration: 0.5 }}
+        className={`rounded-full ${variantStyles[variant].iconBg} p-6 backdrop-blur-md floating-icon shadow-inner`}
       >
-        <Icon className="w-12 h-12 md:w-16 md:h-16" strokeWidth={2.5} />
+        <Icon className="w-14 h-14 md:w-20 md:h-20 drop-shadow-lg" strokeWidth={2.5} />
       </motion.div>
+
       <div className="text-center">
-        <h2 className="text-2xl md:text-3xl font-extrabold mb-1 drop-shadow-md">{title}</h2>
-        <p className="text-lg font-medium text-white/90">{subtitle}</p>
-        {inactive && <span className="mt-2 inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider">Bientôt disponible</span>}
+        <h2 className="text-3xl md:text-4xl font-black mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">{title}</h2>
+        <p className="text-xl font-bold text-white/90 drop-shadow-sm">{subtitle}</p>
+        {inactive && (
+          <span className="mt-4 inline-block px-4 py-1.5 bg-black/20 rounded-full text-xs font-black uppercase tracking-widest">
+            À venir 🔒
+          </span>
+        )}
       </div>
+
+      {/* Glossy overlay effect */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
     </div>
   );
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.8 }}
+      initial={{ opacity: 0, y: 60, scale: 0.8 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{
-        duration: 0.6,
+        duration: 0.8,
         delay,
         type: "spring",
-        stiffness: 200,
-        damping: 20
+        stiffness: 150,
+        damping: 15
       }}
-      whileHover={inactive ? {} : { scale: 1.05, y: -8 }}
-      whileTap={inactive ? {} : { scale: 0.95 }}
+      whileHover={inactive ? {} : {
+        y: -12,
+        scale: 1.05,
+      }}
+      whileTap={inactive ? {} : { y: 4 }}
     >
       {!inactive && to ? (
-        <Link to={to}>{content}</Link>
+        <Link to={to} className="block">{content}</Link>
       ) : (
-        content
+        <div className="block">{content}</div>
       )}
     </motion.div>
   );

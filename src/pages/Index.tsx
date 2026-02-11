@@ -4,59 +4,43 @@ import FloatingBubbles from "@/components/FloatingBubbles";
 import WelcomeHeader from "@/components/WelcomeHeader";
 import ModuleButton from "@/components/ModuleButton";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
-  const handleLogout = () => {
-    console.log("Logout clicked");
-  };
+  const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-background">
-      {/* Background Decor */}
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#f5f7fa] to-[#e4ecff]">
+      {/* Decorative background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] bg-purple/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <FloatingBubbles />
 
-      <main className="relative z-10 container py-12 px-4 max-w-5xl mx-auto flex flex-col items-center">
-        {/* Profile/Logout section */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="w-full flex justify-end mb-8"
-        >
-          <Button
-            variant="ghost"
-            onClick={handleLogout}
-            className="group hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-all rounded-full px-6"
-          >
-            <LogOut className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-            <span className="font-medium">Déconnexion</span>
-          </Button>
-        </motion.div>
-
+      <main className="relative z-10 container py-10 px-4 max-w-6xl mx-auto flex flex-col items-center">
         <section className="w-full flex flex-col items-center text-center">
           <WelcomeHeader />
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="w-full max-w-lg mb-12"
+            transition={{ delay: 0.2, duration: 1 }}
+            className="w-full max-w-2xl mb-16"
           >
-            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-primary/30 to-transparent mx-auto mb-8 rounded-full" />
-            <p className="text-muted-foreground text-lg leading-relaxed italic">
+            <div className="h-1.5 w-32 bg-gradient-to-r from-transparent via-primary/40 to-transparent mx-auto mb-10 rounded-full" />
+            <p className="text-muted-foreground text-xl md:text-2xl leading-relaxed italic font-medium">
               "L'éducation est l'arme la plus puissante pour changer le monde."
             </p>
           </motion.div>
 
+          {/* Activity Cards Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full px-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
             <ModuleButton
               icon={Pencil}
@@ -64,7 +48,7 @@ const Index = () => {
               subtitle="Le pouvoir des mots"
               variant="orthographe"
               delay={0.5}
-              inactive={true}
+              to="/orthographe"
             />
 
             <ModuleButton
@@ -73,7 +57,7 @@ const Index = () => {
               subtitle="L'art des nombres"
               variant="maths"
               delay={0.6}
-              inactive={true}
+              to="/mathematiques"
             />
 
             <ModuleButton
@@ -86,16 +70,18 @@ const Index = () => {
             />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="mt-20 text-muted-foreground/40 flex items-center gap-2"
-          >
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium tracking-widest uppercase">Espace en cours de construction</span>
-            <Sparkles className="w-4 h-4" />
-          </motion.div>
+          <footer className="mt-20 flex flex-col items-center gap-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              transition={{ delay: 1.5 }}
+              className="px-6 py-2 bg-white/40 backdrop-blur-md rounded-full border border-white/50 flex items-center gap-3"
+            >
+              <Sparkles className="w-5 h-5 text-primary" />
+              <span className="text-sm font-bold tracking-widest uppercase text-primary">Le futur est magique</span>
+              <Sparkles className="w-5 h-5 text-purple" />
+            </motion.div>
+          </footer>
         </section>
       </main>
     </div>
