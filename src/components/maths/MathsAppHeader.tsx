@@ -2,7 +2,6 @@ import React from 'react';
 import { Home, LogOut, ChevronLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import Avatar from './Avatar';
 
 interface MathsAppHeaderProps {
     title?: string;
@@ -61,11 +60,6 @@ const MathsAppHeader: React.FC<MathsAppHeaderProps> = ({
                 </div>
 
                 <div className="flex items-center gap-3 shrink-0">
-                    <div className="flex items-center gap-2 bg-muted/30 rounded-full px-3 py-1.5">
-                        <Avatar name={username} size="sm" className="border-2 border-primary/30" />
-                        <span className="hidden md:inline text-xs font-semibold">{username}</span>
-                    </div>
-
                     {onLogout && (
                         <Button onClick={onLogout} variant="ghost" size="icon" className="text-foreground/60 hover:text-destructive">
                             <LogOut className="w-5 h-5" />

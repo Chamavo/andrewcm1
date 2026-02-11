@@ -56,9 +56,74 @@ const convertToExercise = (structured: StructuredExercise, level: number): Exerc
     };
 };
 
+// Fallback procedural generation if structured data is missing
+const generateProceduralExercises = (level: number): Exercise[] => {
+    const exercises: Exercise[] = [];
+    const count = 10;
+
+    for (let i = 0; i < count; i++) {
+        const id = generateId();
+        let question = "";
+        let answer = 0;
+        let category = "calcul";
+
+        // Simple difficulty scaling
+        if (level <= 10) {
+            // Addition/Subtraction
+            const isAdd = Math.random() > 0.5;
+            const a = Math.floor(Math.random() * (10 * level)) + 5;
+            const b = Math.floor(Math.random() * (5 * level)) + 2;
+            if (isAdd) {
+                question = `${a} + ${b} =`;
+                answer = a + b;
+                category = "addition";
+            } else {
+                const max = Math.max(a, b);
+                const min = Math.min(a, b);
+                question = `${max} - ${min} =`;
+                answer = max - min;
+                category = "soustraction";
+            }
+        } else if (level <= 30) {
+            // Multiplication
+            const a = Math.floor(Math.random() * 10) + 2;
+            const b = Math.floor(Math.random() * 10) + 2;
+            question = `${a} × ${b} =`;
+            answer = a * b;
+            category = "multiplication";
+        } else {
+            // Mixed / Division simple
+            const b = Math.floor(Math.random() * 9) + 2;
+            const res = Math.floor(Math.random() * 10) + 2;
+            const a = b * res; // Ensure integer division
+            question = `${a} ÷ ${b} =`;
+            answer = res;
+            category = "division";
+        }
+
+        exercises.push({
+            id,
+            question,
+            answer,
+            category,
+            level,
+            isQCM: Math.random() > 0.4,
+            choices: generateChoices(answer)
+        });
+    }
+
+    return exercises;
+};
+
 export const generateLevelExercises = (level: number): Exercise[] => {
     const structured = getExercisesForLevel(level);
-    return structured.map(s => convertToExercise(s, level)).sort(() => Math.random() - 0.5);
+
+    if (structured.length > 0) {
+        return structured.map(s => convertToExercise(s, level));
+    }
+
+    // Fallback
+    return generateProceduralExercises(level);
 };
 
 export const ALL_LEVELS = Array.from({ length: 50 }, (_, i) => i + 1);

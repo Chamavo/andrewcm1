@@ -201,6 +201,23 @@ const ProgressionSection: React.FC<ProgressionSectionProps> = ({
     }
 
     const currentExercise = exercises[currentExerciseIndex];
+
+    if (!currentExercise) {
+        return (
+            <div className="min-h-screen gradient-bg p-4 sm:p-8 flex flex-col items-center justify-center text-white text-center">
+                <AlertCircle className="w-20 h-20 text-red-400 mb-6" />
+                <h2 className="text-3xl font-bold mb-4">Oups ! Une erreur est survenue.</h2>
+                <p className="text-xl mb-8">Impossible de charger les exercices pour ce niveau.</p>
+                <button
+                    onClick={onBack}
+                    className="bg-white text-primary font-bold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform"
+                >
+                    Retour à l'accueil
+                </button>
+            </div>
+        );
+    }
+
     const progress = ((currentExerciseIndex + 1) / exercises.length) * 100;
 
     return (

@@ -39,7 +39,6 @@ const Mathematiques: React.FC = () => {
                     <ProgressionSection
                         session={session}
                         onBack={() => setCurrentView('home')}
-                        onLogout={() => { }} // No logout, just stay or back
                         onUpdateSession={handleUpdateSession}
                     />
                 );

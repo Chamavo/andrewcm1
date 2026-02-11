@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Pencil, Calculator, Brain, LogOut, Sparkles } from "lucide-react";
+import { Pencil, Calculator, Brain, Sparkles } from "lucide-react";
 import FloatingBubbles from "@/components/FloatingBubbles";
 import WelcomeHeader from "@/components/WelcomeHeader";
 import ModuleButton from "@/components/ModuleButton";
