@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lock, Star, Trophy } from 'lucide-react';
+import { Lock, Star, Trophy, Home } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface MathDashboardProps {
     currentLevel: number;
@@ -51,12 +52,14 @@ const MathDashboard: React.FC<MathDashboardProps> = ({ currentLevel, username, o
                         </div>
                     </div>
 
-                    <button
+                    <Button
                         onClick={onBack}
-                        className="text-slate-400 hover:text-slate-600 font-medium text-sm px-4 py-2 hover:bg-slate-100 rounded-lg transition-colors flex items-center gap-2"
+                        variant="default"
+                        size="lg"
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3"
                     >
-                        🏠 Accueil
-                    </button>
+                        <Home className="w-6 h-6" /> Accueil
+                    </Button>
                 </div>
             </div>
 

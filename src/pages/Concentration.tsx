@@ -36,9 +36,14 @@ const Concentration: React.FC = () => {
                             Quitter la session
                         </Button>
                     )}
-                    <Button variant="ghost" onClick={() => navigate('/')} className="gap-2 text-amber-800 hover:text-amber-900 hover:bg-amber-100/50">
+                    <Button
+                        variant="default"
+                        size="lg"
+                        onClick={() => navigate('/')}
+                        className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 mr-4"
+                    >
                         <Home className="w-5 h-5" />
-                        <span className="hidden sm:inline">Accueil</span>
+                        <span>Accueil</span>
                     </Button>
                 </div>
             </header>
@@ -63,27 +68,27 @@ const Concentration: React.FC = () => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => startSession('core')}
-                                    className="bg-white rounded-3xl p-8 shadow-xl border-b-8 border-amber-200 cursor-pointer group"
+                                    className="bg-white rounded-[2rem] p-8 shadow-2xl border-4 border-amber-500 cursor-pointer group flex flex-col items-center"
                                 >
-                                    <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
-                                        <span className="text-4xl">📅</span>
+                                    <div className="w-20 h-20 bg-amber-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                                        <span className="text-5xl">📅</span>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Séance du jour</h3>
-                                    <p className="text-gray-500">60 minutes guidées</p>
-                                    <span className="inline-block mt-4 px-4 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-bold">Recommandé</span>
+                                    <h3 className="text-3xl font-black text-slate-800 mb-2">Séance du jour</h3>
+                                    <p className="text-slate-500 font-medium mb-4 text-lg">60 minutes guidées</p>
+                                    <span className="px-6 py-2 bg-amber-100 text-amber-900 rounded-full text-base font-black border-2 border-amber-200">Recommandé</span>
                                 </motion.div>
 
                                 <motion.div
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => startSession('warmup')}
-                                    className="bg-white rounded-3xl p-8 shadow-xl border-b-8 border-blue-200 cursor-pointer group"
+                                    className="bg-white rounded-[2rem] p-8 shadow-2xl border-4 border-blue-500 cursor-pointer group flex flex-col items-center"
                                 >
-                                    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                                        <span className="text-4xl">🎮</span>
+                                    <div className="w-20 h-20 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                                        <span className="text-5xl">🎮</span>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Entraînement libre</h3>
-                                    <p className="text-gray-500">Mode Échauffement (Court)</p>
+                                    <h3 className="text-3xl font-black text-slate-800 mb-2">Échauffement</h3>
+                                    <p className="text-slate-500 font-medium text-lg">Session rapide</p>
                                 </motion.div>
                             </div>
                         </motion.div>
