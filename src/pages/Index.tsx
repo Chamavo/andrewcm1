@@ -66,7 +66,7 @@ const Index = () => {
               subtitle="Force de l'esprit"
               variant="concentration"
               delay={0.7}
-              inactive={true}
+              to="/concentration"
             />
           </motion.div>
 
