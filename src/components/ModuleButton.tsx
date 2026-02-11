@@ -14,27 +14,27 @@ interface ModuleButtonProps {
 
 const variantStyles = {
   orthographe: {
-    gradient: "from-[#F57C00] to-[#EF6C00]", // Darker Orange (700-800 range)
-    shadow: "shadow-[0_20px_50px_-12px_rgba(239,108,0,0.5)]",
-    border: "border-[#FF9800]",
+    gradient: "from-[#E65100] to-[#BF360C]", // Deep Orange 900
+    shadow: "shadow-[0_20px_50px_-12px_rgba(230,81,0,0.5)]",
+    border: "border-[#FF6D00]",
     iconBg: "bg-white/20",
   },
   maths: {
-    gradient: "from-[#1E88E5] to-[#1565C0]", // Darker Blue (600-800 range)
-    shadow: "shadow-[0_20px_50px_-12px_rgba(21,101,192,0.5)]",
-    border: "border-[#42A5F5]",
+    gradient: "from-[#1565C0] to-[#0D47A1]", // Blue 800-900
+    shadow: "shadow-[0_20px_50px_-12px_rgba(13,71,161,0.5)]",
+    border: "border-[#2979FF]",
     iconBg: "bg-white/20",
   },
   concentration: {
-    gradient: "from-[#8E24AA] to-[#6A1B9A]", // Darker Purple (600-800 range)
-    shadow: "shadow-[0_20px_50px_-12px_rgba(106,27,154,0.5)]",
-    border: "border-[#AB47BC]",
+    gradient: "from-[#7B1FA2] to-[#4A148C]", // Purple 700-900
+    shadow: "shadow-[0_20px_50px_-12px_rgba(74,20,140,0.5)]",
+    border: "border-[#AA00FF]",
     iconBg: "bg-white/20",
   },
   soon: {
-    gradient: "from-slate-400 to-slate-500",
-    shadow: "shadow-[0_20px_50px_-12px_rgba(148,163,184,0.4)]",
-    border: "border-slate-300",
+    gradient: "from-slate-600 to-slate-800",
+    shadow: "shadow-[0_20px_50px_-12px_rgba(30,41,59,0.5)]",
+    border: "border-slate-500",
     iconBg: "bg-white/10",
   }
 };
