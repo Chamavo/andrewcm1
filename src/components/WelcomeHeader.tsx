@@ -33,7 +33,7 @@ const WelcomeHeader = () => {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
         Bienvenue chez <br />
-        <span className="text-gradient-andrew">Andrew</span> ! 🎮
+        <span className="text-gradient-andrew">Andrew</span> ! ⚽
       </motion.h1>
 
       <motion.p

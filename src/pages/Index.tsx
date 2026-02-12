@@ -10,7 +10,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#f5f7fa] to-[#e4ecff]">
+    <div className="min-h-screen relative overflow-hidden bg-white">
       {/* Decorative background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
