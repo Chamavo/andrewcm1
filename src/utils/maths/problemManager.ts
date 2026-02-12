@@ -7,6 +7,11 @@ export interface MathProblem {
     part: number;
     text: string;
     answer: string;
+    questions?: {
+        label?: string;
+        response: string; // The expected answer
+        unit?: string;    // The expected unit (e.g., "km", "€")
+    }[];
 }
 
 const problemsMap = new Map<number, MathProblem>();

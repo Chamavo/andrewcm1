@@ -13,6 +13,45 @@ interface ProblemeSessionProps {
 
 const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onComplete }) => {
     const [showHint, setShowHint] = useState(false);
+    const [userAnswers, setUserAnswers] = useState<string[]>([]);
+    const [showError, setShowError] = useState(false);
+
+    // Initialize answers size
+    React.useEffect(() => {
+        if (problem.questions) {
+            setUserAnswers(new Array(problem.questions.length).fill(''));
+        } else {
+            setUserAnswers([]);
+        }
+        setShowError(false);
+    }, [problem]);
+
+    const handleAnswerChange = (index: number, value: string) => {
+        const newAnswers = [...userAnswers];
+        newAnswers[index] = value;
+        setUserAnswers(newAnswers);
+        setShowError(false);
+    };
+
+    const checkAnswers = () => {
+        if (!problem.questions) {
+            handleSolved();
+            return;
+        }
+
+        const allCorrect = problem.questions.every((q, i) => {
+            const userVal = userAnswers[i].trim().replace(/\s/g, '').replace(',', '.');
+            const correctVal = q.response.trim().replace(/\s/g, '').replace(',', '.');
+            return userVal === correctVal;
+        });
+
+        if (allCorrect) {
+            handleSolved();
+        } else {
+            setShowError(true);
+            // Shake effect or sound could be added here
+        }
+    };
 
     const handleSolved = () => {
         saveProblemStatus(problem.id, 'solved');
@@ -54,6 +93,32 @@ const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onCo
                     </div>
                 </div>
 
+                {/* Structured Inputs */}
+                {problem.questions && (
+                    <div className="mb-12 flex flex-col gap-6">
+                        {problem.questions.map((q, idx) => (
+                            <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-4 bg-slate-50 p-6 rounded-2xl border-2 border-slate-100">
+                                {q.label && (
+                                    <span className="font-bold text-slate-700 min-w-[120px]">{q.label} :</span>
+                                )}
+                                <div className="flex items-center gap-3 flex-1">
+                                    <input
+                                        type="text"
+                                        placeholder="?"
+                                        value={userAnswers[idx] || ''}
+                                        onChange={(e) => handleAnswerChange(idx, e.target.value)}
+                                        className={`w-full max-w-[200px] p-3 text-xl font-bold rounded-xl border-2 outline-none transition-all ${showError ? 'border-red-300 bg-red-50' : 'border-slate-300 focus:border-blue-400 focus:bg-white'
+                                            }`}
+                                    />
+                                    {q.unit && (
+                                        <span className="text-xl font-bold text-slate-500">{q.unit}</span>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
                 {/* Actions */}
                 <div className="flex flex-col gap-8">
 
@@ -76,6 +141,18 @@ const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onCo
                                 </div>
                             </motion.div>
                         )}
+                        {showError && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden"
+                            >
+                                <div className="bg-red-50 p-4 rounded-xl text-red-600 font-bold text-center">
+                                    Oups ! Ce n'est pas tout à fait ça. Vérifie tes calculs.
+                                </div>
+                            </motion.div>
+                        )}
                     </AnimatePresence>
 
                     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center border-t-2 border-slate-100 pt-8">
@@ -95,11 +172,11 @@ const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onCo
                         </button>
 
                         <button
-                            onClick={handleSolved}
+                            onClick={checkAnswers}
                             className="flex items-center justify-center gap-3 bg-green-500 text-white px-10 py-4 rounded-2xl text-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-200 hover:scale-105 border-b-4 border-green-700 active:border-b-0 active:translate-y-1"
                         >
                             <Check className="w-7 h-7 stroke-[3]" />
-                            J'ai trouvé !
+                            {problem.questions ? "Valider" : "J'ai trouvé !"}
                         </button>
                     </div>
                 </div>
