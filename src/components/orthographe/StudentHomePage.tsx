@@ -56,13 +56,13 @@ export const StudentHomePage = ({
         <div className="min-h-screen bg-white">
             <div className="flex justify-end p-4">
                 <Button variant="default" size="lg" onClick={onLogout} className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 shadow-amber-500/20">
-                    <Home className="w-6 h-6" /> Accueil
+                    <Home className="w-6 h-6" /> Menu
                 </Button>
             </div>
 
             <div className="max-w-5xl mx-auto px-4 pb-8 flex flex-col items-center">
                 <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">✨ Bonjour ! 👋 ⭐</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">✨ Bonjour Andrew ! 👋 ⭐</h1>
                     <p className="text-xl text-slate-600">Bienvenue dans ton module <span className="text-amber-500 font-bold">Orthographe</span> ! 🏆</p>
                 </motion.div>
 
