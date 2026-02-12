@@ -1,0 +1,946 @@
+[
+    {
+        "id": 1,
+        "title": "La rentrée des classes",
+        "part": 1,
+        "answer": "a) 125 + 210 + 95 = 430 cahiers. b) 430 - 350 = 80 cahiers.",
+        "text": "# 100 Problèmes de Mathématiques - Niveau CM1\n**Thèmes : Addition, Soustraction, Multiplication simple, Lecture de données**\nLe directeur de l'école commande 125 cahiers bleus, 210 cahiers rouges et 95 cahiers verts.\na) Combien de cahiers a-t-il commandés en tout ?\nb) Il distribue 350 cahiers aux élèves. Combien lui en reste-t-il ?"
+    },
+    {
+        "id": 2,
+        "title": "Le verger",
+        "part": 1,
+        "answer": "a) 450 + 320 = 770 kg. b) 770 - 600 = 170 kg.",
+        "text": "Un agriculteur récolte 450 kg de pommes le lundi et 320 kg le mardi.\na) Quelle masse totale de pommes a-t-il récoltée ?\nb) Il vend 600 kg de pommes au marché. Combien de kg lui reste-t-il ?"
+    },
+    {
+        "id": 3,
+        "title": "Les économies de Léo",
+        "part": 1,
+        "answer": "a) 1500 + 2000 + 1000 = 4500 F. b) Oui, 4500 - 3500 = 1000 F.",
+        "text": "Léo a 1500 F dans sa tirelire. Pour son anniversaire, sa grand-mère lui donne 2000 F et son oncle 1000 F.\na) Quelle somme possède-t-il maintenant ?\nb) Il veut acheter un jeu vidéo à 3500 F. A-t-il assez d'argent ? Si oui, combien lui restera-t-il ?"
+    },
+    {
+        "id": 4,
+        "title": "Le trajet du bus",
+        "part": 1,
+        "answer": "a) 25 + 12 - 5 = 32 passagers. b) 32 - 8 = 24 passagers.",
+        "text": "Un bus part avec 25 passagers. Au premier arrêt, 12 personnes montent et 5 descendent.\na) Combien de passagers y a-t-il après le premier arrêt ?\nb) Au deuxième arrêt, 8 personnes descendent. Combien reste-t-il de passagers ?"
+    },
+    {
+        "id": 5,
+        "title": "La bibliothécaire",
+        "part": 1,
+        "answer": "a) 540 + 320 = 860 livres. b) 860 - (110 + 50) = 700 livres.",
+        "text": "La bibliothèque compte 540 romans et 320 bandes dessinées.\na) Combien de livres y a-t-il au total ?\nb) Les élèves empruntent 110 romans et 50 BD. Combien de livres restent dans la bibliothèque ?"
+    },
+    {
+        "id": 6,
+        "title": "Les billes",
+        "part": 1,
+        "answer": "a) 45 + 38 = 83 billes. b) 83 + 12 = 95 billes.",
+        "text": "Marc a 45 billes rouges et 38 billes bleues. Il gagne 12 billes à la récréation.\na) Combien de billes avait-il au début ?\nb) Combien de billes a-t-il maintenant ?"
+    },
+    {
+        "id": 7,
+        "title": "Le marchand de fruits",
+        "part": 1,
+        "answer": "a) 5 x 12 = 60 ananas. b) 60 - 25 = 35 ananas.",
+        "text": "Un marchand a 5 caisses de 12 ananas chacune.\na) Combien d'ananas a-t-il en tout ?\nb) Il vend 25 ananas. Combien lui en reste-t-il ?"
+    },
+    {
+        "id": 8,
+        "title": "La distance",
+        "part": 1,
+        "answer": "a) 850 + 850 = 1700 m (ou 1,7 km). b) 1700 x 5 = 8500 m (ou 8,5 km).",
+        "text": "Pour aller à l'école, Pierre parcourt 850 m le matin et revient le soir.\na) Quelle distance parcourt-il en un jour (aller-retour) ?\nb) Quelle distance parcourt-il en 5 jours d'école ?"
+    },
+    {
+        "id": 9,
+        "title": "L'album photos",
+        "part": 1,
+        "answer": "a) 10 x 8 = 80 photos. b) 80 - 50 = 30 photos.",
+        "text": "Julie a un album de 10 pages. Elle peut mettre 8 photos par page.\na) Combien de photos peut-elle mettre au total ?\nb) Elle a déjà collé 50 photos. Combien de photos peut-elle encore ajouter ?"
+    },
+    {
+        "id": 10,
+        "title": "La monnaie",
+        "part": 1,
+        "answer": "a) 150 + 350 = 500 F. b) 1000 - 500 = 500 F.",
+        "text": "Maman achète un pain à 150 F et du lait à 350 F.\na) Combien doit-elle payer ?\nb) Elle donne un billet de 1000 F. Combien le vendeur doit-il lui rendre ?"
+    },
+    {
+        "id": 11,
+        "title": "Le train",
+        "part": 1,
+        "answer": "a) 8 x 40 = 320 passagers. b) 320 - 120 = 200 passagers.",
+        "text": "Un train composé de 8 wagons transporte 40 passagers par wagon.\na) Combien de passagers le train transporte-t-il ?\nb) À la gare, 120 passagers descendent. Combien en reste-t-il dans le train ?"
+    },
+    {
+        "id": 12,
+        "title": "Les œufs",
+        "part": 1,
+        "answer": "a) 150 : 6 = 25 boîtes. b) 25 x 500 = 12 500 F.",
+        "text": "Un fermier ramasse 150 œufs. Il les range dans des boîtes de 6.\na) Combien de boîtes peut-il remplir ?\nb) S'il vend chaque boîte 500 F, combien gagnera-t-il ?"
+    },
+    {
+        "id": 13,
+        "title": "Le restaurant",
+        "part": 1,
+        "answer": "a) 4 x 6500 = 26 000 F. b) 26 000 + 4000 = 30 000 F.",
+        "text": "Un menu coûte 6500 F. Une famille de 4 personnes commande ce menu.\na) Quel est le prix total pour les menus ?\nb) Ils prennent aussi des boissons pour 4000 F en tout. Quel est le montant total de l'addition ?"
+    },
+    {
+        "id": 14,
+        "title": "Le tournoi de football",
+        "part": 1,
+        "answer": "a) 11 + 3 = 14 joueurs. b) 14 x 8 = 112 joueurs.",
+        "text": "8 équipes participent à un tournoi. Chaque équipe a 11 joueurs et 3 remplaçants.\na) Combien y a-t-il de joueurs par équipe (titulaires + remplaçants) ?\nb) Combien y a-t-il de joueurs au total dans le tournoi ?"
+    },
+    {
+        "id": 15,
+        "title": "La couturière",
+        "part": 1,
+        "answer": "a) 5 x 20 = 100 m. b) 100 - 45 = 55 m.",
+        "text": "Une couturière a 5 rouleaux de tissu de 20 mètres chacun.\na) Quelle longueur totale de tissu possède-t-elle ?\nb) Elle utilise 45 mètres pour faire des rideaux. Combien de mètres lui reste-t-il ?"
+    },
+    {
+        "id": 16,
+        "title": "Les bonbons",
+        "part": 1,
+        "answer": "a) 120 : 4 = 30 bonbons. b) 120 : 5 = 24 bonbons.",
+        "text": "Un paquet contient 120 bonbons. Paul veut les partager équitablement entre ses 4 amis.\na) Combien de bonbons chaque ami recevra-t-il ?\nb) S'il se compte dans le partage (donc 5 personnes), combien chacun en aura-t-il ?"
+    },
+    {
+        "id": 17,
+        "title": "Le camion",
+        "part": 1,
+        "answer": "a) 3500 + 2000 = 5500 kg. b) Non, car 5500 > 5000.",
+        "text": "Un camion vide pèse 3500 kg. On le charge avec 2000 kg de marchandises.\na) Quel est le poids du camion chargé ?\nb) Le camion doit passer sur un pont limité à 5000 kg. Peut-il passer ? Justifie."
+    },
+    {
+        "id": 18,
+        "title": "Les pages du livre",
+        "part": 1,
+        "answer": "a) 5 x 10 = 50 pages. b) 250 : 10 = 25 jours.",
+        "text": "Un livre a 250 pages. Sarah lit 10 pages par jour.\na) Combien de pages aura-t-elle lues au bout de 5 jours ?\nb) Combien de jours lui faudra-t-il pour finir le livre ?"
+    },
+    {
+        "id": 19,
+        "title": "La course",
+        "part": 1,
+        "answer": "a) 55 - 45 = 10 minutes. b) 10h00 + 50 min = 10h50.",
+        "text": "Trois coureurs participent à une course. Le premier met 45 minutes, le deuxième 50 minutes et le troisième 55 minutes.\na) Quelle est la différence de temps entre le premier et le troisième ?\nb) Si la course a commencé à 10h00, à quelle heure le deuxième est-il arrivé ?"
+    },
+    {
+        "id": 20,
+        "title": "L'anniversaire",
+        "part": 1,
+        "answer": "a) 3 x 4000 = 12 000 F. b) 5 x 800 = 4000 F. c) 12 000 + 4000 = 16 000 F.",
+        "text": "Pour son anniversaire, Chloé achète 3 gâteaux à 4000 F chacun et 5 bouteilles de jus à 800 F chacune.\na) Quel est le prix des gâteaux ?\nb) Quel est le prix des jus ?\nc) Quel est le montant total de la dépense ?\n**Thèmes : Division, Mesures (longueur, masse), Géométrie simple, Logique**"
+    },
+    {
+        "id": 21,
+        "title": "Les économies (Division)",
+        "part": 1,
+        "answer": "5000 : 4 = 1250 F.",
+        "text": "Papa partage 5000 F équitablement entre ses 4 enfants. Combien reçoit chaque enfant ?"
+    },
+    {
+        "id": 22,
+        "title": "Le périmètre (Géométrie)",
+        "part": 1,
+        "answer": "(100 + 60) x 2 = 320 m.",
+        "text": "Un terrain de football rectangulaire mesure 100 m de long et 60 m de large.\nQuel est son périmètre ?"
+    },
+    {
+        "id": 23,
+        "title": "La classe verte",
+        "part": 1,
+        "answer": "1500 + 3000 = 4500 F par élève. 4500 x 75 = 337 500 F.",
+        "text": "Une école organise un voyage pour 75 élèves. Le transport coûte 1500 F par élève et l'hébergement 3000 F par élève.\nQuel est le coût total du voyage par élève ?\nQuel est le coût total pour l'école ?"
+    },
+    {
+        "id": 24,
+        "title": "Le réservoir",
+        "part": 1,
+        "answer": "Consommation = (8 x 500) / 100 = 40 litres. Reste = 60 - 40 = 20 litres.",
+        "text": "Le réservoir d'une voiture contient 60 litres d'essence. La voiture consomme 8 litres aux 100 km.\nCombien de litres reste-t-il après un trajet de 500 km ?"
+    },
+    {
+        "id": 25,
+        "title": "Les horaires",
+        "part": 1,
+        "answer": "20h30 + 1h45 = 22h15.",
+        "text": "Un film commence à 20h30 et dure 1h45. À quelle heure se termine-t-il ?"
+    },
+    {
+        "id": 26,
+        "title": "Les carreaux",
+        "part": 1,
+        "answer": "8 x 6 = 48 m².",
+        "text": "Une salle de classe mesure 8 m de long sur 6 m de large. On veut la carreler.\nQuelle est l'aire de la salle en m² ?"
+    },
+    {
+        "id": 27,
+        "title": "Les bouteilles d'eau",
+        "part": 1,
+        "answer": "1500 : 6 = 250 packs.",
+        "text": "On range 1500 bouteilles d'eau dans des packs de 6. Combien de packs obtient-on ?"
+    },
+    {
+        "id": 28,
+        "title": "Le salaire",
+        "part": 1,
+        "answer": "5000 x 22 = 110 000 F.",
+        "text": "Un ouvrier gagne 5000 F par jour. Il travaille 22 jours par mois.\nQuel est son salaire mensuel ?"
+    },
+    {
+        "id": 29,
+        "title": "La recette de cuisine",
+        "part": 1,
+        "answer": "12 est 3 fois 4. Donc 200 x 3 = 600 g.",
+        "text": "Pour faire un gâteau pour 4 personnes, il faut 200 g de farine.\nCombien de farine faut-il pour 12 personnes ?"
+    },
+    {
+        "id": 30,
+        "title": "Les arbres",
+        "part": 1,
+        "answer": "25 x 120 = 3000 arbres.",
+        "text": "Dans une forêt, on a planté 25 rangées de 120 arbres chacune.\nCombien d'arbres a-t-on plantés ?"
+    },
+    {
+        "id": 31,
+        "title": "La monnaie (suite)",
+        "part": 1,
+        "answer": "10 000 - 4500 = 5500 F.",
+        "text": "J'achète un livre à 4500 F. Je donne un billet de 10 000 F.\nCombien me rend-on ?"
+    },
+    {
+        "id": 32,
+        "title": "Le carré",
+        "part": 1,
+        "answer": "36 : 4 = 9 cm.",
+        "text": "Un carré a un périmètre de 36 cm. Quelle est la longueur de son côté ?"
+    },
+    {
+        "id": 33,
+        "title": "Les moutons",
+        "part": 1,
+        "answer": "125 - 40 + 15 = 100 moutons.",
+        "text": "Un berger a 125 moutons. Il en vend 40 au marché, puis en achète 15 nouveaux.\nCombien de moutons a-t-il maintenant ?"
+    },
+    {
+        "id": 34,
+        "title": "Le voyage en train",
+        "part": 1,
+        "answer": "450 : 3 = 150 km/h.",
+        "text": "Un train parcourt 450 km en 3 heures. Quelle est sa vitesse moyenne en km/h ?"
+    },
+    {
+        "id": 35,
+        "title": "L'âge",
+        "part": 1,
+        "answer": "Père = 12 x 3 = 36 ans. Différence = 36 - 12 = 24 ans.",
+        "text": "Marc a 12 ans. Son père a 3 fois son âge. Quel âge a son père ?\nQuelle est la différence d'âge entre Marc et son père ?"
+    },
+    {
+        "id": 36,
+        "title": "Les dictionnaires",
+        "part": 1,
+        "answer": "25 : 5 = 5 cm.",
+        "text": "Une pile de 5 dictionnaires identiques mesure 25 cm de hauteur.\nQuelle est l'épaisseur d'un seul dictionnaire ?"
+    },
+    {
+        "id": 37,
+        "title": "Les œufs (suite)",
+        "part": 1,
+        "answer": "480 : 12 = 40 boîtes.",
+        "text": "Une fermière a 480 œufs. Elle veut les mettre dans des boîtes de 12.\nCombien de boîtes lui faut-il ?"
+    },
+    {
+        "id": 38,
+        "title": "Le grillage",
+        "part": 1,
+        "answer": "Périmètre = 15 x 4 = 60 m. Grillage = 60 - 3 = 57 m.",
+        "text": "Pour clôturer un jardin carré de 15 m de côté, on utilise du grillage. On laisse une ouverture de 3 m pour le portail.\nQuelle longueur de grillage faut-il acheter ?"
+    },
+    {
+        "id": 39,
+        "title": "Les sacs de riz",
+        "part": 1,
+        "answer": "50 x 25 = 1250 kg.",
+        "text": "Un commerçant reçoit 50 sacs de riz de 25 kg chacun.\nQuel est le poids total de riz reçu ?"
+    },
+    {
+        "id": 40,
+        "title": "La course d'endurance",
+        "part": 1,
+        "text": "Les élèves doivent courir pendant 15 minutes. Ils font des tours de 400 m. Pierre court à 10 km/h.\nCombien de tours a-t-il faits (approximativement) ? (Difficile)\n*Aide : 10 km/h = 10 000 m en 60 minutes. En 15 min (un quart d'heure), il fait 10 000 / 4 = 2500 m.\nTours = 2500 : 400 = 6,25 tours. Réponse : 6 tours complets.*"
+    },
+    {
+        "id": 41,
+        "title": "Le partage des billes",
+        "part": 1,
+        "answer": "Donne = 240 : 3 = 80 billes. Reste = 240 - 80 = 160 billes.",
+        "text": "Jules a 240 billes. Il en donne un tiers à son frère.\nCombien de billes donne-t-il ? Combien lui en reste-t-il ?"
+    },
+    {
+        "id": 42,
+        "title": "L'ordinateur (Soldes)",
+        "part": 1,
+        "answer": "200 000 - 20 000 = 180 000 F.",
+        "text": "Un ordinateur coûte 200 000 F. Pendant les soldes, son prix baisse de 20 000 F.\nQuel est le nouveau prix ?"
+    },
+    {
+        "id": 43,
+        "title": "Le plein d'essence",
+        "part": 1,
+        "answer": "750 x 40 = 30 000 F.",
+        "text": "Le litre d'essence coûte 750 F. Papa met 40 litres dans sa voiture.\nCombien paie-t-il ?"
+    },
+    {
+        "id": 44,
+        "title": "Le cinéma",
+        "part": 1,
+        "answer": "25 x 30 = 750 places. Vides = 750 - 600 = 150 places.",
+        "text": "Une salle de cinéma a 25 rangées de 30 places.\nCombien y a-t-il de places en tout ?\nSi 600 personnes entrent, combien de places restent vides ?"
+    },
+    {
+        "id": 45,
+        "title": "Le cycliste",
+        "part": 1,
+        "answer": "60 : 20 = 3 heures.",
+        "text": "Un cycliste roule à 20 km/h. Combien de temps lui faut-il pour parcourir 60 km ?"
+    },
+    {
+        "id": 46,
+        "title": "Les timbres",
+        "part": 1,
+        "answer": "(12 x 15) + 7 = 180 + 7 = 187 timbres.",
+        "text": "Léa colle des timbres dans son album. Elle remplit 12 pages avec 15 timbres par page. Il lui reste 7 timbres.\nCombien a-t-elle de timbres au total ?"
+    },
+    {
+        "id": 47,
+        "title": "Le jus d'orange",
+        "part": 1,
+        "answer": "2 x 5 = 10 kg.",
+        "text": "Avec 2 kg d'oranges, on obtient 1 litre de jus.\nCombien de kg d'oranges faut-il pour obtenir 5 litres de jus ?"
+    },
+    {
+        "id": 48,
+        "title": "La sortie scolaire",
+        "part": 1,
+        "answer": "Places = 3 x 55 = 165. Personnes = 150 + 10 = 160. Oui, il restera 5 places.",
+        "text": "Pour une sortie, l'école loue 3 bus de 55 places. Il y a 150 élèves et 10 accompagnateurs.\nY aura-t-il assez de places pour tout le monde ?"
+    },
+    {
+        "id": 49,
+        "title": "Le menuisier",
+        "part": 1,
+        "answer": "4 m = 400 cm. 400 : 50 = 8 morceaux.",
+        "text": "Un menuisier coupe une planche de 4 m en morceaux de 50 cm.\nCombien de morceaux obtient-il ?"
+    },
+    {
+        "id": 50,
+        "title": "Les économies (Logique)",
+        "part": 1,
+        "answer": "4500 : 500 = 9 semaines.",
+        "text": "Chaque semaine, Tom économise 500 F.\nCombien de semaines lui faudra-t-il pour acheter un ballon à 4500 F ?\n**Thèmes : Décimaux, Fractions, Pourcentages, Aires, Échelles, Problèmes complexes**"
+    },
+    {
+        "id": 51,
+        "title": "Le gâteau (Fraction)",
+        "part": 2,
+        "answer": "Mangé = 2/8 + 1/8 = 3/8. Reste = 8/8 - 3/8 = 5/8.",
+        "text": "Maman a coupé un gâteau en 8 parts égales. Pierre en mange 2 parts et Sophie 1 part.\nQuelle fraction du gâteau reste-t-il ?"
+    },
+    {
+        "id": 52,
+        "title": "Les notes (Moyenne)",
+        "part": 2,
+        "answer": "(12 + 14 + 10 + 16) : 4 = 52 : 4 = 13.",
+        "text": "Un élève a obtenu les notes suivantes : 12, 14, 10 et 16.\nQuelle est sa moyenne ?"
+    },
+    {
+        "id": 53,
+        "title": "Le tissu (Décimaux)",
+        "part": 2,
+        "answer": "3,5 + 2,75 = 6,25 m.",
+        "text": "Une couturière achète 3,5 m de tissu rouge et 2,75 m de tissu bleu.\nQuelle longueur totale de tissu a-t-elle achetée ?"
+    },
+    {
+        "id": 54,
+        "title": "La ficelle",
+        "part": 2,
+        "answer": "10 : 4 = 2,5 m.",
+        "text": "On coupe une ficelle de 10 m en 4 morceaux égaux.\nQuelle est la longueur de chaque morceau ?"
+    },
+    {
+        "id": 55,
+        "title": "Le pourcentage (Soldes)",
+        "part": 2,
+        "answer": "Réduction = 10% de 5000 = 500 F. Nouveau prix = 4500 F.",
+        "text": "Un pantalon coûte 5000 F. Il est soldé à -10%.\nQuel est le montant de la réduction ? Quel est le nouveau prix ?"
+    },
+    {
+        "id": 56,
+        "title": "L'échelle",
+        "part": 2,
+        "answer": "5 cm x 1000 = 5000 cm = 50 m.",
+        "text": "Sur une carte à l'échelle 1/1000, une route mesure 5 cm.\nQuelle est sa longueur réelle en mètres ?"
+    },
+    {
+        "id": 57,
+        "title": "Le réservoir (Problème implicite)",
+        "part": 2,
+        "answer": "Pour 600 km, il faut 6 x 8 = 48 litres. 48 < 50, donc non, il n'a pas besoin de remettre de l'essence.",
+        "text": "La voiture de Papa consomme 8 litres aux 100 km. Le réservoir contient 50 litres.\nIl veut faire un voyage de 600 km. Devra-t-il remettre de l'essence ?"
+    },
+    {
+        "id": 58,
+        "title": "La piscine (Volume simple)",
+        "part": 2,
+        "answer": "10 x 5 x 2 = 100 m³.",
+        "text": "Une piscine rectangulaire mesure 10 m de long, 5 m de large et 2 m de profondeur.\nQuel est le volume d'eau en m³ ?"
+    },
+    {
+        "id": 59,
+        "title": "La durée (Heures)",
+        "part": 2,
+        "answer": "De 9h45 à 10h00 = 15 min. De 10h00 à 13h00 = 3h. De 13h00 à 13h15 = 15 min. Total = 3h30.",
+        "text": "Un train part à 9h45 et arrive à 13h15.\nQuelle est la durée du voyage ?"
+    },
+    {
+        "id": 60,
+        "title": "Les fruits (Masse et Prix)",
+        "part": 2,
+        "answer": "Pommes = 1,5 x 800 = 1200 F. Bananes = 2 x 600 = 1200 F. Total = 2400 F.",
+        "text": "J'achète 1,5 kg de pommes à 800 F le kg et 2 kg de bananes à 600 F le kg.\nCombien je paie ?"
+    },
+    {
+        "id": 61,
+        "title": "Le champ (Aire)",
+        "part": 2,
+        "answer": "Largeur = 120 : 2 = 60 m. Aire = 120 x 60 = 7200 m².",
+        "text": "Un champ mesure 120 m de long. Sa largeur est la moitié de sa longueur.\nQuelle est son aire ?"
+    },
+    {
+        "id": 62,
+        "title": "Le sondage (Pourcentage)",
+        "part": 2,
+        "answer": "Filles = (30 x 60) : 100 = 18. Garçons = 30 - 18 = 12.",
+        "text": "Dans une classe de 30 élèves, 60% sont des filles.\nCombien y a-t-il de filles ? Combien de garçons ?"
+    },
+    {
+        "id": 63,
+        "title": "La recette (Proportionnalité)",
+        "part": 2,
+        "answer": "Pour 1 pers = 240 : 6 = 40 g. Pour 9 pers = 40 x 9 = 360 g.",
+        "text": "Pour 6 personnes, il faut 240 g de riz.\nCombien faut-il de riz pour 9 personnes ?"
+    },
+    {
+        "id": 64,
+        "title": "Le carrelage (Aire complexe)",
+        "part": 2,
+        "answer": "Aire pièce = 20 m². Aire carreau = 0,5 x 0,5 = 0,25 m². Nombre = 20 : 0,25 = 80 carreaux.",
+        "text": "Une pièce fait 4 m sur 5 m. On utilise des carreaux carrés de 50 cm de côté.\nCombien de carreaux faut-il ?"
+    },
+    {
+        "id": 65,
+        "title": "Le périmètre (Décimaux)",
+        "part": 2,
+        "answer": "4,5 x 3 = 13,5 cm.",
+        "text": "Un triangle équilatéral a un côté de 4,5 cm.\nQuel est son périmètre ?"
+    },
+    {
+        "id": 66,
+        "title": "La tirelire (Problème implicite)",
+        "part": 2,
+        "answer": "Coût = 3 x 950 = 2850 F. Manque = 2850 - 2500 = 350 F.",
+        "text": "Max a 2500 F. Il veut acheter 3 livres à 950 F chacun.\nCombien lui manque-t-il ?"
+    },
+    {
+        "id": 67,
+        "title": "Le transport (Masse)",
+        "part": 2,
+        "answer": "Total = 70+75+80+65 = 290 kg. Oui, car 290 < 300.",
+        "text": "Un ascenseur peut porter 300 kg. 4 personnes de 70 kg, 75 kg, 80 kg et 65 kg veulent monter.\nPeuvent-elles monter ensemble ?"
+    },
+    {
+        "id": 68,
+        "title": "Le cercle",
+        "part": 2,
+        "answer": "5 x 2 = 10 cm.",
+        "text": "Un cercle a un rayon de 5 cm. Quel est son diamètre ?"
+    },
+    {
+        "id": 69,
+        "title": "La bibliothèque (Fraction)",
+        "part": 2,
+        "answer": "1000 : 4 = 250 livres.",
+        "text": "Dans une bibliothèque de 1000 livres, 1/4 sont des romans policiers.\nCombien y a-t-il de romans policiers ?"
+    },
+    {
+        "id": 70,
+        "title": "Le salaire (Augmentation)",
+        "part": 2,
+        "answer": "Augmentation = 150 000 x 5 : 100 = 7500 F. Nouveau salaire = 157 500 F.",
+        "text": "Un employé gagne 150 000 F. Il est augmenté de 5%.\nQuel est le montant de l'augmentation ? Quel est son nouveau salaire ?"
+    },
+    {
+        "id": 71,
+        "title": "Le tonneau (Conversions)",
+        "part": 2,
+        "answer": "2 hl = 200 l. Reste = 200 - 50 = 150 l.",
+        "text": "Un tonneau contient 2 hectolitres (hl) d'eau. On retire 50 litres.\nCombien de litres reste-t-il ?"
+    },
+    {
+        "id": 72,
+        "title": "Le voyage (Vitesse)",
+        "part": 2,
+        "answer": "3200 : 800 = 4 heures.",
+        "text": "Un avion vole à 800 km/h. Il parcourt 3200 km.\nCombien de temps dure le vol ?"
+    },
+    {
+        "id": 73,
+        "title": "Les périmètres comparés",
+        "part": 2,
+        "answer": "Carré = 6 x 4 = 24 cm. Rectangle = (4+8) x 2 = 24 cm. Ils sont égaux.",
+        "text": "Un carré a un côté de 6 cm. Un rectangle a une largeur de 4 cm et une longueur de 8 cm.\nLequel a le plus grand périmètre ?"
+    },
+    {
+        "id": 74,
+        "title": "La tombola",
+        "part": 2,
+        "answer": "10/100 = 1/10. Cela fait 10%.",
+        "text": "Il y a 100 billets de tombola. Pierre en achète 10.\nQuelle fraction des billets a-t-il achetée ? Quel pourcentage cela représente-t-il ?"
+    },
+    {
+        "id": 75,
+        "title": "L'électricité",
+        "part": 2,
+        "answer": "60 x 5 = 300 Wh.",
+        "text": "Une ampoule consomme 60 Watts. On l'allume pendant 5 heures.\nCombien a-t-elle consommé de Watts-heure ?"
+    },
+    {
+        "id": 76,
+        "title": "Le potager",
+        "part": 2,
+        "answer": "(20 x 3) : 4 = 15 m².",
+        "text": "Un jardinier a un potager de 20 m². Il plante des tomates sur 3/4 de la surface.\nQuelle surface est occupée par les tomates ?"
+    },
+    {
+        "id": 77,
+        "title": "La monnaie (Décimaux)",
+        "part": 2,
+        "answer": "20 - 12,50 = 7,50 €.",
+        "text": "J'achète pour 12,50 € de bonbons. Je donne 20 €.\nCombien me rend-on ?"
+    },
+    {
+        "id": 78,
+        "title": "L'âge (Implicite)",
+        "part": 2,
+        "answer": "Age actuel = 18 - 5 = 13 ans. Il y a 3 ans = 13 - 3 = 10 ans.",
+        "text": "Dans 5 ans, Julie aura 18 ans. Quel âge avait-elle il y a 3 ans ?"
+    },
+    {
+        "id": 79,
+        "title": "Les bouteilles (Conversion)",
+        "part": 2,
+        "answer": "5 x 1,5 = 7,5 litres = 750 cl.",
+        "text": "J'ai 5 bouteilles de 1,5 litre.\nCombien de litres ai-je en tout ? Cela fait combien de centilitres ?"
+    },
+    {
+        "id": 80,
+        "title": "Le prix au kilo",
+        "part": 2,
+        "answer": "Prix au kg = 1500 : 3 = 500 F. Prix 5 kg = 500 x 5 = 2500 F.",
+        "text": "3 kg de pommes de terre coûtent 1500 F.\nQuel est le prix de 5 kg ?"
+    },
+    {
+        "id": 81,
+        "title": "La géométrie (Angles)",
+        "part": 2,
+        "answer": "90 : 2 = 45°.",
+        "text": "Un angle droit mesure 90°. Un angle aigu mesure la moitié d'un angle droit.\nCombien mesure cet angle aigu ?"
+    },
+    {
+        "id": 82,
+        "title": "Le train (Horaires complexes)",
+        "part": 2,
+        "answer": "22h30 -> 24h00 = 1h30. 00h00 -> 06h15 = 6h15. Total = 7h45.",
+        "text": "Un train part à 22h30 et arrive le lendemain à 06h15.\nQuelle est la durée du trajet ?"
+    },
+    {
+        "id": 83,
+        "title": "Les classeurs",
+        "part": 2,
+        "answer": "Poids classeurs = 12,5 kg - 0,5 kg = 12 kg. Un classeur = 12 : 40 = 0,3 kg = 300 g.",
+        "text": "Un carton contient 40 classeurs. Le carton plein pèse 12,5 kg. Le carton vide pèse 500 g.\nCombien pèse un classeur ?"
+    },
+    {
+        "id": 84,
+        "title": "Le parking",
+        "part": 2,
+        "answer": "4 x 3 x 25 = 12 x 25 = 300 places.",
+        "text": "Un parking a 4 étages. Chaque étage a 3 rangées de 25 places.\nCombien de places y a-t-il au total ?"
+    },
+    {
+        "id": 85,
+        "title": "La citerne",
+        "part": 2,
+        "answer": "10% de 5000 = 500 litres.",
+        "text": "Une citerne contient 5000 litres. On en retire 10% chaque jour pour arroser.\nCombien retire-t-on le premier jour ?"
+    },
+    {
+        "id": 86,
+        "title": "Le film",
+        "part": 2,
+        "answer": "1h = 60 min. 110 - 60 = 50. Donc 1h50.",
+        "text": "Un film dure 110 minutes.\nExprime cette durée en heures et minutes."
+    },
+    {
+        "id": 87,
+        "title": "Le terrain (Clôture et Prix)",
+        "part": 2,
+        "answer": "Périmètre = 100 m. Prix = 100 x 1000 = 100 000 F.",
+        "text": "On veut clôturer un terrain rectangle de 30m sur 20m. Le grillage coûte 1000 F le mètre.\nQuel est le prix total ?"
+    },
+    {
+        "id": 88,
+        "title": "Les œufs (Fractions)",
+        "part": 2,
+        "answer": "(12 x 2) : 3 = 8 œufs.",
+        "text": "Une boîte contient 12 œufs. J'utilise 2/3 des œufs pour un gâteau.\nCombien d'œufs ai-je utilisés ?"
+    },
+    {
+        "id": 89,
+        "title": "Le loyer (Annuel)",
+        "part": 2,
+        "answer": "80 000 x 12 = 960 000 F.",
+        "text": "Un appartement se loue 80 000 F par mois.\nCombien coûte la location pour un an ?"
+    },
+    {
+        "id": 90,
+        "title": "La course (Décimaux)",
+        "part": 2,
+        "answer": "Léo (3,60 > 3,45). Différence = 0,15 m (ou 15 cm).",
+        "text": "Au saut en longueur, Marc a sauté 3,45 m et Léo 3,6 m.\nQui a sauté le plus loin ? De combien ?"
+    },
+    {
+        "id": 91,
+        "title": "Les économies (Complexe)",
+        "part": 2,
+        "answer": "Pierre a 1 part, Paul a 3 parts. Total 4 parts. 2000 : 4 = 500 F. Pierre = 500 F, Paul = 1500 F.",
+        "text": "Paul a 3 fois plus d'argent que Pierre. Ensemble, ils ont 2000 F.\nCombien a chacun ?"
+    },
+    {
+        "id": 92,
+        "title": "Le robinet",
+        "part": 2,
+        "answer": "1 semaine = 24 x 7 = 168 heures. 168 x 5 = 840 litres.",
+        "text": "Un robinet fuit et perd 5 litres par heure.\nCombien de litres sont perdus en une semaine ?"
+    },
+    {
+        "id": 93,
+        "title": "Les pages (Moyenne)",
+        "part": 2,
+        "answer": "(160 + 0 + 200) : 3 = 360 : 3 = 120 pages).",
+        "text": "J'ai lu 160 pages lundi, 0 mardi, et 200 mercredi.\nQuelle est ma moyenne de pages lues par jour sur ces 3 jours ?"
+    },
+    {
+        "id": 94,
+        "title": "La remise",
+        "part": 2,
+        "answer": "3 x 5000 = 15 000. 15 000 - 2000 = 13 000 F.",
+        "text": "Pour l'achat de 3 tee-shirts à 5000 F l'un, le magasin offre une réduction de 2000 F sur le total.\nCombien paie-t-on ?"
+    },
+    {
+        "id": 95,
+        "title": "Les bonbons (Reste)",
+        "part": 2,
+        "answer": "50 : 6 = 8 reste 2.",
+        "text": "On partage 50 bonbons entre 6 enfants.\nCombien en ont-ils chacun ? Combien en reste-t-il ?"
+    },
+    {
+        "id": 96,
+        "title": "Le stade",
+        "part": 2,
+        "answer": "8500/10000 = 85/100 = 85%.",
+        "text": "Un stade a 10 000 places. 8500 sont occupées.\nQuel pourcentage de places est occupé ?"
+    },
+    {
+        "id": 97,
+        "title": "Le voyage (Carburant)",
+        "part": 2,
+        "answer": "8 x 6 = 48 litres. Non, 48 > 45.",
+        "text": "Mon réservoir fait 45 litres. Je consomme 6 litres aux 100 km.\nEst-ce que je peux faire 800 km sans m'arrêter ?"
+    },
+    {
+        "id": 98,
+        "title": "L'aire du triangle",
+        "part": 2,
+        "answer": "(3 x 4) : 2 = 6 cm².",
+        "text": "Un triangle rectangle a des côtés de l'angle droit de 3 cm et 4 cm.\nQuelle est son aire ?"
+    },
+    {
+        "id": 99,
+        "title": "Le nombre mystère",
+        "part": 2,
+        "answer": "(40 : 2) - 10 = 20 - 10 = 10.",
+        "text": "Je pense à un nombre. Je lui ajoute 10, je multiplie par 2 et je trouve 40.\nQuel est ce nombre ?"
+    },
+    {
+        "id": 100,
+        "title": "Le grand problème final",
+        "part": 2,
+        "answer": "Total = 4 x 8 = 32 musiciens. Trompette = 32 : 4 = 8. Tambour = 32 - 8 = 24.",
+        "text": "Une fanfare compte 4 rangées de 8 musiciens. 1/4 des musiciens jouent de la trompette, et les autres du tambour.\nCombien y a-t-il de joueurs de tambour ?\nParfait — tu as raison.\nVoici les **50 problèmes (101 à 150)** rédigés en **langage naturel complet**, avec des **questions explicites** et les **réponses détaillées sous chaque exercice**.\nLes **15 derniers (136 à 150)** comportent une complexité supplémentaire avec une étape intermédiaire implicite."
+    },
+    {
+        "id": 101,
+        "title": "Problème 101",
+        "part": 3,
+        "answer": "125 × 50 = 6 250 kg = 6,25 t\nVentes : 125 × 18 500 = 2 312 500 F\nAchat : 125 × 15 200 = 1 900 000 F\nBénéfice : **412 500 F**",
+        "text": "Un commerçant achète 125 sacs de riz de 50 kg chacun.\nIl revend chaque sac à 18 500 F alors qu’il les avait achetés 15 200 F l’unité.\n1. Quelle est la masse totale de riz achetée en tonnes ?\n2. Quel est le montant total des ventes ?\n3. Quel bénéfice total réalise-t-il ?"
+    },
+    {
+        "id": 102,
+        "title": "Problème 102",
+        "part": 3,
+        "answer": "Périmètre = 2 × (48,5 + 36,2) = 169,4 m\nAire = 48,5 × 36,2 = 1 755,7 m²\n169,4 ÷ 2,5 ≈ 68\n**68 piquets**",
+        "text": "Un terrain rectangulaire mesure 48,5 mètres de long et 36,2 mètres de large.\n1. Quel est le périmètre de ce terrain ?\n2. Quelle est son aire ?\n3. Si l’on plante des piquets tous les 2,5 mètres autour du terrain, combien faudra-t-il de piquets ?"
+    },
+    {
+        "id": 103,
+        "title": "Problème 103",
+        "part": 3,
+        "answer": "480 × 35 ÷ 100 = 168 filles\n480 − 168 = 312 garçons",
+        "text": "Une école compte 480 élèves. On sait que 35 % des élèves sont des filles.\nCombien y a-t-il de filles ? Combien y a-t-il de garçons ?"
+    },
+    {
+        "id": 104,
+        "title": "Problème 104",
+        "part": 3,
+        "answer": "2,5 t = 2 500 kg\n2 500 ÷ 350 = 7\n**7 chantiers**",
+        "text": "Un camion transporte 2,5 tonnes de sable.\nChaque chantier a besoin de 350 kg de sable.\nCombien de chantiers le camion peut-il approvisionner complètement ?"
+    },
+    {
+        "id": 105,
+        "title": "Problème 105",
+        "part": 3,
+        "answer": "84 ÷ 2 = 42\n42 − 26 = 16 m\nAire = 26 × 16 = 416 m²",
+        "text": "Un rectangle a un périmètre de 84 mètres. Sa longueur mesure 26 mètres.\nQuelle est sa largeur ? Quelle est son aire ?"
+    },
+    {
+        "id": 106,
+        "title": "Problème 106",
+        "part": 3,
+        "answer": "Intérêt = 20 000 F\nTotal = 270 000 F",
+        "text": "Un capital de 250 000 F est placé à un taux annuel de 8 %.\nQuel est l’intérêt obtenu après un an ? Quelle somme totale aura-t-on ?"
+    },
+    {
+        "id": 107,
+        "title": "Problème 107",
+        "part": 3,
+        "answer": "Durée totale : 5 h 38 min\n5 h 38 − 35 min = **5 h 03 min**",
+        "text": "Un train part à 7 h 48 min et arrive à 13 h 26 min.\nIl s’arrête 35 minutes en cours de route.\nQuelle est la durée réelle du trajet sans compter l’arrêt ?"
+    },
+    {
+        "id": 108,
+        "title": "Problème 108",
+        "part": 3,
+        "answer": "Volume = 343 cm³\nAire d’une face = 49 cm²",
+        "text": "Un cube a une arête de 7 cm.\nQuel est son volume ? Quelle est l’aire d’une face ?"
+    },
+    {
+        "id": 109,
+        "title": "Problème 109",
+        "part": 3,
+        "answer": "(36 × 18) ÷ 2 = 324 m²",
+        "text": "Un champ triangulaire a une base de 36 m et une hauteur de 18 m.\nQuelle est l’aire de ce champ ?"
+    },
+    {
+        "id": 110,
+        "title": "Problème 110",
+        "part": 3,
+        "answer": "40 × 3 ÷ 5 = 24",
+        "text": "Dans une classe de 40 élèves, les 3/5 pratiquent le football.\nCombien d’élèves pratiquent le football ?"
+    },
+    {
+        "id": 111,
+        "title": "Problème 111",
+        "part": 3,
+        "answer": "Augmentation = 2 160 F\nNouveau prix = 20 160 F",
+        "text": "Un article coûte 18 000 F. Le commerçant décide d’augmenter son prix de 12 %.\nQuel sera le nouveau prix ?"
+    },
+    {
+        "id": 112,
+        "title": "Problème 112",
+        "part": 3,
+        "answer": "3,75 hl = 375 L\nReste = 125 L",
+        "text": "Un réservoir contient 3,75 hectolitres d’eau.\n1. Combien cela représente-t-il en litres ?\n2. Si l’on retire 250 litres, combien reste-t-il ?"
+    },
+    {
+        "id": 113,
+        "title": "Problème 113",
+        "part": 3,
+        "answer": "25 × 16 = 400 cm²",
+        "text": "Un parallélogramme a une base de 25 cm et une hauteur de 16 cm.\nQuelle est son aire ?"
+    },
+    {
+        "id": 114,
+        "title": "Problème 114",
+        "part": 3,
+        "answer": "480 cm³",
+        "text": "Un pavé droit mesure 12 cm de long, 8 cm de large et 5 cm de haut.\nQuel est son volume ?"
+    },
+    {
+        "id": 115,
+        "title": "Problème 115",
+        "part": 3,
+        "answer": "Somme = 96\n96 ÷ 7 ≈ 13,71",
+        "text": "Un élève obtient les notes suivantes :\n14 ; 11 ; 9 ; 16 ; 18 ; 13 ; 15.\nQuelle est sa moyenne ?"
+    },
+    {
+        "id": 116,
+        "title": "Problème 116",
+        "part": 3,
+        "answer": "15 × 500 000 = 7 500 000 cm\n7 500 000 cm = 75 km",
+        "text": "Sur une carte à l’échelle 1/500 000, deux villes sont distantes de 15 cm.\nQuelle est la distance réelle en kilomètres ?"
+    },
+    {
+        "id": 117,
+        "title": "Problème 117",
+        "part": 3,
+        "answer": "240 × 3 ÷ 8 = 90",
+        "text": "Un sac contient 240 bonbons.\nLes 3/8 sont distribués aux filles.\nCombien de bonbons reçoivent-elles ?"
+    },
+    {
+        "id": 118,
+        "title": "Problème 118",
+        "part": 3,
+        "answer": "√625 = 25 m",
+        "text": "Un terrain carré a une aire de 625 m².\nQuelle est la longueur d’un côté ?"
+    },
+    {
+        "id": 119,
+        "title": "Problème 119",
+        "part": 3,
+        "answer": "Réduction = 3 675 F\nPrix final = 20 825 F",
+        "text": "Un article coûte 24 500 F. On accorde une réduction de 15 %.\nQuel est le montant de la réduction ? Quel est le prix final ?"
+    },
+    {
+        "id": 120,
+        "title": "Problème 120",
+        "part": 3,
+        "answer": "360 cm³",
+        "text": "Un prisme droit a une base de 30 cm² et une hauteur de 12 cm.\nQuel est son volume ?\n# 🔴 Complexité renforcée (136–150)"
+    },
+    {
+        "id": 136,
+        "title": "Problème 136",
+        "part": 3,
+        "answer": "84 × 65 = 5 460 m²\n5 460 ÷ 10 000 = **0,546 ha**",
+        "text": "Une parcelle rectangulaire mesure 84 m de long et 65 m de large.\nLe propriétaire souhaite connaître la surface de son terrain en hectares pour remplir un document administratif.\nQuelle est l’aire du terrain en mètres carrés ? Quelle est cette aire en hectares ?"
+    },
+    {
+        "id": 137,
+        "title": "Problème 137",
+        "part": 3,
+        "answer": "17 ÷ 20 = 0,85\n0,85 × 100 = **85 %**",
+        "text": "Un élève obtient 17/20 à un contrôle.\nQuel est son résultat exprimé en pourcentage ?"
+    },
+    {
+        "id": 138,
+        "title": "Problème 138",
+        "part": 3,
+        "answer": "8 × 8 × 8 = 512\nArête = **8 cm**",
+        "text": "Un cube a un volume de 512 cm³.\nQuelle est la longueur d’une arête de ce cube ?"
+    },
+    {
+        "id": 139,
+        "title": "Problème 139",
+        "part": 3,
+        "answer": "270 × 2 = 540\n540 ÷ 30 = **18 m**",
+        "text": "Un terrain triangulaire a une aire de 270 m². Sa base mesure 30 m.\nQuelle est la hauteur de ce triangle ?"
+    },
+    {
+        "id": 140,
+        "title": "Problème 140",
+        "part": 3,
+        "answer": "Réduction = 12 000 F\nPrix = **36 000 F**",
+        "text": "Un article coûte 48 000 F. Le commerçant accorde une réduction de 25 %.\nQuel est le nouveau prix de l’article ?"
+    },
+    {
+        "id": 141,
+        "title": "Problème 141",
+        "part": 3,
+        "answer": "6,5 × 3,5 = **22,75 L**",
+        "text": "Une voiture consomme 6,5 litres pour 100 kilomètres.\nLe conducteur parcourt 350 kilomètres.\nCombien de litres d’essence a-t-il consommés ?"
+    },
+    {
+        "id": 142,
+        "title": "Problème 142",
+        "part": 3,
+        "answer": "6 × 8 500 = 51 000 F\n60 000 − 51 000 = **9 000 F**",
+        "text": "Un élève achète 6 livres à 8 500 F chacun.\nIl paie avec un billet de 60 000 F.\nCombien doit-on lui rendre ?"
+    },
+    {
+        "id": 143,
+        "title": "Problème 143",
+        "part": 3,
+        "answer": "Intérêt annuel = 6 000 F\nSur 2 ans = 12 000 F\nTotal = **132 000 F**",
+        "text": "Un capital de 120 000 F est placé à 5 % pendant 2 ans.\nQuel est l’intérêt total obtenu ? Quelle est la somme finale ?"
+    },
+    {
+        "id": 144,
+        "title": "Problème 144",
+        "part": 3,
+        "answer": "Largeur = 12 m\nLongueur = 24 m",
+        "text": "Un rectangle a une longueur égale au double de sa largeur.\nSon périmètre est de 72 m.\nQuelles sont ses dimensions ?"
+    },
+    {
+        "id": 145,
+        "title": "Problème 145",
+        "part": 3,
+        "answer": "4 m³ = 4 000 L\n4 000 − 750 = **3 250 L**",
+        "text": "Un bassin contient 4 m³ d’eau.\nOn décide d’enlever 750 litres.\nCombien de litres d’eau reste-t-il dans le bassin ?"
+    },
+    {
+        "id": 146,
+        "title": "Problème 146",
+        "part": 3,
+        "answer": "Après 1ère hausse : 17 600 F\nAprès 2ème hausse : **19 360 F**",
+        "text": "Un article coûte 16 000 F.\nIl subit une augmentation de 10 %, puis une nouvelle augmentation de 10 %.\nQuel est son prix final ?"
+    },
+    {
+        "id": 147,
+        "title": "Problème 147",
+        "part": 3,
+        "answer": "Filles : 18\n18 × 2 ÷ 3 = **12**",
+        "text": "Dans une classe de 42 élèves, les 3/7 sont des filles.\nParmi ces filles, les 2/3 portent des lunettes.\nCombien de filles portent des lunettes ?"
+    },
+    {
+        "id": 148,
+        "title": "Problème 148",
+        "part": 3,
+        "answer": "Côté = 32 cm\nPérimètre = **128 cm**",
+        "text": "Un carré a une aire de 1 024 cm².\nOn décide de construire une clôture autour.\nQuelle sera la longueur totale de la clôture ?"
+    },
+    {
+        "id": 149,
+        "title": "Problème 149",
+        "part": 3,
+        "answer": "Durée totale : 4 h 40 min\nArrêts : 35 min\nDurée réelle : **4 h 05 min**",
+        "text": "Un train part à 6 h 25 min et arrive à 11 h 05 min.\nIl s’arrête deux fois : une première fois pendant 15 minutes et une seconde fois pendant 20 minutes.\nQuelle est la durée réelle du trajet sans les arrêts ?"
+    },
+    {
+        "id": 150,
+        "title": "Problème 150",
+        "part": 3,
+        "answer": "Dépenses = 2 520 000 F\nBénéfice = 980 000 F\n1/4 du bénéfice = **245 000 F**",
+        "text": "Un commerçant réalise un chiffre d’affaires de 3 500 000 F.\nSes dépenses représentent 72 % de cette somme.\nIl décide d’investir ensuite 1/4 de son bénéfice dans un nouveau projet.\nQuel est son bénéfice ? Quelle somme investit-il ?"
+    }
+]

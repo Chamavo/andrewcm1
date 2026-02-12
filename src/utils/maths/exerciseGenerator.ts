@@ -84,21 +84,54 @@ const generateProceduralExercises = (level: number): Exercise[] => {
                 answer = max - min;
                 category = "soustraction";
             }
-        } else if (level <= 30) {
-            // Multiplication
+        } else if (level <= 20) {
+            // Multiplication tables
             const a = Math.floor(Math.random() * 10) + 2;
             const b = Math.floor(Math.random() * 10) + 2;
             question = `${a} × ${b} =`;
             answer = a * b;
             category = "multiplication";
-        } else {
-            // Mixed / Division simple
+        } else if (level <= 30) {
+            // Complex Multiplication (1 digit x 2 digits)
+            const a = Math.floor(Math.random() * 9) + 2;
+            const b = Math.floor(Math.random() * 20) + 10;
+            question = `${b} × ${a} =`;
+            answer = a * b;
+            category = "multiplication_complexe";
+        } else if (level <= 40) {
+            // Division simple / operations atrous
             const b = Math.floor(Math.random() * 9) + 2;
-            const res = Math.floor(Math.random() * 10) + 2;
-            const a = b * res; // Ensure integer division
+            const res = Math.floor(Math.random() * 12) + 2;
+            const a = b * res;
             question = `${a} ÷ ${b} =`;
             answer = res;
             category = "division";
+        } else {
+            // Mixed / Complex (Levels 41-50)
+            const op = Math.random();
+            if (op < 0.33) {
+                // Large Addition
+                const a = Math.floor(Math.random() * 500) + 100;
+                const b = Math.floor(Math.random() * 500) + 100;
+                question = `${a} + ${b} =`;
+                answer = a + b;
+                category = "addition_complexe";
+            } else if (op < 0.66) {
+                // Large Subtraction
+                const a = Math.floor(Math.random() * 500) + 200;
+                const b = Math.floor(Math.random() * 200) + 10;
+                question = `${a} - ${b} =`;
+                answer = a - b;
+                category = "soustraction_complexe";
+            } else {
+                // Triple operation or logic
+                const a = Math.floor(Math.random() * 10) + 2;
+                const b = Math.floor(Math.random() * 10) + 2;
+                const c = Math.floor(Math.random() * 10) + 1;
+                question = `${a} × ${b} + ${c} =`;
+                answer = a * b + c;
+                category = "mixte";
+            }
         }
 
         exercises.push({
@@ -118,11 +151,19 @@ const generateProceduralExercises = (level: number): Exercise[] => {
 export const generateLevelExercises = (level: number): Exercise[] => {
     const structured = getExercisesForLevel(level);
 
+    // If structured exercises exist, use them but ensuring we have 10
+    // If not enough structured exercises, complement with procedural
     if (structured.length > 0) {
-        return structured.map(s => convertToExercise(s, level));
+        const converted = structured.map(s => convertToExercise(s, level));
+        if (converted.length >= 10) return converted;
+
+        // Add procedural to reach 10
+        const needed = 10 - converted.length;
+        const procedural = generateProceduralExercises(level).slice(0, needed);
+        return [...converted, ...procedural];
     }
 
-    // Fallback
+    // Fallback completely procedural
     return generateProceduralExercises(level);
 };
 
@@ -135,7 +176,7 @@ export const getNextLevel = (currentLevel: number): number => {
 
 export const getLevelInfo = (level: number) => ({
     questionsCount: 10,
-    timeSeconds: level <= 20 ? 600 : 900,
+    timeSeconds: 360, // 6 minutes for all levels
     isSpecial: level % 5 === 0,
     name: `Niveau ${level}`,
     grade: level <= 20 ? 'CM1' : 'CM2' as const

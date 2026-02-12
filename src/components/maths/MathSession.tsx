@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, CheckCircle, XCircle, Calculator } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { Exercise } from '@/utils/maths/exerciseGenerator';
 import { parseFraction, formatAnswer } from '@/utils/maths/fractionUtils';
 
@@ -18,7 +19,7 @@ const MathSession: React.FC<MathSessionProps> = ({ level, exercises, onComplete,
     const [isCorrect, setIsCorrect] = useState(false);
     const [score, setScore] = useState(0);
     const [startTime] = useState(Date.now());
-    const [timeLeft, setTimeLeft] = useState(level <= 5 ? 300 : 600); // 5m or 10m
+    const [timeLeft, setTimeLeft] = useState(360); // 6 minutes fixed
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -55,7 +56,15 @@ const MathSession: React.FC<MathSessionProps> = ({ level, exercises, onComplete,
         }
 
         setIsCorrect(correct);
-        if (correct) setScore(s => s + 1);
+        if (correct) {
+            setScore(s => s + 1);
+            // Confetti for correct answer
+            confetti({
+                particleCount: 50,
+                spread: 60,
+                origin: { y: 0.7 }
+            });
+        }
         setShowResult(true);
 
         setTimeout(() => {

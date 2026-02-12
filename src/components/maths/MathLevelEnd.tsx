@@ -1,18 +1,60 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, RefreshCw, ArrowRight } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 interface MathLevelEndProps {
     score: number;
     total: number;
     timeSpent: number;
+    level: number;
     onRetry: () => void;
     onNext: () => void;
     onHome: () => void;
     isSuccess: boolean;
 }
 
-const MathLevelEnd: React.FC<MathLevelEndProps> = ({ score, total, timeSpent, onRetry, onNext, onHome, isSuccess }) => {
+const MathLevelEnd: React.FC<MathLevelEndProps> = ({ score, total, timeSpent, level, onRetry, onNext, onHome, isSuccess }) => {
+
+    useEffect(() => {
+        if (isSuccess) {
+            if (level % 5 === 0) {
+                // Special Celebration every 5 levels
+                const duration = 3000;
+                const end = Date.now() + duration;
+
+                const frame = () => {
+                    confetti({
+                        particleCount: 5,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#ff0000', '#00ff00', '#0000ff']
+                    });
+                    confetti({
+                        particleCount: 5,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#ff0000', '#00ff00', '#0000ff']
+                    });
+
+                    if (Date.now() < end) {
+                        requestAnimationFrame(frame);
+                    }
+                };
+                frame();
+            } else {
+                // Normal Success
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+    }, [isSuccess, level]);
+
     const formatTime = (seconds: number) => {
         const m = Math.floor(seconds / 60);
         const s = seconds % 60;
@@ -37,7 +79,7 @@ const MathLevelEnd: React.FC<MathLevelEndProps> = ({ score, total, timeSpent, on
                 )}
 
                 <h2 className="text-4xl font-black text-slate-800 mb-2">
-                    {isSuccess ? 'Niveau Réussi !' : 'Essaie encore !'}
+                    {isSuccess ? (level % 5 === 0 ? 'Niveau Spécial Réussi ! 🎉' : 'Niveau Réussi !') : 'Essaie encore !'}
                 </h2>
 
                 <p className="text-slate-500 mb-8 text-lg">

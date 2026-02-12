@@ -10,7 +10,7 @@ interface MathDashboardProps {
     onBack: () => void;
 }
 
-const TOTAL_LEVELS = 20;
+const TOTAL_LEVELS = 50;
 
 const MathDashboard: React.FC<MathDashboardProps> = ({ currentLevel, username, onStartLevel, onBack }) => {
     // Calculate global progress
