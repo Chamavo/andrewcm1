@@ -88,7 +88,7 @@ export const RedactionModule = ({ onBack }: RedactionModuleProps) => {
     return (
         <div className="w-full max-w-5xl mx-auto p-4 space-y-6">
             <div className="flex items-center space-x-4 mb-6">
-                <Button variant="ghost" onClick={() => step === 'selection' ? onBack() : setStep('selection')} className="text-xl font-bold text-slate-600 hover:bg-slate-100 p-6">
+                <Button variant="ghost" onClick={() => step === 'selection' ? onBack() : setStep('selection')} className="text-xl font-bold text-slate-600 hover:bg-slate-200 hover:text-slate-800 p-6">
                     <ArrowLeft className="w-8 h-8 mr-2" />
                     {step === 'selection' ? 'Menu' : 'Liste des sujets'}
                 </Button>
