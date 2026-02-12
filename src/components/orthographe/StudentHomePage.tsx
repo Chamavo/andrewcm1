@@ -75,13 +75,11 @@ export const StudentHomePage = ({
                 >
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-6">
-                            <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center text-4xl shadow-inner">🏔️</div>
                             <div>
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">🏔️ Progression</h2>
-                                <p className="text-white/80 text-lg">Niveau {currentLevel} / {TOTAL_PROGRESSION_LEVELS}</p>
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Parcours d'orthographe (50 niveaux)</h2>
                             </div>
                         </div>
-                        <ArrowRight className="w-8 h-8 text-white group-hover:translate-x-2 transition-transform" />
+                        <ArrowRight className="w-10 h-10 text-white group-hover:translate-x-2 transition-transform" />
                     </div>
 
                     <div className="w-full">
@@ -95,24 +93,24 @@ export const StudentHomePage = ({
                     </div>
                 </motion.button>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
                     <div
                         onClick={() => onModuleSelect('dictee')}
-                        className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 hover:border-amber-200 hover:bg-amber-50 cursor-pointer transition-all hover:scale-105 hover:shadow-lg group"
+                        className="bg-purple-600 rounded-3xl p-8 text-center border-none cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:bg-purple-700 group shadow-xl shadow-purple-500/30 flex flex-col items-center justify-center min-h-[220px]"
                     >
-                        <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
-                            <PenTool className="w-6 h-6 text-amber-600" />
+                        <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm shadow-inner">
+                            <PenTool className="w-10 h-10 text-white" />
                         </div>
-                        <h3 className="text-slate-700 font-bold group-hover:text-amber-700">Dictées</h3>
+                        <h3 className="text-white text-5xl font-extrabold mb-2 tracking-wide drop-shadow-md">Dictées</h3>
                     </div>
                     <div
                         onClick={() => onModuleSelect('redaction')}
-                        className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 hover:border-green-200 hover:bg-green-50 cursor-pointer transition-all hover:scale-105 hover:shadow-lg group"
+                        className="bg-orange-500 rounded-3xl p-8 text-center border-none cursor-pointer transition-all hover:scale-105 hover:shadow-2xl hover:bg-orange-600 group shadow-xl shadow-orange-500/30 flex flex-col items-center justify-center min-h-[220px]"
                     >
-                        <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
-                            <FileText className="w-6 h-6 text-green-600" />
+                        <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm shadow-inner">
+                            <FileText className="w-10 h-10 text-white" />
                         </div>
-                        <h3 className="text-slate-700 font-bold group-hover:text-green-700">Rédaction</h3>
+                        <h3 className="text-white text-5xl font-extrabold mb-2 tracking-wide drop-shadow-md">Rédaction</h3>
                     </div>
                 </div>
 
