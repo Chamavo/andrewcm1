@@ -14,7 +14,7 @@ import { supabase } from '@/integrations/supabase/orthographeClient';
 
 interface StudentHomePageProps {
     studentName: string;
-    onModuleSelect: (module: 'progression') => void;
+    onModuleSelect: (module: 'progression' | 'dictee' | 'redaction') => void;
     onLogout: () => void;
 }
 
@@ -96,13 +96,23 @@ export const StudentHomePage = ({
                 </motion.button>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
-                    <div className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 opacity-60 cursor-not-allowed">
-                        <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4"><Lock className="w-6 h-6 text-slate-400" /></div>
-                        <h3 className="text-slate-700 font-bold">Dictées</h3>
+                    <div
+                        onClick={() => onModuleSelect('dictee')}
+                        className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 hover:border-amber-200 hover:bg-amber-50 cursor-pointer transition-all hover:scale-105 hover:shadow-lg group"
+                    >
+                        <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-200 transition-colors">
+                            <PenTool className="w-6 h-6 text-amber-600" />
+                        </div>
+                        <h3 className="text-slate-700 font-bold group-hover:text-amber-700">Dictées</h3>
                     </div>
-                    <div className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 opacity-60 cursor-not-allowed">
-                        <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4"><Lock className="w-6 h-6 text-slate-400" /></div>
-                        <h3 className="text-slate-700 font-bold">Rédaction</h3>
+                    <div
+                        onClick={() => onModuleSelect('redaction')}
+                        className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 hover:border-green-200 hover:bg-green-50 cursor-pointer transition-all hover:scale-105 hover:shadow-lg group"
+                    >
+                        <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                            <FileText className="w-6 h-6 text-green-600" />
+                        </div>
+                        <h3 className="text-slate-700 font-bold group-hover:text-green-700">Rédaction</h3>
                     </div>
                 </div>
 

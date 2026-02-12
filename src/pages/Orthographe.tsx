@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect } from 'react';
 import { toast } from 'sonner';
 import { ProgressionView } from '@/components/orthographe/ProgressionView';
 import { StudentHomePage } from '@/components/orthographe/StudentHomePage';
+import { DicteeModule } from '@/components/orthographe/DicteeModule';
+import { RedactionModule } from '@/components/orthographe/RedactionModule';
 import { useProgress } from '@/hooks/useProgress';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,7 +29,12 @@ const OrthographePage = () => {
             case 'progression':
                 setView('progression');
                 break;
-            // Other modules can be added here once components are copied
+            case 'dictee':
+                setView('dictee');
+                break;
+            case 'redaction':
+                setView('redaction');
+                break;
             default:
                 toast.info("Ce module sera bientôt disponible !");
         }
@@ -59,6 +66,14 @@ const OrthographePage = () => {
                 onBack={handleBackToMenu}
             />
         );
+    }
+
+    if (view === 'dictee') {
+        return <DicteeModule onBack={handleBackToMenu} />;
+    }
+
+    if (view === 'redaction') {
+        return <RedactionModule onBack={handleBackToMenu} />;
     }
 
     return (
