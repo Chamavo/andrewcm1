@@ -42,7 +42,7 @@ const WelcomeHeader = () => {
         transition={{ delay: 0.6, duration: 0.8 }}
         className="text-2xl text-slate-500 max-w-2xl mx-auto font-medium"
       >
-        Choisis une mission et commence l'aventure ! 🚀
+        Choisis un sport et commence le match ! <span className="inline-block" style={{ transform: 'rotate(-90deg)' }}>👟</span>
       </motion.p>
     </motion.div>
   );
