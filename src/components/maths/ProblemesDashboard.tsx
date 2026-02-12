@@ -17,7 +17,20 @@ const ProblemesDashboard: React.FC<ProblemesDashboardProps> = ({ onSelectProblem
     // Group by parts
     const part1 = allIds.filter(id => id <= 50);
     const part2 = allIds.filter(id => id > 50 && id <= 100);
-    const part3 = allIds.filter(id => id > 100);
+    const part3 = allIds.filter(id => id > 100 && id <= 150);
+    const part4 = allIds.filter(id => id > 150);
+
+    const getButtonColor = (id: number) => {
+        const colors = [
+            'bg-blue-100 text-blue-700 border-blue-300 shadow-blue-200',
+            'bg-green-100 text-green-700 border-green-300 shadow-green-200',
+            'bg-yellow-100 text-yellow-700 border-yellow-300 shadow-yellow-200',
+            'bg-pink-100 text-pink-700 border-pink-300 shadow-pink-200',
+            'bg-purple-100 text-purple-700 border-purple-300 shadow-purple-200',
+            'bg-orange-100 text-orange-700 border-orange-300 shadow-orange-200',
+        ];
+        return colors[(id - 1) % colors.length];
+    };
 
     const renderGrid = (ids: number[], title: string, colorClass: string) => (
         <div className="mb-12">
@@ -28,6 +41,7 @@ const ProblemesDashboard: React.FC<ProblemesDashboardProps> = ({ onSelectProblem
                     const isMissing = !problem;
                     const status = getProblemStatus(id);
                     const isSolved = status === 'solved';
+                    const colorStyle = getButtonColor(id);
 
                     return (
                         <motion.button
@@ -37,24 +51,26 @@ const ProblemesDashboard: React.FC<ProblemesDashboardProps> = ({ onSelectProblem
                             onClick={() => !isMissing && onSelectProblem(id)}
                             disabled={isMissing}
                             className={`
-                                relative aspect-square rounded-2xl p-2 flex flex-col items-center justify-center gap-1 shadow-sm transition-all
+                                relative aspect-square rounded-2xl p-2 flex flex-col items-center justify-center gap-1 transition-all
+                                border-2 border-b-4
                                 ${isMissing
-                                    ? 'bg-slate-100 text-slate-300 cursor-not-allowed'
+                                    ? 'bg-slate-100 text-slate-300 border-slate-200 cursor-not-allowed'
                                     : isSolved
-                                        ? 'bg-green-50 border-2 border-green-400 text-green-700 shadow-green-100'
-                                        : 'bg-white hover:shadow-md cursor-pointer border-2 border-transparent hover:border-blue-200 text-slate-700'
+                                        ? 'bg-green-500 border-green-600 text-white shadow-green-200'
+                                        : `${colorStyle} hover:brightness-110 cursor-pointer`
                                 }
+                                active:border-b-2 active:translate-y-[2px]
                             `}
                         >
-                            <span className={`text-lg font-bold`}>
+                            <span className={`text-lg font-black`}>
                                 {id}
                             </span>
                             {isMissing ? (
-                                <Lock className="w-4 h-4 opacity-50" />
+                                <Lock className="w-5 h-5 opacity-50" />
                             ) : isSolved ? (
-                                <Check className="w-4 h-4 text-green-600" />
+                                <Check className="w-6 h-6 text-white stroke-[3]" />
                             ) : (
-                                <div className="w-2 h-2 rounded-full bg-blue-400 opacity-20" />
+                                <div className="w-0" />
                             )}
                         </motion.button>
                     );
@@ -79,6 +95,7 @@ const ProblemesDashboard: React.FC<ProblemesDashboardProps> = ({ onSelectProblem
                 {renderGrid(part1, "Partie 1 : Début d'année", "text-blue-600")}
                 {renderGrid(part2, "Partie 2 : Milieu d'année", "text-purple-600")}
                 {renderGrid(part3, "Partie 3 : Fin d'année", "text-pink-600")}
+                {renderGrid(part4, "Pour aller plus loin", "text-orange-600")}
             </div>
         </div>
     );

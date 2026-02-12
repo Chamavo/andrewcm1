@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Check, Copy, HelpCircle, Eye, EyeOff } from 'lucide-react';
+import { ArrowLeft, Check, HelpCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { MathProblem, saveProblemStatus } from '@/utils/maths/problemManager';
 
@@ -12,7 +12,6 @@ interface ProblemeSessionProps {
 }
 
 const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onComplete }) => {
-    const [showAnswer, setShowAnswer] = useState(false);
     const [showHint, setShowHint] = useState(false);
 
     const handleSolved = () => {
@@ -46,26 +45,17 @@ const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onCo
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl w-full"
+                className="bg-white rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl w-full border-b-8 border-slate-200"
             >
-                <div className="prose prose-lg max-w-none mb-8">
+                <div className="prose prose-lg max-w-none mb-12">
                     <h1 className="text-3xl font-black text-blue-600 mb-6">{problem.title}</h1>
-                    <div className="text-xl text-slate-700 whitespace-pre-wrap leading-relaxed font-medium">
+                    <div className="text-2xl text-slate-800 whitespace-pre-wrap leading-relaxed font-medium">
                         {problem.text}
                     </div>
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col gap-4">
-
-                    {/* Hint Button */}
-                    <button
-                        onClick={() => setShowHint(!showHint)}
-                        className="flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-yellow-100 text-yellow-700 font-bold hover:bg-yellow-200 transition-colors w-full sm:w-auto self-start"
-                    >
-                        <HelpCircle className="w-5 h-5" />
-                        {showHint ? "Masquer l'indice" : "Besoin d'un indice ?"}
-                    </button>
+                <div className="flex flex-col gap-8">
 
                     <AnimatePresence>
                         {showHint && (
@@ -75,56 +65,42 @@ const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onCo
                                 exit={{ height: 0, opacity: 0 }}
                                 className="overflow-hidden"
                             >
-                                <div className="bg-yellow-50 p-4 rounded-xl border border-yellow-200 text-yellow-800 italic">
-                                    💡 Indice : Lis bien la question et repère les chiffres importants. Fais un schéma si besoin !
+                                <div className="bg-yellow-50 p-6 rounded-2xl border-l-8 border-yellow-400 text-yellow-900 text-lg font-medium shadow-sm">
+                                    <div className="flex items-start gap-4">
+                                        <HelpCircle className="w-8 h-8 text-yellow-500 shrink-0" />
+                                        <div>
+                                            <p className="font-bold mb-2">Indice :</p>
+                                            <p>Lis bien la question et repère les chiffres importants. Fais un schéma si besoin !</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
 
-                    <div className="h-8" />
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center border-t-2 border-slate-100 pt-8">
 
-                    {/* Answer Section */}
-                    <div className="border-t-2 border-slate-100 pt-8">
-                        {!showAnswer ? (
-                            <div className="flex justify-center">
-                                <button
-                                    onClick={() => setShowAnswer(true)}
-                                    className="flex items-center gap-3 bg-slate-800 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-slate-700 transition-all hover:scale-105 shadow-lg shadow-slate-300"
-                                >
-                                    <Eye className="w-6 h-6" />
-                                    Voir la solution
-                                </button>
-                            </div>
-                        ) : (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="bg-green-50 rounded-2xl p-8 border-2 border-green-100 text-center"
-                            >
-                                <h3 className="text-2xl font-black text-green-700 mb-4">Solution</h3>
-                                <div className="text-xl text-slate-800 font-medium whitespace-pre-wrap mb-8">
-                                    {problem.answer}
-                                </div>
+                        <button
+                            onClick={() => setShowHint(!showHint)}
+                            className={`
+                                flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-xl font-bold transition-all border-b-4 active:border-b-0 active:translate-y-1
+                                ${showHint
+                                    ? 'bg-slate-100 text-slate-500 border-slate-300'
+                                    : 'bg-yellow-100 text-yellow-700 border-yellow-300 hover:bg-yellow-200'
+                                }
+                            `}
+                        >
+                            <HelpCircle className="w-6 h-6" />
+                            {showHint ? "Masquer l'indice" : "J'ai besoin d'aide"}
+                        </button>
 
-                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <button
-                                        onClick={handleSolved}
-                                        className="flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-200 hover:scale-105"
-                                    >
-                                        <Check className="w-6 h-6" />
-                                        J'ai trouvé !
-                                    </button>
-                                    <button
-                                        onClick={() => setShowAnswer(false)} // Just hide or mark as failed?
-                                        className="flex items-center justify-center gap-2 bg-white text-slate-500 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 border-2 border-slate-200 transition-all"
-                                    >
-                                        <EyeOff className="w-5 h-5" />
-                                        Masquer
-                                    </button>
-                                </div>
-                            </motion.div>
-                        )}
+                        <button
+                            onClick={handleSolved}
+                            className="flex items-center justify-center gap-3 bg-green-500 text-white px-10 py-4 rounded-2xl text-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-200 hover:scale-105 border-b-4 border-green-700 active:border-b-0 active:translate-y-1"
+                        >
+                            <Check className="w-7 h-7 stroke-[3]" />
+                            J'ai trouvé !
+                        </button>
                     </div>
                 </div>
             </motion.div>

@@ -942,5 +942,355 @@
         "part": 3,
         "answer": "Dépenses = 2 520 000 F\nBénéfice = 980 000 F\n1/4 du bénéfice = **245 000 F**",
         "text": "Un commerçant réalise un chiffre d’affaires de 3 500 000 F.\nSes dépenses représentent 72 % de cette somme.\nIl décide d’investir ensuite 1/4 de son bénéfice dans un nouveau projet.\nQuel est son bénéfice ? Quelle somme investit-il ?"
+    },
+    {
+        "id": 151,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Trois amis, Paul, Hugo et Lucas, se partagent 72 000 €.\nPaul reçoit le double de la somme reçue par Hugo.\nLucas reçoit 8 000 € de plus que Hugo.\nQuelle somme reçoit chacun ?",
+        "answer": "72 000 – 8 000 = 64 000\n64 000 ÷ 4 = 16 000\nHugo : 16 000 €\nPaul : 32 000 €\nLucas : 24 000 €"
+    },
+    {
+        "id": 152,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une somme de 150 000 € est partagée entre Emma et Léa.\nEmma reçoit le triple de Léa.\nCalcule la part de chacune.",
+        "answer": "150 000 ÷ 4 = 37 500\nLéa : 37 500 €\nEmma : 112 500 €"
+    },
+    {
+        "id": 153,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une prime de 90 000 € est partagée entre trois employés.\nLe premier reçoit le double du deuxième.\nLe troisième reçoit 10 000 € de moins que le deuxième.\nQuelle somme reçoit chacun ?",
+        "answer": "90 000 + 10 000 = 100 000\n100 000 ÷ 4 = 25 000\nPremier : 50 000 €\nDeuxième : 25 000 €\nTroisième : 15 000 €"
+    },
+    {
+        "id": 154,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un père partage 60 000 € entre ses deux enfants.\nL’aîné reçoit 15 000 € de plus que le cadet.\nQuelle somme reçoit chacun ?",
+        "answer": "60 000 – 15 000 = 45 000\n45 000 ÷ 2 = 22 500\nCadet : 22 500 €\nAîné : 37 500 €"
+    },
+    {
+        "id": 155,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "84 000 € sont partagés entre trois personnes.\nLa deuxième reçoit le double de la première.\nLa troisième reçoit le triple de la première.\nQuelle somme reçoit chacun ?",
+        "answer": "84 000 ÷ 6 = 14 000\nPremière : 14 000 €\nDeuxième : 28 000 €\nTroisième : 42 000 €"
+    },
+    {
+        "id": 156,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une voiture roule à 80 km/h pendant 3 heures.\nQuelle distance parcourt-elle ?",
+        "answer": "80 × 3 = 240 km"
+    },
+    {
+        "id": 157,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un cycliste parcourt 90 km en 3 heures.\nQuelle est sa vitesse moyenne ?",
+        "answer": "90 ÷ 3 = 30 km/h"
+    },
+    {
+        "id": 158,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un train roule à 120 km/h pendant 2 h 30 min.\nQuelle distance parcourt-il ?",
+        "answer": "2,5 h\n120 × 2,5 = 300 km"
+    },
+    {
+        "id": 159,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un marcheur avance à 5 km/h pendant 1 h 30 min.\nQuelle distance parcourt-il ?",
+        "answer": "1,5 h\n5 × 1,5 = 7,5 km"
+    },
+    {
+        "id": 160,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un camion parcourt 360 km à 90 km/h.\nCombien d’heures met-il ?",
+        "answer": "360 ÷ 90 = 4 h"
+    },
+    {
+        "id": 161,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un champ mesure 3 hectares.\nQuelle est sa superficie en m² ?",
+        "answer": "3 × 10 000 = 30 000 m²"
+    },
+    {
+        "id": 162,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un terrain mesure 5 000 m².\nExprime cette superficie en hectares.",
+        "answer": "5 000 ÷ 10 000 = 0,5 ha"
+    },
+    {
+        "id": 163,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un agriculteur possède 2 ha et 50 ares.\nQuelle est la superficie totale en m² ?",
+        "answer": "20 000 + 5 000 = 25 000 m²"
+    },
+    {
+        "id": 164,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un champ de 4 ha est partagé en 8 parcelles égales.\nQuelle est la superficie d’une parcelle ?",
+        "answer": "40 000 ÷ 8 = 5 000 m²"
+    },
+    {
+        "id": 165,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un terrain rectangulaire mesure 200 m sur 150 m.\nCalcule son aire en m² puis en hectares.",
+        "answer": "200 × 150 = 30 000 m²\n30 000 ÷ 10 000 = 3 ha"
+    },
+    {
+        "id": 166,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un agriculteur possède 3 ha et vend 1,5 ha.\nQuelle superficie lui reste-t-il ?",
+        "answer": "3 – 1,5 = 1,5 ha\n= 15 000 m²"
+    },
+    {
+        "id": 167,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un champ mesure 25 000 m².\nExprime cette superficie en hectares.",
+        "answer": "25 000 ÷ 10 000 = 2,5 ha"
+    },
+    {
+        "id": 168,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un terrain de 6 ha est partagé en 3 parts égales.\nQuelle est la superficie d’une part en hectares et en m² ?",
+        "answer": "6 ÷ 3 = 2 ha\n= 20 000 m²"
+    },
+    {
+        "id": 169,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un bidon contient 5 L.\nExprime en mL.",
+        "answer": "5 000 mL"
+    },
+    {
+        "id": 170,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une citerne contient 2 500 L. On retire 750 L.\nQuelle quantité reste-t-il ?",
+        "answer": "1 750 L"
+    },
+    {
+        "id": 171,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "3 citernes contiennent chacune 1 200 L.\nQuelle quantité totale ?",
+        "answer": "3 600 L"
+    },
+    {
+        "id": 172,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une cuve de 4 000 L est remplie aux 3/4.\nQuelle quantité contient-elle ?",
+        "answer": "3 000 L"
+    },
+    {
+        "id": 173,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "On verse 250 mL dans 12 bouteilles.\nQuelle quantité totale en litres ?",
+        "answer": "3 L"
+    },
+    {
+        "id": 174,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un réservoir contient 6 L 500 mL.\nExprime en mL.",
+        "answer": "6 500 mL"
+    },
+    {
+        "id": 175,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un camion transporte 2 000 L d’eau.\nIl livre 650 L.\nQuelle quantité reste-t-il ?",
+        "answer": "1 350 L"
+    },
+    {
+        "id": 176,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une citerne contient 3 500 L.\nOn ajoute 1 500 L.\nQuelle est la capacité totale ?",
+        "answer": "5 000 L"
+    },
+    {
+        "id": 177,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un commerçant achète 200 cahiers à 3 € et les revend 5 €.\nQuel est son bénéfice ?",
+        "answer": "Achat : 600 €\nVente : 1 000 €\nBénéfice : 400 €"
+    },
+    {
+        "id": 178,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un capital de 500 000 € est placé à 5 % pendant 1 an.\nQuel est le montant des intérêts ?",
+        "answer": "25 000 €"
+    },
+    {
+        "id": 179,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "10 % de 2 500 élèves participent à une sortie.\nCombien d’élèves participent ?",
+        "answer": "250 élèves"
+    },
+    {
+        "id": 180,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un agriculteur vend 1 000 poulets à 3 000 €.\n5 % meurent avant la vente.\nCombien en vend-il ?",
+        "answer": "5 % de 1 000 = 50\n1 000 – 50 = 950"
+    },
+    {
+        "id": 181,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un capital de 2 000 000 € est placé à 4 %.\nQuel est l’intérêt annuel ?",
+        "answer": "80 000 €"
+    },
+    {
+        "id": 182,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "25 % de 2 400 élèves sont des filles.\nCombien y a-t-il de filles ?",
+        "answer": "600"
+    },
+    {
+        "id": 183,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un objet coûte 50 000 €.\nIl subit une réduction de 10 %.\nQuel est le nouveau prix ?",
+        "answer": "Réduction : 5 000 €\nPrix final : 45 000 €"
+    },
+    {
+        "id": 184,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un marchand achète 300 kg de riz à 400 € le kg et revend à 550 €.\nQuel est son bénéfice ?",
+        "answer": "45 000 €"
+    },
+    {
+        "id": 185,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "15 % de 800 arbres sont malades.\nCombien d’arbres sont malades ?",
+        "answer": "120"
+    },
+    {
+        "id": 186,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un capital de 1 200 000 € est placé à 3 %.\nQuel est l’intérêt ?",
+        "answer": "36 000 €"
+    },
+    {
+        "id": 187,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un libraire achète 200 livres à 8 € et les revend 12 €.\nQuel est le bénéfice ?",
+        "answer": "800 €"
+    },
+    {
+        "id": 188,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un agriculteur vend 2 000 melons à 1 500 €.\nQuelle est la recette totale ?",
+        "answer": "3 000 000 €"
+    },
+    {
+        "id": 189,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une école vend 800 tickets à 250 €.\nQuelle est la recette totale ?",
+        "answer": "200 000 €"
+    },
+    {
+        "id": 190,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un commerçant perd 10 % sur 50 000 €.\nQuelle est la perte ?",
+        "answer": "5 000 €"
+    },
+    {
+        "id": 191,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "5 % de 600 arbres sont coupés.\nCombien sont coupés ?",
+        "answer": "30"
+    },
+    {
+        "id": 192,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un capital de 1 300 000 € est placé à 6 %.\nQuel est l’intérêt ?",
+        "answer": "78 000 €"
+    },
+    {
+        "id": 193,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "400 cahiers à 3 € sont vendus 5 €.\nQuel est le bénéfice ?",
+        "answer": "800 €"
+    },
+    {
+        "id": 194,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un terrain vaut 200 000 €.\nIl augmente de 10 %.\nQuel est le nouveau prix ?",
+        "answer": "220 000 €"
+    },
+    {
+        "id": 195,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "75 % de 4 000 L d’eau sont utilisés.\nQuelle quantité est utilisée ?",
+        "answer": "3 000 L"
+    },
+    {
+        "id": 196,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un capital de 600 000 € placé à 2 %.\nQuel est l’intérêt ?",
+        "answer": "12 000 €"
+    },
+    {
+        "id": 197,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une entreprise gagne 300 000 € et dépense 250 000 €.\nQuel est le bénéfice ?",
+        "answer": "50 000 €"
+    },
+    {
+        "id": 198,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Une réduction de 20 % est appliquée sur 40 000 €.\nQuel est le montant de la réduction ?",
+        "answer": "8 000 €"
+    },
+    {
+        "id": 199,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un magasin vend 500 articles à 2 000 €.\nQuelle est la recette ?",
+        "answer": "1 000 000 €"
+    },
+    {
+        "id": 200,
+        "title": "Pour aller plus loin",
+        "part": 4,
+        "text": "Un agriculteur vend 2 000 melons à 1 500 €.\nSes dépenses sont de 2 400 000 €.\nQuel est son bénéfice ?",
+        "answer": "Recette : 3 000 000 €\nBénéfice : 600 000 €\n-"
     }
 ]

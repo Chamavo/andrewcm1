@@ -14,7 +14,7 @@ problemsData.forEach((p: any) => {
     problemsMap.set(p.id, p);
 });
 
-export const TOTAL_PROBLEMS = 150;
+export const TOTAL_PROBLEMS = 200;
 
 export const getProblem = (id: number): MathProblem | null => {
     return problemsMap.get(id) || null;
