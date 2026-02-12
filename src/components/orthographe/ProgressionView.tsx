@@ -140,6 +140,14 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
         setStep('exercise');
     }, [levelResult, currentExerciseIdx, exercises.length, generateExercises]);
 
+    const handleInternalBack = useCallback(() => {
+        if (step === 'intro' || step === 'all-complete') {
+            onBack();
+        } else {
+            setStep('intro');
+        }
+    }, [step, onBack]);
+
     useEffect(() => {
         if (step === 'result' && !isValidating) {
             const timer = setTimeout(() => handleNext(), AUTO_ADVANCE_DELAY);
@@ -190,12 +198,13 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
             )}
 
             <ProgressionHeader
-                onBack={onBack}
+                onBack={handleInternalBack}
                 currentLevel={progress.current_level}
                 percentage={overallPercentage}
                 exercisesDone={progress.exercises_done}
                 totalExercises={currentLevel?.nb_exercices || 0}
                 errors={sessionTotal - sessionCorrect}
+                showMenu={step === 'intro' || step === 'all-complete'}
             />
 
             <div className="flex-1 flex items-center justify-center p-4 md:p-8 relative z-10">
@@ -337,11 +346,19 @@ const GlobalLockoutScreen = ({ lockoutRemaining }: { lockoutRemaining: number })
     );
 };
 
-const ProgressionHeader = ({ onBack, currentLevel, percentage, exercisesDone, totalExercises, errors }: any) => (
+const ProgressionHeader = ({ onBack, currentLevel, percentage, exercisesDone, totalExercises, errors, showMenu }: any) => (
     <header className="bg-white/80 backdrop-blur-md p-4 relative z-20 border-b border-slate-200 sticky top-0">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-            <Button variant="ghost" size="lg" onClick={onBack} className="text-slate-600 hover:bg-slate-200 hover:text-slate-800 gap-2 text-xl font-bold p-6">
-                <ArrowLeft className="w-8 h-8" /> Menu
+            <Button
+                variant="default"
+                size="lg"
+                onClick={onBack}
+                className={`font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 transition-all ${showMenu
+                        ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20'
+                        : 'bg-blue-500 hover:bg-blue-600 text-white shadow-blue-500/20'
+                    }`}
+            >
+                <ArrowLeft className="w-6 h-6" /> {showMenu ? 'Menu' : 'Retour'}
             </Button>
             <div className="flex items-center gap-3">
                 <Mountain className="w-6 h-6 text-emerald-600" />
