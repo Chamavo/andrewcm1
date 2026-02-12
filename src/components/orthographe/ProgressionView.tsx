@@ -149,9 +149,9 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
 
     if (status === 'loading_data' || status === 'fetching_progress') {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 flex items-center justify-center">
-                <div className="text-center text-white">
-                    <Loader2 className="w-16 h-16 animate-spin mx-auto mb-4" />
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="text-center text-slate-900">
+                    <Loader2 className="w-16 h-16 animate-spin mx-auto mb-4 text-emerald-600" />
                     <p className="text-xl font-semibold">Chargement...</p>
                 </div>
             </div>
@@ -160,8 +160,8 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
 
     if (error) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 flex items-center justify-center">
-                <div className="bg-white rounded-3xl p-8 max-w-md text-center">
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="bg-slate-50 rounded-3xl p-8 max-w-md text-center border-2 border-slate-100 shadow-xl">
                     <p className="text-destructive mb-4">Erreur : {error}</p>
                     <Button onClick={onBack}>Retour</Button>
                 </div>
@@ -174,7 +174,7 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 flex flex-col">
+        <div className="min-h-screen bg-slate-50 flex flex-col">
             <AnimatePresence>
                 {isSessionLocked && globalLockoutRemaining !== null && (
                     <GlobalLockoutScreen lockoutRemaining={globalLockoutRemaining} />
@@ -316,7 +316,7 @@ const SessionTimer = ({ remaining }: { remaining: number }) => {
     const minutes = Math.floor(remaining / 60);
     const seconds = remaining % 60;
     return (
-        <div className="fixed top-4 right-4 z-50 px-4 py-2 rounded-full font-mono font-bold text-xl shadow-lg border-2 bg-slate-900 text-emerald-400 border-emerald-500">
+        <div className="fixed top-4 right-4 z-50 px-4 py-2 rounded-full font-mono font-bold text-xl shadow-lg border-2 bg-white text-emerald-600 border-emerald-500">
             <Clock className="w-5 h-5 inline mr-2" />
             <span>{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</span>
         </div>
@@ -328,7 +328,7 @@ const GlobalLockoutScreen = ({ lockoutRemaining }: { lockoutRemaining: number })
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center text-white p-4 text-center"
+            className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center text-slate-900 p-4 text-center"
         >
             <Lock className="w-16 h-16 text-red-500 mb-8" />
             <h1 className="text-4xl font-black mb-4 text-red-500">SESSION TERMINÉE</h1>
@@ -338,17 +338,17 @@ const GlobalLockoutScreen = ({ lockoutRemaining }: { lockoutRemaining: number })
 };
 
 const ProgressionHeader = ({ onBack, currentLevel, percentage, exercisesDone, totalExercises, errors }: any) => (
-    <header className="bg-white/10 backdrop-blur-sm p-4 relative z-20">
+    <header className="bg-white/80 backdrop-blur-md p-4 relative z-20 border-b border-slate-200 sticky top-0">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-            <Button variant="ghost" size="sm" onClick={onBack} className="text-white hover:bg-white/20 gap-2">
+            <Button variant="ghost" size="sm" onClick={onBack} className="text-slate-600 hover:bg-slate-100 gap-2">
                 <ArrowLeft className="w-4 h-4" /> Menu Ortho
             </Button>
             <div className="flex items-center gap-3">
-                <Mountain className="w-6 h-6 text-emerald-300" />
-                <span className="text-white font-bold text-lg">Niveau {currentLevel} / 50</span>
+                <Mountain className="w-6 h-6 text-emerald-600" />
+                <span className="text-slate-900 font-bold text-lg">Niveau {currentLevel} / 50</span>
             </div>
-            <div className="bg-white/20 px-4 py-2 rounded-full">
-                <span className="text-emerald-200 text-sm font-bold">{percentage}%</span>
+            <div className="bg-emerald-100 px-4 py-2 rounded-full">
+                <span className="text-emerald-700 text-sm font-bold">{percentage}%</span>
             </div>
         </div>
     </header>

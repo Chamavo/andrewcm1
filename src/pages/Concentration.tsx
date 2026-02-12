@@ -24,7 +24,7 @@ const Concentration: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#fdfbf7] to-[#e8e0d5] font-sans">
+        <div className="min-h-screen bg-white font-sans">
             <header className="p-4 flex justify-between items-center sticky top-0 z-10 bg-white/50 backdrop-blur-md">
                 <div className="flex items-center gap-2 text-amber-800">
                     <Brain className="w-8 h-8" />

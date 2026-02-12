@@ -53,17 +53,17 @@ export const StudentHomePage = ({
     }, [studentName]);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="min-h-screen bg-white">
             <div className="flex justify-end p-4">
-                <Button variant="default" size="lg" onClick={onLogout} className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3">
+                <Button variant="default" size="lg" onClick={onLogout} className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 shadow-amber-500/20">
                     <Home className="w-6 h-6" /> Accueil
                 </Button>
             </div>
 
             <div className="max-w-5xl mx-auto px-4 pb-8 flex flex-col items-center">
                 <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">✨ Bonjour ! 👋 ⭐</h1>
-                    <p className="text-xl text-white/80">Bienvenue dans ton module <span className="text-amber-400 font-semibold">Orthographe</span> ! 🏆</p>
+                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">✨ Bonjour ! 👋 ⭐</h1>
+                    <p className="text-xl text-slate-600">Bienvenue dans ton module <span className="text-amber-500 font-bold">Orthographe</span> ! 🏆</p>
                 </motion.div>
 
                 <motion.button
@@ -71,7 +71,7 @@ export const StudentHomePage = ({
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
                     onClick={() => onModuleSelect('progression')}
-                    className="w-full max-w-2xl rounded-3xl p-8 mb-12 text-left bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 transition-all border border-white/10 shadow-2xl group flex flex-col gap-6"
+                    className="w-full max-w-2xl rounded-3xl p-8 mb-12 text-left bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 transition-all shadow-xl hover:shadow-2xl hover:shadow-emerald-500/20 group flex flex-col gap-6"
                 >
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-6">
@@ -96,18 +96,18 @@ export const StudentHomePage = ({
                 </motion.button>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
-                    <div className="bg-white/5 rounded-3xl p-6 text-center border border-white/10 opacity-50 cursor-not-allowed">
-                        <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4"><Lock className="w-6 h-6 text-white/40" /></div>
-                        <h3 className="text-white font-bold opacity-70">Dictées</h3>
+                    <div className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 opacity-60 cursor-not-allowed">
+                        <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4"><Lock className="w-6 h-6 text-slate-400" /></div>
+                        <h3 className="text-slate-700 font-bold">Dictées</h3>
                     </div>
-                    <div className="bg-white/5 rounded-3xl p-6 text-center border border-white/10 opacity-50 cursor-not-allowed">
-                        <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4"><Lock className="w-6 h-6 text-white/40" /></div>
-                        <h3 className="text-white font-bold opacity-70">Rédaction</h3>
+                    <div className="bg-slate-50 rounded-3xl p-6 text-center border-2 border-slate-100 opacity-60 cursor-not-allowed">
+                        <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center mx-auto mb-4"><Lock className="w-6 h-6 text-slate-400" /></div>
+                        <h3 className="text-slate-700 font-bold">Rédaction</h3>
                     </div>
                 </div>
 
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-12 bg-white/5 rounded-3xl p-8 text-center max-w-2xl border border-white/10 backdrop-blur-sm">
-                    <p className="text-white/80 text-lg italic">"Le français, c'est comme un muscle : plus tu t'entraînes, plus tu deviens fort !"</p>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-12 bg-slate-50 rounded-3xl p-8 text-center max-w-2xl border border-slate-100">
+                    <p className="text-slate-600 text-lg italic">"Le français, c'est comme un muscle : plus tu t'entraînes, plus tu deviens fort !"</p>
                 </motion.div>
             </div>
         </div>

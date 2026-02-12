@@ -62,10 +62,10 @@ const OrthographePage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
-            <div className="bg-white/10 rounded-2xl p-8 text-center max-w-md backdrop-blur-lg">
-                <h2 className="text-2xl font-bold text-white mb-4">Module en construction</h2>
-                <p className="text-white/70 mb-6">La vue "{view}" est en cours d'intégration.</p>
+        <div className="min-h-screen bg-white flex items-center justify-center p-4">
+            <div className="bg-slate-50 rounded-2xl p-8 text-center max-w-md border-2 border-slate-100 shadow-xl">
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">Module en construction</h2>
+                <p className="text-slate-600 mb-6">La vue "{view}" est en cours d'intégration.</p>
                 <button
                     onClick={handleBackToMenu}
                     className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-xl transition-all"
