@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calculator, BookOpen, ArrowLeft } from 'lucide-react';
 import MathDashboard from '@/components/maths/MathDashboard';
@@ -9,29 +8,32 @@ import MathLevelEnd from '@/components/maths/MathLevelEnd';
 import ProblemesDashboard from '@/components/maths/ProblemesDashboard';
 import ProblemeSession from '@/components/maths/ProblemeSession';
 import { getCurrentLevel, updateCurrentLevel } from '@/utils/maths/levelBlockingSystem';
-import { generateLevelExercises, Exercise } from '@/utils/maths/exerciseGenerator';
-import { getProblem, MathProblem } from '@/utils/maths/problemManager';
-
-type ViewState = 'landing' | 'calcul_dashboard' | 'calcul_session' | 'calcul_result' | 'problemes_dashboard' | 'probleme_session';
+import { useUser } from '@/hooks/useUser';
+import { useMathNavigation } from '@/hooks/useMathNavigation';
 
 const Mathematiques: React.FC = () => {
-    const navigate = useNavigate();
-    const [currentView, setCurrentView] = useState<ViewState>('landing');
+    const { username } = useUser();
+    const {
+        currentView,
+        setCurrentView,
+        currentSessionLevel,
+        exercises,
+        lastScore,
+        setLastScore,
+        lastTime,
+        setLastTime,
+        lastSuccess,
+        setLastSuccess,
+        selectedProblem,
+        handleStartLevel,
+        handleSelectProblem,
+        handleProblemBack,
+        handleBackToLanding,
+        handleBackToDashboard,
+        handleExitApp
+    } = useMathNavigation();
 
-    // Calcul State
     const [level, setLevel] = useState(1);
-    const [currentSessionLevel, setCurrentSessionLevel] = useState(1);
-    const [exercises, setExercises] = useState<Exercise[]>([]);
-
-    // Result state
-    const [lastScore, setLastScore] = useState(0);
-    const [lastTime, setLastTime] = useState(0);
-    const [lastSuccess, setLastSuccess] = useState(false);
-
-    // Problemes State
-    const [selectedProblem, setSelectedProblem] = useState<MathProblem | null>(null);
-
-    const [username] = useState('Andrew'); // Hardcoded based on current session logic
 
     useEffect(() => {
         const loadLevel = async () => {
@@ -41,25 +43,13 @@ const Mathematiques: React.FC = () => {
         loadLevel();
     }, [username]);
 
-    // --- Calcul Logic ---
-    const handleStartLevel = (lvl: number) => {
-        const newExercises = generateLevelExercises(lvl);
-        // Ensure we limit to 10 questions if generator returns more
-        const sessionExercises = newExercises.slice(0, 10);
-
-        setExercises(sessionExercises);
-        setCurrentSessionLevel(lvl);
-        setCurrentView('calcul_session');
-    };
-
     const handleSessionComplete = async (score: number, timeSpent: number) => {
         setLastScore(score);
         setLastTime(timeSpent);
-        const success = score >= 9; // Changed to 90% (9/10) as per new requirements
+        const success = score >= 9; // 90% (9/10) success threshold
         setLastSuccess(success);
 
         if (success && currentSessionLevel === level) {
-            // Unlock next level
             const nextLevel = level + 1;
             await updateCurrentLevel(username, nextLevel);
             setLevel(nextLevel);
@@ -68,52 +58,10 @@ const Mathematiques: React.FC = () => {
         setCurrentView('calcul_result');
     };
 
-    const handleRetry = () => {
-        handleStartLevel(currentSessionLevel);
-    };
-
-    const handleNextLevel = () => {
-        handleStartLevel(currentSessionLevel + 1);
-    };
-
-    const handleBackToDashboard = () => {
-        setCurrentView('calcul_dashboard');
-    };
-
-    // --- Problemes Logic ---
-    const handleSelectProblem = (id: number) => {
-        const problem = getProblem(id);
-        if (problem) {
-            setSelectedProblem(problem);
-            setCurrentView('probleme_session');
-        }
-    };
-
-    const handleProblemBack = () => {
-        setSelectedProblem(null);
-        setCurrentView('problemes_dashboard');
-    };
-
     const handleProblemComplete = (success: boolean) => {
         if (success) {
-            // Logic handled in component for now (save status), just navigate back or show success
-            // Maybe go back to dashboard after a delay?
-            // The component calls update, and we can perhaps wait a bit
-            // For now, let the user manually go back or rely on component's internal feedback
-            // But component calls onComplete(true).
-            // Let's go back to dashboard to show updated state (green dot)
             handleProblemBack();
         }
-    };
-
-
-    // --- Navigation ---
-    const handleBackToLanding = () => {
-        setCurrentView('landing');
-    };
-
-    const handleExitApp = () => {
-        navigate('/');
     };
 
     return (
@@ -138,7 +86,6 @@ const Mathematiques: React.FC = () => {
                     </motion.div>
 
                     <div className="w-full max-w-4xl flex flex-col gap-6">
-                        {/* Bande Calcul */}
                         <motion.button
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -159,12 +106,9 @@ const Mathematiques: React.FC = () => {
                             <div className="relative z-10 bg-white/10 px-6 py-2 rounded-full backdrop-blur-md border border-white/20">
                                 <span className="text-white font-bold">Niveau {level}</span>
                             </div>
-
-                            {/* Decor */}
                             <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/10 to-transparent transform skew-x-12 translate-x-10 group-hover:translate-x-0 transition-transform duration-500" />
                         </motion.button>
 
-                        {/* Bande 150 Problèmes */}
                         <motion.button
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -186,8 +130,6 @@ const Mathematiques: React.FC = () => {
                             <div className="relative z-10 bg-white/10 px-6 py-2 rounded-full backdrop-blur-md border border-white/20">
                                 <span className="text-white font-bold">0 / 150</span>
                             </div>
-
-                            {/* Decor */}
                             <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/10 to-transparent transform skew-x-12 translate-x-10 group-hover:translate-x-0 transition-transform duration-500" />
                         </motion.button>
                     </div>
@@ -220,8 +162,8 @@ const Mathematiques: React.FC = () => {
                     timeSpent={lastTime}
                     level={currentSessionLevel}
                     isSuccess={lastSuccess}
-                    onRetry={handleRetry}
-                    onNext={handleNextLevel}
+                    onRetry={() => handleStartLevel(currentSessionLevel)}
+                    onNext={() => handleStartLevel(currentSessionLevel + 1)}
                     onHome={handleBackToDashboard}
                 />
             )}
