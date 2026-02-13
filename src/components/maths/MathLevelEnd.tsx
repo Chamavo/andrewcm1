@@ -135,4 +135,4 @@ const MathLevelEnd: React.FC<MathLevelEndProps> = ({ score, total, timeSpent, le
     );
 };
 
-export default MathLevelEnd;
+export default React.memo(MathLevelEnd);

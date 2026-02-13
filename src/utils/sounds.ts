@@ -2,12 +2,19 @@
  * Sound effects using Web Audio API (no external files needed)
  */
 
-const audioCtx = () => new (window.AudioContext || (window as any).webkitAudioContext)();
+let _ctx: AudioContext | null = null;
+const getAudioCtx = (): AudioContext => {
+    if (!_ctx || _ctx.state === 'closed') {
+        _ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    }
+    if (_ctx.state === 'suspended') _ctx.resume();
+    return _ctx;
+};
 
 /** Play a success/fanfare sound when leveling up */
 export function playLevelUpSound() {
     try {
-        const ctx = audioCtx();
+        const ctx = getAudioCtx();
         const now = ctx.currentTime;
 
         // Siren/Fanfare: ascending major 7th chord feel
@@ -62,7 +69,7 @@ export function playLevelUpSound() {
 /** Play a short correct answer ding */
 export function playCorrectSound() {
     try {
-        const ctx = audioCtx();
+        const ctx = getAudioCtx();
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.connect(gain);
@@ -81,7 +88,7 @@ export function playCorrectSound() {
 /** Play a short wrong answer buzz */
 export function playWrongSound() {
     try {
-        const ctx = audioCtx();
+        const ctx = getAudioCtx();
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.connect(gain);
@@ -100,7 +107,7 @@ export function playWrongSound() {
 /** Play the ultimate victory fanfare for completing all 25 levels */
 export function playAllCompleteSound() {
     try {
-        const ctx = audioCtx();
+        const ctx = getAudioCtx();
         const now = ctx.currentTime;
 
         // Grand ascending scale

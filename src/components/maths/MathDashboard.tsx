@@ -130,4 +130,4 @@ const MathDashboard: React.FC<MathDashboardProps> = ({ currentLevel, username, o
     );
 };
 
-export default MathDashboard;
+export default React.memo(MathDashboard);

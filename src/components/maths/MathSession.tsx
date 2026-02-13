@@ -190,4 +190,4 @@ const MathSession: React.FC<MathSessionProps> = ({ level, exercises, onComplete,
     );
 };
 
-export default MathSession;
+export default React.memo(MathSession);

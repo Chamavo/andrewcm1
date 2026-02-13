@@ -93,32 +93,31 @@ const saveProgression = async (
     const userId = await getCurrentUserId();
     const key = getLocalStorageKey(username, mode);
 
-    // Always save to localStorage as backup
+    // Always save to localStorage as backup (instant)
     localStorage.setItem(key, JSON.stringify(info));
 
     if (!userId) return;
 
-    // Upsert to database
-    const { error } = await supabase
+    // Supabase fire-and-forget
+    supabase
         .from('student_progression')
         .upsert({
             user_id: userId,
             student_name: username.toLowerCase(),
             mode,
             current_level: info.level,
-            fail_count: info.fail_count,
-            is_blocked: info.is_blocked,
-            required_correct_streak: info.required_correct_streak,
-            current_correct_streak: info.current_correct_streak,
+            fail_count: info.failCount,
+            is_blocked: info.isBlocked,
+            required_correct_streak: info.requiredCorrectStreak,
+            current_correct_streak: info.currentCorrectStreak,
             level_in_progress: info.levelInProgress ?? false,
-            level_started_at: info.level_started_at ?? null,
+            level_started_at: info.levelStartedAt ?? null,
         }, {
             onConflict: 'user_id,student_name,mode'
+        })
+        .then(({ error }) => {
+            if (error) console.error('Sync error (saveProgression):', error);
         });
-
-    if (error) {
-        console.error('Failed to save progression to database:', error);
-    }
 };
 
 export const markLevelStarted = async (

@@ -43,7 +43,7 @@ const Mathematiques: React.FC = () => {
         loadLevel();
     }, [username]);
 
-    const handleSessionComplete = async (score: number, timeSpent: number) => {
+    const handleSessionComplete = (score: number, timeSpent: number) => {
         setLastScore(score);
         setLastTime(timeSpent);
         const success = score >= 9; // 90% (9/10) success threshold
@@ -51,7 +51,7 @@ const Mathematiques: React.FC = () => {
 
         if (success && currentSessionLevel === level) {
             const nextLevel = level + 1;
-            await updateCurrentLevel(username, nextLevel);
+            updateCurrentLevel(username, nextLevel); // fire-and-forget
             setLevel(nextLevel);
         }
 

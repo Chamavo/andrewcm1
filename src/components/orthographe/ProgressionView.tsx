@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ArrowLeft, Loader2, CheckCircle2, XCircle,
@@ -66,7 +66,7 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
         return new Date(progress.lockout_until) > new Date();
     }, [progress.lockout_until]);
 
-    const handleStart = useCallback(async () => {
+    const handleStart = useCallback(() => {
         if (isLocked) return;
         setStep('exercise');
         if (progress.answered_indices.length === 0) {
@@ -75,12 +75,12 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
             setSessionTotal(0);
             setCategoryErrors({});
             if (exercises.length === 0) {
-                await generateExercises();
+                generateExercises();
             }
         }
     }, [exercises, generateExercises, progress.answered_indices, isLocked]);
 
-    const checkAnswer = useCallback(async (answer: string) => {
+    const checkAnswer = useCallback((answer: string) => {
         if (!currentExercise || isValidating) return;
         setIsValidating(true);
         setUserAnswer(answer);
@@ -100,7 +100,7 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
         setSessionTotal(prev => prev + 1);
         if (correct) setSessionCorrect(prev => prev + 1);
 
-        const result = await recordAnswer(correct, currentExerciseIdx);
+        const result = recordAnswer(correct, currentExerciseIdx);
 
         if (result) {
             setLevelResult(result);
@@ -110,15 +110,15 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
         setStep('result');
     }, [currentExercise, isValidating, recordAnswer, currentExerciseIdx]);
 
-    const handleSubmit = useCallback(async () => {
-        if (userAnswer.trim()) await checkAnswer(userAnswer);
+    const handleSubmit = useCallback(() => {
+        if (userAnswer.trim()) checkAnswer(userAnswer);
     }, [userAnswer, checkAnswer]);
 
-    const handleOptionClick = useCallback(async (option: string) => {
-        await checkAnswer(option);
+    const handleOptionClick = useCallback((option: string) => {
+        checkAnswer(option);
     }, [checkAnswer]);
 
-    const handleNext = useCallback(async () => {
+    const handleNext = useCallback(() => {
         if (levelResult) {
             if (levelResult.allDone) {
                 setStep('all-complete');
@@ -131,7 +131,7 @@ export const ProgressionView = ({ studentName, onComplete, onBack }: Progression
 
         const nextIdx = currentExerciseIdx + 1;
         if (nextIdx >= exercises.length) {
-            await generateExercises();
+            generateExercises();
         }
 
         setCurrentExerciseIdx(nextIdx);
@@ -307,7 +307,7 @@ const renderTextWithUnderline = (text: string) => {
     });
 };
 
-const LockoutBanner = ({ lockoutUntil }: { lockoutUntil: string }) => {
+const LockoutBanner = memo(({ lockoutUntil }: { lockoutUntil: string }) => {
     return (
         <motion.div
             initial={{ height: 0, opacity: 0 }}
@@ -319,9 +319,10 @@ const LockoutBanner = ({ lockoutUntil }: { lockoutUntil: string }) => {
             <p className="text-white/80">Prends un peu de repos avant de recommencer !</p>
         </motion.div>
     );
-};
+});
+LockoutBanner.displayName = 'LockoutBanner';
 
-const SessionTimer = ({ remaining }: { remaining: number }) => {
+const SessionTimer = memo(({ remaining }: { remaining: number }) => {
     const minutes = Math.floor(remaining / 60);
     const seconds = remaining % 60;
     return (
@@ -330,9 +331,10 @@ const SessionTimer = ({ remaining }: { remaining: number }) => {
             <span>{minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</span>
         </div>
     );
-};
+});
+SessionTimer.displayName = 'SessionTimer';
 
-const GlobalLockoutScreen = ({ lockoutRemaining }: { lockoutRemaining: number }) => {
+const GlobalLockoutScreen = memo(({ lockoutRemaining }: { lockoutRemaining: number }) => {
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -344,9 +346,10 @@ const GlobalLockoutScreen = ({ lockoutRemaining }: { lockoutRemaining: number })
             <p className="text-xl text-slate-400 mb-12">La limite de temps est atteinte. Reviens plus tard !</p>
         </motion.div>
     );
-};
+});
+GlobalLockoutScreen.displayName = 'GlobalLockoutScreen';
 
-const ProgressionHeader = ({ onBack, currentLevel, percentage, exercisesDone, totalExercises, errors, showMenu }: any) => (
+const ProgressionHeader = memo(({ onBack, currentLevel, percentage, exercisesDone, totalExercises, errors, showMenu }: any) => (
     <header className="bg-white/80 backdrop-blur-md p-4 relative z-20 border-b border-slate-200 sticky top-0">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
             <Button
@@ -354,8 +357,8 @@ const ProgressionHeader = ({ onBack, currentLevel, percentage, exercisesDone, to
                 size="lg"
                 onClick={onBack}
                 className={`font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 transition-all ${showMenu
-                        ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20'
-                        : 'bg-blue-500 hover:bg-blue-600 text-white shadow-blue-500/20'
+                    ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20'
+                    : 'bg-blue-500 hover:bg-blue-600 text-white shadow-blue-500/20'
                     }`}
             >
                 <ArrowLeft className="w-6 h-6" /> {showMenu ? 'Menu' : 'Retour'}
@@ -369,9 +372,10 @@ const ProgressionHeader = ({ onBack, currentLevel, percentage, exercisesDone, to
             </div>
         </div>
     </header>
-);
+));
+ProgressionHeader.displayName = 'ProgressionHeader';
 
-const ProgressionIntro = ({ currentLevel, percentage, totalExercises, onStart, isGenerating, isLocked, hasProgress }: any) => (
+const ProgressionIntro = memo(({ currentLevel, percentage, totalExercises, onStart, isGenerating, isLocked, hasProgress }: any) => (
     <motion.div className="w-full max-w-lg bg-white rounded-3xl p-8 shadow-2xl text-center">
         <div className="text-5xl mb-6">🏔️</div>
         <h2 className="text-3xl font-bold text-slate-800 mb-4">{hasProgress ? 'Continue l\'ascension !' : 'Atteins les sommets !'}</h2>
@@ -380,9 +384,10 @@ const ProgressionIntro = ({ currentLevel, percentage, totalExercises, onStart, i
             {isGenerating ? 'Chargement...' : 'C\'est parti !'}
         </Button>
     </motion.div>
-);
+));
+ProgressionIntro.displayName = 'ProgressionIntro';
 
-const ExerciseCard = ({ exercise, userAnswer, isValidating, onAnswerChange, onSubmit, onOptionClick, exerciseNumber, totalExercises }: any) => (
+const ExerciseCard = memo(({ exercise, userAnswer, isValidating, onAnswerChange, onSubmit, onOptionClick, exerciseNumber, totalExercises }: any) => (
     <motion.div className="w-full max-w-2xl bg-white rounded-3xl p-8 shadow-2xl">
         <div className="text-sm text-slate-400 mb-6 font-bold uppercase tracking-wider">Exercice {exerciseNumber} / {totalExercises}</div>
         <h2 className="text-2xl font-bold text-slate-800 mb-10 text-center leading-relaxed whitespace-pre-line border-b border-slate-100 pb-8">
@@ -405,30 +410,34 @@ const ExerciseCard = ({ exercise, userAnswer, isValidating, onAnswerChange, onSu
             )}
         </div>
     </motion.div>
-);
+));
+ExerciseCard.displayName = 'ExerciseCard';
 
-const ResultCard = ({ isCorrect, userAnswer, correctAnswer }: any) => (
+const ResultCard = memo(({ isCorrect, userAnswer, correctAnswer }: any) => (
     <motion.div className="w-full max-w-lg bg-white rounded-3xl p-8 shadow-2xl text-center">
         {isCorrect ? <CheckCircle2 className="w-20 h-20 text-emerald-500 mx-auto mb-4" /> : <XCircle className="w-20 h-20 text-red-500 mx-auto mb-4" />}
         <h3 className={`text-3xl font-bold ${isCorrect ? 'text-emerald-600' : 'text-red-600'}`}>{isCorrect ? 'Bravo ! 🎉' : 'Oups...'}</h3>
         {!isCorrect && <p className="mt-4 text-xl">Bonne réponse : <span className="font-bold text-emerald-600">{correctAnswer}</span></p>}
     </motion.div>
-);
+));
+ResultCard.displayName = 'ResultCard';
 
-const AllCompleteScreen = ({ onBack }: any) => (
+const AllCompleteScreen = memo(({ onBack }: any) => (
     <div className="text-center bg-white rounded-3xl p-12 shadow-2xl">
         <div className="text-8xl mb-6">🎓</div>
         <h1 className="text-4xl font-black text-emerald-600 mb-4">FÉLICITATIONS !</h1>
         <p className="text-xl text-slate-600 mb-8">Tu as gravi tous les sommets de l'orthographe !</p>
         <Button onClick={onBack} size="lg">Continuer</Button>
     </div>
-);
+));
+AllCompleteScreen.displayName = 'AllCompleteScreen';
 
-const LevelCompleteScreen = ({ advanced, sessionCorrect, sessionTotal, onContinue }: any) => (
+const LevelCompleteScreen = memo(({ advanced, sessionCorrect, sessionTotal, onContinue }: any) => (
     <div className="bg-white rounded-3xl p-8 shadow-2xl text-center">
         <div className="text-7xl mb-6">{advanced ? '🏆' : '💪'}</div>
         <h2 className="text-3xl font-bold mb-2">{advanced ? 'Niveau validé !' : 'Essaye encore !'}</h2>
         <p className="text-slate-600 mb-8 text-xl">Ton score : {sessionCorrect} / {sessionTotal}</p>
         <Button onClick={onContinue} size="lg" className="w-full bg-emerald-500 py-6 text-xl">Suivant</Button>
     </div>
-);
+));
+LevelCompleteScreen.displayName = 'LevelCompleteScreen';
