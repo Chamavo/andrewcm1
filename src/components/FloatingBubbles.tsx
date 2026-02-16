@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const bubbles = [
   { size: 100, x: "5%", y: "15%", delay: 0, color: "rgba(255, 138, 0, 0.1)" },    // Orange
@@ -11,9 +12,14 @@ const bubbles = [
 ];
 
 const FloatingBubbles = () => {
+  const isMobile = useIsMobile();
+
+  // Show fewer bubbles on mobile to improve performance
+  const activeBubbles = isMobile ? bubbles.slice(0, 3) : bubbles;
+
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {bubbles.map((bubble, index) => (
+      {activeBubbles.map((bubble, index) => (
         <motion.div
           key={index}
           className="absolute rounded-full blur-[2px] shadow-inner"
@@ -32,7 +38,7 @@ const FloatingBubbles = () => {
             rotate: [0, 45, 0],
           }}
           transition={{
-            duration: 8 + index,
+            duration: isMobile ? 12 + index : 8 + index, // Slower animations on mobile
             delay: bubble.delay,
             repeat: Infinity,
             ease: "easeInOut",

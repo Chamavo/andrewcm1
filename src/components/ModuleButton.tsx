@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { LucideIcon } from "lucide-react";
 
+import { useIsMobile } from "@/hooks/use-mobile";
+
 interface ModuleButtonProps {
   to?: string;
   icon: LucideIcon;
@@ -40,6 +42,8 @@ const variantStyles = {
 };
 
 const ModuleButton = ({ to, icon: Icon, title, subtitle, variant, delay = 0, inactive = false }: ModuleButtonProps) => {
+  const isMobile = useIsMobile();
+
   const content = (
     <div
       className={`
@@ -50,16 +54,21 @@ const ModuleButton = ({ to, icon: Icon, title, subtitle, variant, delay = 0, ina
         group shimmer
       `}
       style={{
-        boxShadow: !inactive ? `
-          0 15px 35px rgba(0,0,0,0.15),
-          0 10px 0 ${variant === 'orthographe' ? '#CC6E00' : variant === 'maths' ? '#1D5CC2' : variant === 'concentration' ? '#7B1FA2' : '#64748b'},
-          inset 0 -8px 0 rgba(0,0,0,0.1),
-          inset 0 8px 0 rgba(255,255,255,0.2)
-        ` : undefined
+        boxShadow: !inactive ? (
+          isMobile ?
+            `0 4px 0 ${variant === 'orthographe' ? '#CC6E00' : variant === 'maths' ? '#1D5CC2' : variant === 'concentration' ? '#7B1FA2' : '#64748b'}`
+            :
+            `
+              0 15px 35px rgba(0,0,0,0.15),
+              0 10px 0 ${variant === 'orthographe' ? '#CC6E00' : variant === 'maths' ? '#1D5CC2' : variant === 'concentration' ? '#7B1FA2' : '#64748b'},
+              inset 0 -8px 0 rgba(0,0,0,0.1),
+              inset 0 8px 0 rgba(255,255,255,0.2)
+            `
+        ) : undefined
       }}
     >
       <motion.div
-        className={`rounded-full ${variantStyles[variant].iconBg} p-6 backdrop-blur-md floating-icon shadow-inner`}
+        className={`rounded-full ${variantStyles[variant].iconBg} p-6 ${isMobile ? '' : 'backdrop-blur-md'} floating-icon shadow-inner`}
       >
         <Icon className="w-14 h-14 md:w-20 md:h-20 drop-shadow-lg" strokeWidth={2.5} />
       </motion.div>
@@ -74,8 +83,10 @@ const ModuleButton = ({ to, icon: Icon, title, subtitle, variant, delay = 0, ina
         )}
       </div>
 
-      {/* Glossy overlay effect */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+      {/* Glossy overlay effect - remove on mobile for performance */}
+      {!isMobile && (
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+      )}
     </div>
   );
 

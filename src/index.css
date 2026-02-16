@@ -183,4 +183,25 @@
     top: 20%;
     right: 5%;
   }
+
+  @media (max-width: 768px) {
+    .btn-3d {
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .floating-icon, .kumon-shape {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    .shimmer::after {
+      display: none;
+    }
+    
+    /* Reduce large blur radius on mobile for performance */
+    .kumon-shape {
+        filter: blur(20px);
+        opacity: 0.05;
+    }
+  }
 }
