@@ -57,6 +57,7 @@ const OrthographePage = () => {
                 studentName={user || 'Élève'}
                 onModuleSelect={handleModuleSelect as any}
                 onLogout={handleExit}
+                stats={userProgress}
             />
         );
     }

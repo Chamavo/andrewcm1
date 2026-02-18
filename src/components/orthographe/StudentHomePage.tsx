@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { UserProgress } from '@/types/orthographe';
+
 import {
     BookOpen,
     PenTool,
@@ -10,12 +12,7 @@ import {
     Home
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/integrations/supabase/orthographeClient';
-
-interface StudentHomePageProps {
-    studentName: string;
-    onModuleSelect: (module: 'progression' | 'dictee' | 'redaction') => void;
-    onLogout: () => void;
+stats: UserProgress | null;
 }
 
 const TOTAL_PROGRESSION_LEVELS = 50;
@@ -23,34 +20,11 @@ const TOTAL_PROGRESSION_LEVELS = 50;
 export const StudentHomePage = ({
     studentName,
     onModuleSelect,
-    onLogout
+    onLogout,
+    stats
 }: StudentHomePageProps) => {
-    const [progressionCompleted, setProgressionCompleted] = useState(false);
-    const [currentLevel, setCurrentLevel] = useState(1);
-    const [percentage, setPercentage] = useState(0);
-
-    useEffect(() => {
-        const loadProgressionStatus = async () => {
-            const { data, error } = await supabase
-                .from('progression_levels')
-                .select('current_level, all_completed')
-                .eq('student_id', studentName)
-                .maybeSingle();
-
-            if (error) {
-                console.error('Error loading progression status:', error);
-                return;
-            }
-
-            if (data) {
-                setProgressionCompleted(data.all_completed);
-                setCurrentLevel(data.current_level);
-                setPercentage(Math.round(((data.current_level - 1) / TOTAL_PROGRESSION_LEVELS) * 100));
-            }
-        };
-
-        loadProgressionStatus();
-    }, [studentName]);
+    const currentLevel = stats?.currentLevel || 1;
+    const percentage = Math.round(((currentLevel - 1) / TOTAL_PROGRESSION_LEVELS) * 100);
 
     return (
         <div className="min-h-screen bg-white">
