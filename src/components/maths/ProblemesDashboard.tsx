@@ -2,7 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Lock, Check } from 'lucide-react';
-import { getAllProblems, getProblemStatus, TOTAL_PROBLEMS } from '@/utils/maths/problemManager';
+import { getAllProblems, TOTAL_PROBLEMS } from '@/utils/maths/problemManager';
+import { useUser } from '@/context/UserContext';
 
 interface ProblemesDashboardProps {
     onSelectProblem: (id: number) => void;
@@ -10,6 +11,7 @@ interface ProblemesDashboardProps {
 }
 
 const ProblemesDashboard: React.FC<ProblemesDashboardProps> = ({ onSelectProblem, onBack }) => {
+    const { progress } = useUser();
     // Generate 1 to 150
     const allIds = Array.from({ length: TOTAL_PROBLEMS }, (_, i) => i + 1);
     const problems = getAllProblems();
@@ -39,8 +41,7 @@ const ProblemesDashboard: React.FC<ProblemesDashboardProps> = ({ onSelectProblem
                 {ids.map(id => {
                     const problem = problems.find(p => p.id === id);
                     const isMissing = !problem;
-                    const status = getProblemStatus(id);
-                    const isSolved = status === 'solved';
+                    const isSolved = progress.solvedProblems.includes(id);
                     const colorStyle = getButtonColor(id);
 
                     return (

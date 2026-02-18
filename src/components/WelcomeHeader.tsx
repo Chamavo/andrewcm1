@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Star, Sparkles } from "lucide-react";
-import { useUser } from "@/hooks/useUser";
+import { useUser } from "@/context/UserContext";
 
 const WelcomeHeader = () => {
-  const { username } = useUser();
+  const { user } = useUser();
 
   return (
     <motion.div
@@ -36,7 +36,7 @@ const WelcomeHeader = () => {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
         Bienvenue chez <br />
-        <span className="text-gradient-andrew">{username}</span> ! ⚽
+        <span className="text-gradient-andrew">{user}</span> ! ⚽
       </motion.h1>
 
       <motion.p

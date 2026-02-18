@@ -8,11 +8,11 @@ import MathLevelEnd from '@/components/maths/MathLevelEnd';
 import ProblemesDashboard from '@/components/maths/ProblemesDashboard';
 import ProblemeSession from '@/components/maths/ProblemeSession';
 import { getCurrentLevel, updateCurrentLevel } from '@/utils/maths/levelBlockingSystem';
-import { useUser } from '@/hooks/useUser';
+import { useUser } from '@/context/UserContext';
 import { useMathNavigation } from '@/hooks/useMathNavigation';
 
 const Mathematiques: React.FC = () => {
-    const { username } = useUser();
+    const { user } = useUser();
     const {
         currentView,
         setCurrentView,
@@ -37,11 +37,13 @@ const Mathematiques: React.FC = () => {
 
     useEffect(() => {
         const loadLevel = async () => {
-            const l = await getCurrentLevel(username, 'progression');
-            setLevel(l);
+            if (user) {
+                const l = await getCurrentLevel(user, 'progression');
+                setLevel(l);
+            }
         };
         loadLevel();
-    }, [username]);
+    }, [user]);
 
     const handleSessionComplete = (score: number, timeSpent: number) => {
         setLastScore(score);
@@ -49,9 +51,9 @@ const Mathematiques: React.FC = () => {
         const success = score >= 9; // 90% (9/10) success threshold
         setLastSuccess(success);
 
-        if (success && currentSessionLevel === level) {
+        if (success && currentSessionLevel === level && user) {
             const nextLevel = level + 1;
-            updateCurrentLevel(username, nextLevel); // fire-and-forget
+            updateCurrentLevel(user, nextLevel); // fire-and-forget
             setLevel(nextLevel);
         }
 
@@ -139,7 +141,7 @@ const Mathematiques: React.FC = () => {
             {/* Calcul Views */}
             {currentView === 'calcul_dashboard' && (
                 <MathDashboard
-                    username={username}
+                    username={user || 'Joueur'}
                     currentLevel={level}
                     onStartLevel={handleStartLevel}
                     onBack={handleBackToLanding}

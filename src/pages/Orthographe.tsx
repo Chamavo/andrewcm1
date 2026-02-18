@@ -6,13 +6,13 @@ import { DicteeModule } from '@/components/orthographe/DicteeModule';
 import { RedactionModule } from '@/components/orthographe/RedactionModule';
 import { useProgress } from '@/hooks/useProgress';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '@/hooks/useUser';
+import { useUser } from '@/context/UserContext';
 
 type View = 'home' | 'progression' | 'dictee' | 'etude' | 'orthographe' | 'redaction';
 
 const OrthographePage = () => {
     const [view, setView] = useState<View>('home');
-    const { username } = useUser();
+    const { user } = useUser();
     const navigate = useNavigate();
 
     const {
@@ -22,8 +22,10 @@ const OrthographePage = () => {
     } = useProgress();
 
     useEffect(() => {
-        loadProgress(username);
-    }, [loadProgress, username]);
+        if (user) {
+            loadProgress(user);
+        }
+    }, [loadProgress, user]);
 
     const handleModuleSelect = useCallback((module: string) => {
         switch (module) {
@@ -52,7 +54,7 @@ const OrthographePage = () => {
     if (view === 'home') {
         return (
             <StudentHomePage
-                studentName={username}
+                studentName={user || 'Élève'}
                 onModuleSelect={handleModuleSelect as any}
                 onLogout={handleExit}
             />
@@ -62,7 +64,7 @@ const OrthographePage = () => {
     if (view === 'progression') {
         return (
             <ProgressionView
-                studentName={username}
+                studentName={user || 'Élève'}
                 onComplete={handleBackToMenu}
                 onBack={handleBackToMenu}
             />

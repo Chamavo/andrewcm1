@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Check, HelpCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { MathProblem, saveProblemStatus } from '@/utils/maths/problemManager';
+import { MathProblem } from '@/utils/maths/problemManager';
+import { useUser } from '@/context/UserContext';
 
 interface ProblemeSessionProps {
     problem: MathProblem;
@@ -15,6 +16,7 @@ const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onCo
     const [showHint, setShowHint] = useState(false);
     const [userAnswers, setUserAnswers] = useState<string[]>([]);
     const [showError, setShowError] = useState(false);
+    const { markProblemSolved } = useUser();
 
     // Initialize answers size
     React.useEffect(() => {
@@ -54,7 +56,7 @@ const ProblemeSession: React.FC<ProblemeSessionProps> = ({ problem, onBack, onCo
     };
 
     const handleSolved = () => {
-        saveProblemStatus(problem.id, 'solved');
+        markProblemSolved(problem.id);
         confetti({
             particleCount: 100,
             spread: 70,
