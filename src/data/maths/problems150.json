@@ -751,17 +751,12 @@
         "title": "Les économies (Logique)",
         "part": 1,
         "text": "Chaque semaine, Tom économise 500 F.\nCombien de semaines lui faudra-t-il pour acheter un ballon à 4500 F ?",
-        "answer": "4500 : 500 = 9 semaines.\n## Partie 3 : Fin d'année - Problèmes à étapes implicites, Décimaux, Fractions, Pourcentages\n**Thèmes : Décimaux, Fractions, Pourcentages, Aires, Échelles, Problèmes complexes**",
+        "answer": "4500 : 500 = 9 semaines.",
         "questions": [
             {
-                "label": "## Partie 3",
-                "response": "",
-                "unit": "Fin"
-            },
-            {
-                "label": "**Thèmes",
-                "response": "",
-                "unit": "D"
+                "label": "Réponse",
+                "response": "9",
+                "unit": "semaines"
             }
         ]
     },
@@ -1380,8 +1375,9 @@
         "answer": "Total = 4 x 8 = 32 musiciens. Trompette = 32 : 4 = 8. Tambour = 32 - 8 = 24.\nParfait — tu as raison.\nVoici les **50 problèmes (101 à 150)** rédigés en **langage naturel complet**, avec des **questions explicites** et les **réponses détaillées sous chaque exercice**.\nLes **15 derniers (136 à 150)** comportent une complexité supplémentaire avec une étape intermédiaire implicite.",
         "questions": [
             {
-                "response": "",
-                "unit": "implicite"
+                "label": "Tambour",
+                "response": "24",
+                "unit": "musiciens"
             }
         ]
     },
