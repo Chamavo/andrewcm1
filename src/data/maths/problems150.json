@@ -355,8 +355,8 @@
             },
             {
                 "label": "b)",
-                "response": "10",
-                "unit": "h"
+                "response": "10h50",
+                "unit": ""
             }
         ]
     },
@@ -414,10 +414,16 @@
         "id": 23,
         "title": "La classe verte",
         "part": 1,
-        "text": "Une école organise un voyage pour 75 élèves. Le transport coûte 1500 F par élève et l'hébergement 3000 F par élève.\nQuel est le coût total du voyage par élève ?\nQuel est le coût total pour l'école ?",
-        "answer": "1500 + 3000 = 4500 F par élève. 4500 x 75 = 337 500 F.",
+        "text": "Une école organise un voyage pour 75 élèves. Le transport coûte 1500 F par élève et l'hébergement 3000 F par élève.\na) Quel est le coût total du voyage par élève ?\nb) Quel est le coût total pour l'école ?",
+        "answer": "a) 1500 + 3000 = 4500 F par élève. b) 4500 x 75 = 337 500 F.",
         "questions": [
             {
+                "label": "a)",
+                "response": "4500",
+                "unit": "F"
+            },
+            {
+                "label": "b)",
                 "response": "337500",
                 "unit": "F"
             }
@@ -444,7 +450,7 @@
         "answer": "20h30 + 1h45 = 22h15.",
         "questions": [
             {
-                "response": "15",
+                "response": "22h15",
                 "unit": ""
             }
         ]
@@ -565,10 +571,16 @@
         "id": 35,
         "title": "L'âge",
         "part": 1,
-        "text": "Marc a 12 ans. Son père a 3 fois son âge. Quel âge a son père ?\nQuelle est la différence d'âge entre Marc et son père ?",
-        "answer": "Père = 12 x 3 = 36 ans. Différence = 36 - 12 = 24 ans.",
+        "text": "Marc a 12 ans. Son père a 3 fois son âge.\na) Quel âge a son père ?\nb) Quelle est la différence d'âge entre Marc et son père ?",
+        "answer": "a) Père = 12 x 3 = 36 ans. b) Différence = 36 - 12 = 24 ans.",
         "questions": [
             {
+                "label": "a)",
+                "response": "36",
+                "unit": "ans"
+            },
+            {
+                "label": "b)",
                 "response": "24",
                 "unit": "ans"
             }
@@ -672,10 +684,16 @@
         "id": 44,
         "title": "Le cinéma",
         "part": 1,
-        "text": "Une salle de cinéma a 25 rangées de 30 places.\nCombien y a-t-il de places en tout ?\nSi 600 personnes entrent, combien de places restent vides ?",
-        "answer": "25 x 30 = 750 places. Vides = 750 - 600 = 150 places.",
+        "text": "Une salle de cinéma a 25 rangées de 30 places.\na) Combien y a-t-il de places en tout ?\nb) Si 600 personnes entrent, combien de places restent vides ?",
+        "answer": "a) 25 x 30 = 750 places. b) Vides = 750 - 600 = 150 places.",
         "questions": [
             {
+                "label": "a)",
+                "response": "750",
+                "unit": "places"
+            },
+            {
+                "label": "b)",
                 "response": "150",
                 "unit": "places"
             }
@@ -1447,9 +1465,9 @@
         "answer": "Durée totale : 5 h 38 min\n5 h 38 − 35 min = **5 h 03 min**",
         "questions": [
             {
-                "label": "Durée totale",
-                "response": "5",
-                "unit": "h"
+                "label": "Réponse",
+                "response": "5h03",
+                "unit": ""
             }
         ]
     },
@@ -1866,14 +1884,9 @@
         "answer": "Durée totale : 4 h 40 min\nArrêts : 35 min\nDurée réelle : **4 h 05 min**",
         "questions": [
             {
-                "label": "Durée totale",
-                "response": "4",
-                "unit": "h"
-            },
-            {
-                "label": "Arrêts",
-                "response": "35",
-                "unit": "min"
+                "label": "Réponse",
+                "response": "4h05",
+                "unit": ""
             }
         ]
     },
@@ -2071,7 +2084,8 @@
         "answer": "5 000 ÷ 10 000 = 0,5 ha",
         "questions": [
             {
-                "response": "5",
+                "label": "Réponse",
+                "response": "0,5",
                 "unit": "ha"
             }
         ]
@@ -2110,6 +2124,12 @@
         "answer": "200 × 150 = 30 000 m²\n30 000 ÷ 10 000 = 3 ha",
         "questions": [
             {
+                "label": "En m²",
+                "response": "30000",
+                "unit": "m²"
+            },
+            {
+                "label": "En ha",
                 "response": "3",
                 "unit": "ha"
             }
@@ -2136,7 +2156,8 @@
         "answer": "25 000 ÷ 10 000 = 2,5 ha",
         "questions": [
             {
-                "response": "5",
+                "label": "Réponse",
+                "response": "2,5",
                 "unit": "ha"
             }
         ]
