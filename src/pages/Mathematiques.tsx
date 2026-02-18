@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, BookOpen, ArrowLeft } from 'lucide-react';
+import { Calculator, BookOpen, ArrowLeft, LogOut } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import MathDashboard from '@/components/maths/MathDashboard';
 import MathSession from '@/components/maths/MathSession';
 import MathLevelEnd from '@/components/maths/MathLevelEnd';
@@ -12,7 +13,7 @@ import { useUser } from '@/context/UserContext';
 import { useMathNavigation } from '@/hooks/useMathNavigation';
 
 const Mathematiques: React.FC = () => {
-    const { user } = useUser();
+    const { user, logout } = useUser();
     const {
         currentView,
         setCurrentView,
@@ -71,12 +72,25 @@ const Mathematiques: React.FC = () => {
             {/* Landing View */}
             {currentView === 'landing' && (
                 <div className="min-h-screen flex flex-col items-center justify-center p-6 gap-8 relative overflow-hidden">
-                    <button
-                        onClick={handleExitApp}
-                        className="absolute top-6 left-6 p-3 rounded-full bg-slate-200 hover:bg-slate-300 transition-colors"
-                    >
-                        <ArrowLeft className="w-6 h-6 text-slate-700" />
-                    </button>
+                    <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-50">
+                        <Button
+                            variant="ghost"
+                            onClick={handleExitApp}
+                            className="gap-2 text-slate-600 hover:text-slate-900 hover:bg-slate-200"
+                        >
+                            <ArrowLeft className="w-5 h-5" />
+                            Menu
+                        </Button>
+
+                        <Button
+                            variant="ghost"
+                            onClick={logout}
+                            className="gap-2 text-slate-500 hover:text-red-600 hover:bg-red-50"
+                        >
+                            <LogOut className="w-5 h-5" />
+                            Déconnexion
+                        </Button>
+                    </div>
 
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}

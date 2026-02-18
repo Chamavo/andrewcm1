@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lock, Star, Trophy, Home } from 'lucide-react';
+import { Lock, Star, Trophy, Home, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useUser } from '@/context/UserContext';
 
 interface MathDashboardProps {
     currentLevel: number;
@@ -13,6 +14,8 @@ interface MathDashboardProps {
 const TOTAL_LEVELS = 50;
 
 const MathDashboard: React.FC<MathDashboardProps> = ({ currentLevel, username, onStartLevel, onBack }) => {
+    const { logout } = useUser();
+
     // Calculate global progress
     const progressPercentage = Math.min(100, Math.round(((currentLevel - 1) / TOTAL_LEVELS) * 100));
 
@@ -59,6 +62,15 @@ const MathDashboard: React.FC<MathDashboardProps> = ({ currentLevel, username, o
                         className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3"
                     >
                         <Home className="w-6 h-6" /> Accueil
+                    </Button>
+
+                    <Button
+                        onClick={logout}
+                        variant="destructive"
+                        size="lg"
+                        className="bg-red-500 hover:bg-red-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 shadow-red-500/20"
+                    >
+                        <LogOut className="w-6 h-6" />
                     </Button>
                 </div>
             </div>

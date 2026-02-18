@@ -31,15 +31,30 @@ const parseAnswer = (reponse: number | string): number => {
 export const generateChoices = (correctAnswer: number): number[] => {
     const choices = [correctAnswer];
     const isDecimal = correctAnswer % 1 !== 0;
-    while (choices.length < 4) {
+    let attempts = 0;
+    const MAX_ATTEMPTS = 50;
+
+    while (choices.length < 4 && attempts < MAX_ATTEMPTS) {
+        attempts++;
         let wrong: number;
         if (isDecimal) {
             wrong = parseFloat((correctAnswer + (Math.random() * 0.4 - 0.2)).toFixed(2));
         } else {
             wrong = correctAnswer + (Math.floor(Math.random() * 20) - 10);
         }
-        if (!choices.includes(wrong) && wrong >= 0) choices.push(wrong);
+
+        // Ensure strictly positive for some logic or just non-negative
+        if (!choices.includes(wrong) && wrong >= 0) {
+            choices.push(wrong);
+        }
     }
+
+    // Fallback if we couldn't find enough unique choices
+    while (choices.length < 4) {
+        const last = choices[choices.length - 1];
+        choices.push(last + 1);
+    }
+
     return choices.sort(() => Math.random() - 0.5);
 };
 
@@ -63,18 +78,34 @@ const generateProceduralExercises = (level: number): Exercise[] => {
     const strategy = strategies[level] || getFallbackStrategy();
 
     for (let i = 0; i < count; i++) {
-        const partial = strategy(level);
-        const answer = partial.answer ?? 0;
+        try {
+            if (!strategy) throw new Error("Strategy not found");
 
-        exercises.push({
-            id: generateId(),
-            question: partial.question ?? "",
-            answer,
-            category: partial.category ?? "calcul",
-            level,
-            isQCM: partial.isQCM ?? Math.random() > 0.6,
-            choices: generateChoices(answer)
-        });
+            const partial = strategy(level);
+            const answer = partial.answer ?? 0;
+
+            exercises.push({
+                id: generateId(),
+                question: partial.question ?? "Question ?",
+                answer,
+                category: partial.category ?? "calcul",
+                level,
+                isQCM: partial.isQCM ?? Math.random() > 0.6,
+                choices: generateChoices(answer)
+            });
+        } catch (error) {
+            console.error(`Error generating exercise for level ${level}:`, error);
+            // Fallback safe exercise
+            exercises.push({
+                id: generateId(),
+                question: "1 + 1 =",
+                answer: 2,
+                category: "fallback",
+                level,
+                isQCM: true,
+                choices: [2, 3, 4, 1]
+            });
+        }
     }
 
     return exercises;

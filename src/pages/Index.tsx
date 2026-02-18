@@ -5,9 +5,12 @@ import WelcomeHeader from "@/components/WelcomeHeader";
 import ModuleButton from "@/components/ModuleButton";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "@/context/UserContext";
+import { LogOut } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { logout } = useUser();
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-white">
@@ -20,6 +23,18 @@ const Index = () => {
       <FloatingBubbles />
 
       <main className="relative z-10 container py-10 px-4 max-w-6xl mx-auto flex flex-col items-center">
+        {/* Logout Button */}
+        <div className="w-full flex justify-end mb-4">
+          <Button
+            variant="ghost"
+            onClick={logout}
+            className="gap-2 text-slate-500 hover:text-red-600 hover:bg-red-50"
+          >
+            <LogOut className="w-5 h-5" />
+            Déconnexion
+          </Button>
+        </div>
+
         <section className="w-full flex flex-col items-center text-center">
           <WelcomeHeader />
 
