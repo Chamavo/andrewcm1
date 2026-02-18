@@ -1,7 +1,4 @@
-// Level blocking system - uses Supabase for persistence
-// Falls back to localStorage only when user is not authenticated
-
-import { supabase } from '@/integrations/supabase/mathsClient';
+// Level blocking system - uses localStorage only
 
 export interface LevelBlockInfo {
     level: number;
@@ -14,63 +11,14 @@ export interface LevelBlockInfo {
     requiredRevisionModule?: string | null;
 }
 
-interface ProgressionRow {
-    id: string;
-    user_id: string;
-    student_id: string | null;
-    student_name: string;
-    mode: string;
-    current_level: number;
-    fail_count: number;
-    is_blocked: boolean;
-    required_correct_streak: number;
-    current_correct_streak: number;
-    level_in_progress: boolean | null;
-    level_started_at: string | null;
-    extra_data: Record<string, unknown> | null;
-}
-
-const rowToBlockInfo = (row: ProgressionRow): LevelBlockInfo => ({
-    level: row.current_level,
-    failCount: row.fail_count,
-    isBlocked: row.is_blocked,
-    requiredCorrectStreak: row.required_correct_streak,
-    currentCorrectStreak: row.current_correct_streak,
-    levelInProgress: row.level_in_progress ?? undefined,
-    levelStartedAt: row.level_started_at ?? undefined,
-});
-
 const getLocalStorageKey = (username: string, mode: string = 'progression') =>
     `levelBlocking_${username.toLowerCase()}_${mode}`;
 
-// Get current user ID
-const getCurrentUserId = async (): Promise<string | null> => {
-    const { data: { user } } = await supabase.auth.getUser();
-    return user?.id ?? null;
-};
-
-// Get blocking info - tries database first, falls back to localStorage
+// Get blocking info - localStorage only
 export const getBlockingInfo = async (
     username: string,
     mode: string = 'progression'
 ): Promise<LevelBlockInfo | null> => {
-    const userId = await getCurrentUserId();
-
-    if (userId) {
-        // Try database first
-        const { data, error } = await supabase
-            .from('student_progression')
-            .select('*')
-            .eq('user_id', userId)
-            .eq('student_name', username.toLowerCase())
-            .eq('mode', mode)
-            .maybeSingle();
-
-        if (!error && data) {
-            return rowToBlockInfo(data as ProgressionRow);
-        }
-    }
-
     // Fallback to localStorage
     const key = getLocalStorageKey(username, mode);
     const localData = localStorage.getItem(key);
@@ -84,40 +32,14 @@ export const getBlockingInfo = async (
     }
 };
 
-// Save progression to database (and localStorage as backup)
+// Save progression to localStorage
 const saveProgression = async (
     username: string,
     mode: string,
     info: LevelBlockInfo
 ): Promise<void> => {
-    const userId = await getCurrentUserId();
     const key = getLocalStorageKey(username, mode);
-
-    // Always save to localStorage as backup (instant)
     localStorage.setItem(key, JSON.stringify(info));
-
-    if (!userId) return;
-
-    // Supabase fire-and-forget
-    supabase
-        .from('student_progression')
-        .upsert({
-            user_id: userId,
-            student_name: username.toLowerCase(),
-            mode,
-            current_level: info.level,
-            fail_count: info.failCount,
-            is_blocked: info.isBlocked,
-            required_correct_streak: info.requiredCorrectStreak,
-            current_correct_streak: info.currentCorrectStreak,
-            level_in_progress: info.levelInProgress ?? false,
-            level_started_at: info.levelStartedAt ?? null,
-        }, {
-            onConflict: 'user_id,student_name,mode'
-        })
-        .then(({ error }) => {
-            if (error) console.error('Sync error (saveProgression):', error);
-        });
 };
 
 export const markLevelStarted = async (

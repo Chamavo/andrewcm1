@@ -1,13 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
-import { supabase } from '@/integrations/supabase/orthographeClient';
 import type {
-    ProgressionLevel,
     ProgressionExercise,
     ProgressionProgress,
 } from '@/types/progression';
+import { generateExercise } from '@/types/orthographe';
 
 const MAX_EXERCISES_PER_LEVEL = 10;
-const SESSION_DURATION_SEC = 45 * 60;
 const LS_KEY_PREFIX = 'progression_module_';
 
 export type ModuleStatus = 'loading_data' | 'fetching_progress' | 'generating_pool' | 'ready' | 'error';
@@ -29,51 +27,43 @@ export const useProgressionModule = (studentName: string) => {
     });
     const [exercises, setExercises] = useState<ProgressionExercise[]>([]);
     const [sessionTimeRemaining, setSessionTimeRemaining] = useState<number | null>(null);
-    const [isSessionLocked, setIsSessionLocked] = useState(false);
     const [globalLockoutRemaining, setGlobalLockoutRemaining] = useState<number | null>(null);
 
     useEffect(() => {
         const loadInitialData = async () => {
             try {
                 setStatus('fetching_progress');
-                const { data, error: dbError } = await supabase
-                    .from('progression_levels')
-                    .select('*')
-                    .eq('student_id', studentName)
-                    .maybeSingle();
+                const lsKey = `${LS_KEY_PREFIX}${studentName}`;
+                const stored = localStorage.getItem(lsKey);
 
-                if (dbError) throw dbError;
+                if (stored) {
+                    try {
+                        const d = JSON.parse(stored);
+                        setProgress({
+                            student_id: d.student_id,
+                            current_level: d.current_level,
+                            exercises_done: d.exercises_done,
+                            correct_answers: d.correct_answers,
+                            consecutive_perfect: d.consecutive_perfect,
+                            all_completed: d.all_completed,
+                            failures_count: d.failures_count || 0,
+                            lockout_until: d.lockout_until,
+                            exercises_pool: d.exercises_pool || [],
+                            answered_indices: d.answered_indices || [],
+                        });
 
-                if (data) {
-                    const d = data as any;
-                    setProgress({
-                        student_id: d.student_id,
-                        current_level: d.current_level,
-                        exercises_done: d.exercises_done,
-                        correct_answers: d.correct_answers,
-                        consecutive_perfect: d.consecutive_perfect,
-                        all_completed: d.all_completed,
-                        failures_count: d.failures_count || 0,
-                        lockout_until: d.lockout_until,
-                        exercises_pool: d.exercises_pool || [],
-                        answered_indices: d.answered_indices || [],
-                    });
-
-                    if (d.exercises_pool && d.exercises_pool.length > 0) {
-                        setExercises(d.exercises_pool);
-                        setStatus('ready');
-                    } else {
+                        if (d.exercises_pool && d.exercises_pool.length > 0) {
+                            setExercises(d.exercises_pool);
+                            setStatus('ready');
+                        } else {
+                            setStatus('generating_pool');
+                        }
+                    } catch (e) {
+                        console.error("Failed to parse local progression", e);
                         setStatus('generating_pool');
                     }
                 } else {
-                    // Create new progression if not exists
-                    const { data: newData, error: insertError } = await supabase
-                        .from('progression_levels')
-                        .insert({ student_id: studentName })
-                        .select()
-                        .single();
-
-                    if (insertError) throw insertError;
+                    // New User
                     setStatus('generating_pool');
                 }
             } catch (err: any) {
@@ -85,9 +75,8 @@ export const useProgressionModule = (studentName: string) => {
         loadInitialData();
     }, [studentName]);
 
-    const generateExercises = useCallback(async () => {
+    const generateExercisesPool = useCallback(async () => {
         setStatus('generating_pool');
-        const { generateExercise } = await import('@/types/orthographe');
         const newPool = Array.from({ length: 20 }, (_, i) => {
             const ex = generateExercise(progress.current_level, []);
             return {
@@ -100,28 +89,28 @@ export const useProgressionModule = (studentName: string) => {
             };
         });
 
-        // UI instant
         setExercises(newPool);
         setStatus('ready');
 
-        // Supabase fire-and-forget
-        supabase
-            .from('progression_levels')
-            .update({
-                exercises_pool: newPool,
-                answered_indices: [],
-                exercises_done: 0,
-                correct_answers: 0
-            })
-            .eq('student_id', studentName)
-            .then(({ error }) => { if (error) console.error('Sync error (generateExercises):', error); });
-    }, [progress.current_level, studentName]);
+        // Save pool
+        const lsKey = `${LS_KEY_PREFIX}${studentName}`;
+        const updated = {
+            ...progress,
+            exercises_pool: newPool,
+            answered_indices: [],
+            exercises_done: 0,
+            correct_answers: 0
+        };
+        setProgress(updated);
+        localStorage.setItem(lsKey, JSON.stringify(updated));
+
+    }, [progress.current_level, studentName, progress]);
 
     useEffect(() => {
         if (status === 'generating_pool') {
-            generateExercises();
+            generateExercisesPool();
         }
-    }, [status, generateExercises]);
+    }, [status, generateExercisesPool]);
 
     const recordAnswer = useCallback((isCorrect: boolean, exerciseIndex: number) => {
         const newDone = progress.exercises_done + 1;
@@ -136,7 +125,6 @@ export const useProgressionModule = (studentName: string) => {
             if (isPass) {
                 const nextLevel = progress.current_level + 1;
 
-                // UI instant
                 const updated = {
                     ...progress,
                     current_level: nextLevel,
@@ -149,22 +137,8 @@ export const useProgressionModule = (studentName: string) => {
                 localStorage.setItem(lsKey, JSON.stringify(updated));
                 setStatus('generating_pool');
 
-                // Supabase fire-and-forget
-                supabase
-                    .from('progression_levels')
-                    .update({
-                        current_level: nextLevel,
-                        exercises_done: 0,
-                        correct_answers: 0,
-                        exercises_pool: [],
-                        answered_indices: []
-                    })
-                    .eq('student_id', studentName)
-                    .then(({ error }) => { if (error) console.error('Sync error (levelUp):', error); });
-
                 return { levelComplete: true, advanced: true, perfectSession: newCorrect === currentLevelTotal };
             } else {
-                // UI instant
                 const updated = {
                     ...progress,
                     exercises_done: 0,
@@ -174,22 +148,10 @@ export const useProgressionModule = (studentName: string) => {
                 setProgress(updated);
                 localStorage.setItem(lsKey, JSON.stringify(updated));
 
-                // Supabase fire-and-forget
-                supabase
-                    .from('progression_levels')
-                    .update({
-                        exercises_done: 0,
-                        correct_answers: 0,
-                        answered_indices: []
-                    })
-                    .eq('student_id', studentName)
-                    .then(({ error }) => { if (error) console.error('Sync error (resetLevel):', error); });
-
                 return { levelComplete: true, advanced: false, perfectSession: false };
             }
         }
 
-        // UI instant
         const updated = {
             ...progress,
             exercises_done: newDone,
@@ -198,17 +160,6 @@ export const useProgressionModule = (studentName: string) => {
         };
         setProgress(updated);
         localStorage.setItem(lsKey, JSON.stringify(updated));
-
-        // Supabase fire-and-forget
-        supabase
-            .from('progression_levels')
-            .update({
-                exercises_done: newDone,
-                correct_answers: newCorrect,
-                answered_indices: newAnsweredIndices
-            })
-            .eq('student_id', studentName)
-            .then(({ error }) => { if (error) console.error('Sync error (recordAnswer):', error); });
 
         return null;
     }, [progress, studentName]);
@@ -223,7 +174,7 @@ export const useProgressionModule = (studentName: string) => {
         currentLevel: { nb_exercices: MAX_EXERCISES_PER_LEVEL } as any,
         overallPercentage,
         recordAnswer,
-        generateExercises,
+        generateExercises: generateExercisesPool,
         isSessionLocked: false,
         sessionTimeRemaining: 3600,
         globalLockoutRemaining: null
