@@ -12,7 +12,7 @@ type View = 'home' | 'progression' | 'dictee' | 'etude' | 'orthographe' | 'redac
 
 const OrthographePage = () => {
     const [view, setView] = useState<View>('home');
-    const { user } = useUser();
+    const { user, logout } = useUser();
     const navigate = useNavigate();
 
     const {
@@ -51,12 +51,17 @@ const OrthographePage = () => {
         navigate('/');
     }, [navigate]);
 
+    const handleLogout = useCallback(() => {
+        logout();
+    }, [logout]);
+
     if (view === 'home') {
         return (
             <StudentHomePage
                 studentName={user || 'Élève'}
                 onModuleSelect={handleModuleSelect as any}
-                onLogout={handleExit}
+                onLogout={handleLogout}
+                onBackToMenu={handleExit}
                 stats={userProgress}
             />
         );

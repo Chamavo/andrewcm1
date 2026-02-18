@@ -12,7 +12,13 @@ import {
     Home
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-stats: UserProgress | null;
+
+interface StudentHomePageProps {
+    studentName: string;
+    onModuleSelect: (module: 'progression' | 'dictee' | 'redaction') => void;
+    onLogout: () => void;
+    onBackToMenu: () => void;
+    stats: UserProgress | null;
 }
 
 const TOTAL_PROGRESSION_LEVELS = 50;
@@ -21,6 +27,7 @@ export const StudentHomePage = ({
     studentName,
     onModuleSelect,
     onLogout,
+    onBackToMenu,
     stats
 }: StudentHomePageProps) => {
     const currentLevel = stats?.currentLevel || 1;
@@ -28,9 +35,12 @@ export const StudentHomePage = ({
 
     return (
         <div className="min-h-screen bg-white">
-            <div className="flex justify-end p-4">
-                <Button variant="default" size="lg" onClick={onLogout} className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 shadow-amber-500/20">
+            <div className="flex justify-end p-4 gap-4">
+                <Button variant="default" size="lg" onClick={onBackToMenu} className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 shadow-amber-500/20">
                     <Home className="w-6 h-6" /> Menu
+                </Button>
+                <Button variant="destructive" size="lg" onClick={onLogout} className="bg-red-500 hover:bg-red-600 text-white font-bold py-6 px-8 text-xl rounded-2xl shadow-lg gap-3 shadow-red-500/20">
+                    <Lock className="w-6 h-6" /> Déconnexion
                 </Button>
             </div>
 
