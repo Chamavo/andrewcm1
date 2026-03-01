@@ -1,0 +1,1 @@
+{'id': 51, 'title': 'Le gâteau (Fraction)', 'part': 2, 'text': 'Maman a coupé un gâteau en 8 parts égales. Pierre en mange 2 parts et Sophie 1 part.\nQuelle fraction du gâteau reste-t-il ?', 'answer': 'Mangé = 2/8 + 1/8 = 3/8. Reste = 8/8 - 3/8 = 5/8.', 'questions': [{'response': '8', 'unit': ''}]}
