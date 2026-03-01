@@ -812,7 +812,7 @@
         "answer": "3,5 + 2,75 = 6,25 m.",
         "questions": [
             {
-                "response": "25",
+                "response": "6,25",
                 "unit": "m"
             }
         ]
@@ -885,7 +885,7 @@
         "answer": "De 9h45 à 10h00 = 15 min. De 10h00 à 13h00 = 3h. De 13h00 à 13h15 = 15 min. Total = 3h30.",
         "questions": [
             {
-                "response": "30",
+                "response": "3h30",
                 "unit": ""
             }
         ]
@@ -963,7 +963,7 @@
         "answer": "4,5 x 3 = 13,5 cm.",
         "questions": [
             {
-                "response": "5",
+                "response": "13,5",
                 "unit": "cm"
             }
         ]
@@ -1075,7 +1075,7 @@
         "answer": "10/100 = 1/10. Cela fait 10%.",
         "questions": [
             {
-                "response": "10",
+                "response": "1/10",
                 "unit": "%"
             }
         ]
@@ -1114,7 +1114,7 @@
         "answer": "20 - 12,50 = 7,50 €.",
         "questions": [
             {
-                "response": "50",
+                "response": "7,50",
                 "unit": "€"
             }
         ]
@@ -1174,7 +1174,7 @@
         "answer": "22h30 -> 24h00 = 1h30. 00h00 -> 06h15 = 6h15. Total = 7h45.",
         "questions": [
             {
-                "response": "45",
+                "response": "7h45",
                 "unit": ""
             }
         ]
