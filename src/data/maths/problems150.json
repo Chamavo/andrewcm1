@@ -565,7 +565,12 @@
         "part": 1,
         "text": "Un train parcourt 450 km en 3 heures. Quelle est sa vitesse moyenne en km/h ?",
         "answer": "450 : 3 = 150 km/h.",
-        "questions": []
+        "questions": [
+            {
+                "response": "150",
+                "unit": "km/h"
+            }
+        ]
     },
     {
         "id": 35,
@@ -605,7 +610,12 @@
         "part": 1,
         "text": "Une fermière a 480 œufs. Elle veut les mettre dans des boîtes de 12.\nCombien de boîtes lui faut-il ?",
         "answer": "480 : 12 = 40 boîtes.",
-        "questions": []
+        "questions": [
+            {
+                "response": "40",
+                "unit": "boîtes"
+            }
+        ]
     },
     {
         "id": 38,
@@ -825,7 +835,7 @@
         "answer": "10 : 4 = 2,5 m.",
         "questions": [
             {
-                "response": "5",
+                "response": "2,5",
                 "unit": "m"
             }
         ]
@@ -862,7 +872,12 @@
         "part": 2,
         "text": "La voiture de Papa consomme 8 litres aux 100 km. Le réservoir contient 50 litres.\nIl veut faire un voyage de 600 km. Devra-t-il remettre de l'essence ?",
         "answer": "Pour 600 km, il faut 6 x 8 = 48 litres. 48 < 50, donc non, il n'a pas besoin de remettre de l'essence.",
-        "questions": []
+        "questions": [
+            {
+                "response": "48",
+                "unit": "litres"
+            }
+        ]
     },
     {
         "id": 58,
@@ -1065,7 +1080,12 @@
         "part": 2,
         "text": "Un carré a un côté de 6 cm. Un rectangle a une largeur de 4 cm et une longueur de 8 cm.\nLequel a le plus grand périmètre ?",
         "answer": "Carré = 6 x 4 = 24 cm. Rectangle = (4+8) x 2 = 24 cm. Ils sont égaux.",
-        "questions": []
+        "questions": [
+            {
+                "response": "24",
+                "unit": "cm"
+            }
+        ]
     },
     {
         "id": 74,
@@ -1164,7 +1184,12 @@
         "part": 2,
         "text": "Un angle droit mesure 90°. Un angle aigu mesure la moitié d'un angle droit.\nCombien mesure cet angle aigu ?",
         "answer": "90 : 2 = 45°.",
-        "questions": []
+        "questions": [
+            {
+                "response": "45",
+                "unit": "°"
+            }
+        ]
     },
     {
         "id": 82,
@@ -1226,7 +1251,7 @@
         "answer": "1h = 60 min. 110 - 60 = 50. Donc 1h50.",
         "questions": [
             {
-                "response": "50",
+                "response": "1h50",
                 "unit": ""
             }
         ]
@@ -1250,7 +1275,12 @@
         "part": 2,
         "text": "Une boîte contient 12 œufs. J'utilise 2/3 des œufs pour un gâteau.\nCombien d'œufs ai-je utilisés ?",
         "answer": "(12 x 2) : 3 = 8 œufs.",
-        "questions": []
+        "questions": [
+            {
+                "response": "8",
+                "unit": "œufs"
+            }
+        ]
     },
     {
         "id": 89,
@@ -1271,7 +1301,12 @@
         "part": 2,
         "text": "Au saut en longueur, Marc a sauté 3,45 m et Léo 3,6 m.\nQui a sauté le plus loin ? De combien ?",
         "answer": "Léo (3,60 > 3,45). Différence = 0,15 m (ou 15 cm).",
-        "questions": []
+        "questions": [
+            {
+                "response": "0,15",
+                "unit": "m"
+            }
+        ]
     },
     {
         "id": 91,
@@ -1305,7 +1340,12 @@
         "part": 2,
         "text": "J'ai lu 160 pages lundi, 0 mardi, et 200 mercredi.\nQuelle est ma moyenne de pages lues par jour sur ces 3 jours ?",
         "answer": "(160 + 0 + 200) : 3 = 360 : 3 = 120 pages).",
-        "questions": []
+        "questions": [
+            {
+                "response": "120",
+                "unit": "pages"
+            }
+        ]
     },
     {
         "id": 94,
@@ -1405,7 +1445,18 @@
         "part": 3,
         "text": "Un commerçant achète 125 sacs de riz de 50 kg chacun.\nIl revend chaque sac à 18 500 F alors qu’il les avait achetés 15 200 F l’unité.\n1. Quelle est la masse totale de riz achetée en tonnes ?\n2. Quel est le montant total des ventes ?\n3. Quel bénéfice total réalise-t-il ?",
         "answer": "125 × 50 = 6 250 kg = 6,25 t\nVentes : 125 × 18 500 = 2 312 500 F\nAchat : 125 × 15 200 = 1 900 000 F\nBénéfice : **412 500 F**",
-        "questions": []
+        "questions": [
+            {
+                "label": "Masse totale",
+                "response": "6250",
+                "unit": "kg"
+            },
+            {
+                "label": "Bénéfice",
+                "response": "412500",
+                "unit": "F"
+            }
+        ]
     },
     {
         "id": 102,
@@ -1413,7 +1464,23 @@
         "part": 3,
         "text": "Un terrain rectangulaire mesure 48,5 mètres de long et 36,2 mètres de large.\n1. Quel est le périmètre de ce terrain ?\n2. Quelle est son aire ?\n3. Si l’on plante des piquets tous les 2,5 mètres autour du terrain, combien faudra-t-il de piquets ?",
         "answer": "Périmètre = 2 × (48,5 + 36,2) = 169,4 m\nAire = 48,5 × 36,2 = 1 755,7 m²\n169,4 ÷ 2,5 ≈ 68\n**68 piquets**",
-        "questions": []
+        "questions": [
+            {
+                "label": "Périmètre",
+                "response": "169,4",
+                "unit": "m"
+            },
+            {
+                "label": "Aire",
+                "response": "1755,7",
+                "unit": "m²"
+            },
+            {
+                "label": "Piquets",
+                "response": "68",
+                "unit": "piquets"
+            }
+        ]
     },
     {
         "id": 103,
@@ -1421,7 +1488,18 @@
         "part": 3,
         "text": "Une école compte 480 élèves. On sait que 35 % des élèves sont des filles.\nCombien y a-t-il de filles ? Combien y a-t-il de garçons ?",
         "answer": "480 × 35 ÷ 100 = 168 filles\n480 − 168 = 312 garçons",
-        "questions": []
+        "questions": [
+            {
+                "label": "Filles",
+                "response": "168",
+                "unit": ""
+            },
+            {
+                "label": "Garçons",
+                "response": "312",
+                "unit": ""
+            }
+        ]
     },
     {
         "id": 104,
@@ -1429,7 +1507,12 @@
         "part": 3,
         "text": "Un camion transporte 2,5 tonnes de sable.\nChaque chantier a besoin de 350 kg de sable.\nCombien de chantiers le camion peut-il approvisionner complètement ?",
         "answer": "2,5 t = 2 500 kg\n2 500 ÷ 350 = 7\n**7 chantiers**",
-        "questions": []
+        "questions": [
+            {
+                "response": "7",
+                "unit": "chantiers"
+            }
+        ]
     },
     {
         "id": 105,
@@ -1570,7 +1653,7 @@
         "answer": "Somme = 96\n96 ÷ 7 ≈ 13,71",
         "questions": [
             {
-                "response": "71",
+                "response": "13,71",
                 "unit": ""
             }
         ]
@@ -1633,7 +1716,12 @@
         "part": 3,
         "text": "Un prisme droit a une base de 30 cm² et une hauteur de 12 cm.\nQuel est son volume ?",
         "answer": "360 cm³\n# 🔴 Complexité renforcée (136–150)",
-        "questions": []
+        "questions": [
+            {
+                "response": "360",
+                "unit": "cm³"
+            }
+        ]
     },
     {
         "id": 121,
@@ -1641,7 +1729,12 @@
         "part": 3,
         "text": "Un film commence à 14 h 30 et se termine à 16 h 15.\nQuelle est la durée du film ?",
         "answer": "16h15 - 14h30 = 1h45\nDurée = **1 h 45 min**",
-        "questions": []
+        "questions": [
+            {
+                "response": "1h45",
+                "unit": ""
+            }
+        ]
     },
     {
         "id": 122,
@@ -1649,7 +1742,12 @@
         "part": 3,
         "text": "Un train part de Paris à 8 h 55 et arrive à Lyon à 11 h 05.\nCombien de temps a duré le voyage ?",
         "answer": "De 8h55 à 9h00 = 5 min\nDe 9h00 à 11h00 = 2 h\nDe 11h00 à 11h05 = 5 min\nTotal = **2 h 10 min**",
-        "questions": []
+        "questions": [
+            {
+                "response": "2h10",
+                "unit": ""
+            }
+        ]
     },
     {
         "id": 123,
@@ -1657,7 +1755,12 @@
         "part": 3,
         "text": "Une voiture roule à une vitesse constante de 85 km/h.\nQuelle distance parcourt-elle en 3 heures ?",
         "answer": "3 × 85 = 255\nDistance = **255 km**",
-        "questions": []
+        "questions": [
+            {
+                "response": "255",
+                "unit": "km"
+            }
+        ]
     },
     {
         "id": 124,
@@ -1665,7 +1768,12 @@
         "part": 3,
         "text": "Un cycliste parcourt 60 km en 4 heures.\nQuelle est sa vitesse moyenne en km/h ?",
         "answer": "60 ÷ 4 = 15\nVitesse = **15 km/h**",
-        "questions": []
+        "questions": [
+            {
+                "response": "15",
+                "unit": "km/h"
+            }
+        ]
     },
     {
         "id": 125,
@@ -1687,7 +1795,12 @@
         "part": 3,
         "text": "3 kg d'oranges coûtent 450 F.\nQuel est le prix de 7 kg d'oranges ?",
         "answer": "1 kg = 450 ÷ 3 = 150 F\n7 kg = 150 × 7 = 1050\nPrix = **1 050 F**",
-        "questions": []
+        "questions": [
+            {
+                "response": "1050",
+                "unit": "F"
+            }
+        ]
     },
     {
         "id": 127,
@@ -1695,7 +1808,12 @@
         "part": 3,
         "text": "Sur un plan à l'échelle 1/50, un couloir mesure 6 cm. Quelle est sa longueur réelle en mètres ?",
         "answer": "6 × 50 = 300 cm = 3 m\nLongueur = **3 m**",
-        "questions": []
+        "questions": [
+            {
+                "response": "3",
+                "unit": "m"
+            }
+        ]
     },
     {
         "id": 128,
@@ -1703,7 +1821,12 @@
         "part": 3,
         "text": "On partage équitablement une bouteille de 150 cl de jus de fruits entre 6 verres.\nQuelle quantité de jus y a-t-il dans chaque verre ?",
         "answer": "150 ÷ 6 = 25\nQuantité = **25 cl**",
-        "questions": []
+        "questions": [
+            {
+                "response": "25",
+                "unit": "cl"
+            }
+        ]
     },
     {
         "id": 129,
@@ -1711,7 +1834,12 @@
         "part": 3,
         "text": "Dans une classe de 30 élèves, les 2/3 sont des garçons.\nCombien y a-t-il de garçons ?",
         "answer": "(30 ÷ 3) × 2 = 10 × 2 = 20\nNombre de garçons = **20**",
-        "questions": []
+        "questions": [
+            {
+                "response": "20",
+                "unit": ""
+            }
+        ]
     },
     {
         "id": 130,
@@ -1719,7 +1847,18 @@
         "part": 3,
         "text": "J'ai acheté un pantalon à 4 000 F.\nLe commerçant me fait une remise de 10 %.\nQuel est le montant de la remise ?\nCombiens dois-je payer ?",
         "answer": "10 % de 4 000 = 400\nRemise = **400 F**\nJe dois payer 4000F - 400F = **3600F**\n----",
-        "questions": []
+        "questions": [
+            {
+                "label": "Remise",
+                "response": "400",
+                "unit": "F"
+            },
+            {
+                "label": "Prix à payer",
+                "response": "3600",
+                "unit": "F"
+            }
+        ]
     },
     {
         "id": 131,
@@ -1727,7 +1866,12 @@
         "part": 3,
         "text": "Un réservoir contient 500 litres d'eau. Il est rempli à 50 %.\nQuelle est la capacité totale du réservoir ?",
         "answer": "50 % = la moitié\nTotal = 500 × 2 = 1000\nCapacité = **1 000 L**",
-        "questions": []
+        "questions": [
+            {
+                "response": "1000",
+                "unit": "L"
+            }
+        ]
     },
     {
         "id": 132,
@@ -1735,7 +1879,12 @@
         "part": 3,
         "text": "Un jardin rectangulaire mesure 25 m de long et 12 m de large.\nOn veut poser une clôture tout autour. Quelle longueur de clôture faut-il ?",
         "answer": "Périmètre = (25 + 12) × 2 = 37 × 2 = 74\nLongueur = **74 m**",
-        "questions": []
+        "questions": [
+            {
+                "response": "74",
+                "unit": "m"
+            }
+        ]
     },
     {
         "id": 133,
@@ -1743,7 +1892,12 @@
         "part": 3,
         "text": "Quelle est l'aire du jardin de l'exercice précédent (25 m sur 12 m) ?",
         "answer": "Aire = 25 × 12 = 300\nAire = **300 m²**",
-        "questions": []
+        "questions": [
+            {
+                "response": "300",
+                "unit": "m²"
+            }
+        ]
     },
     {
         "id": 134,
@@ -1751,7 +1905,12 @@
         "part": 3,
         "text": "Une boîte a la forme d'un pavé droit. Elle mesure 10 cm de long, 5 cm de large et 4 cm de haut.\nQuel est son volume ?",
         "answer": "Volume = 10 × 5 × 4 = 200\nVolume = **200 cm³**",
-        "questions": []
+        "questions": [
+            {
+                "response": "200",
+                "unit": "cm³"
+            }
+        ]
     },
     {
         "id": 135,
@@ -1759,7 +1918,12 @@
         "part": 3,
         "text": "Voici une suite logique de nombres : 2 - 5 - 11 - 23 - ...\nQuel est le nombre suivant ?",
         "answer": "(2 × 2) + 1 = 5\n(5 × 2) + 1 = 11\n(11 × 2) + 1 = 23\n(23 × 2) + 1 = 47\nNombre = **47**",
-        "questions": []
+        "questions": [
+            {
+                "response": "47",
+                "unit": ""
+            }
+        ]
     },
     {
         "id": 136,
@@ -1767,7 +1931,12 @@
         "part": 3,
         "text": "Une parcelle rectangulaire mesure 84 m de long et 65 m de large.\nLe propriétaire souhaite connaître la surface de son terrain en hectares pour remplir un document administratif.\nQuelle est l’aire du terrain en mètres carrés ? Quelle est cette aire en hectares ?",
         "answer": "84 × 65 = 5 460 m²\n5 460 ÷ 10 000 = **0,546 ha**",
-        "questions": []
+        "questions": [
+            {
+                "response": "0,546",
+                "unit": "ha"
+            }
+        ]
     },
     {
         "id": 137,
@@ -1775,7 +1944,12 @@
         "part": 3,
         "text": "Un élève obtient 17/20 à un contrôle.\nQuel est son résultat exprimé en pourcentage ?",
         "answer": "17 ÷ 20 = 0,85\n0,85 × 100 = **85 %**",
-        "questions": []
+        "questions": [
+            {
+                "response": "85",
+                "unit": "%"
+            }
+        ]
     },
     {
         "id": 138,
@@ -1783,7 +1957,12 @@
         "part": 3,
         "text": "Un cube a un volume de 512 cm³.\nQuelle est la longueur d’une arête de ce cube ?",
         "answer": "8 × 8 × 8 = 512\nArête = **8 cm**",
-        "questions": []
+        "questions": [
+            {
+                "response": "8",
+                "unit": "cm"
+            }
+        ]
     },
     {
         "id": 139,
@@ -1791,7 +1970,12 @@
         "part": 3,
         "text": "Un terrain triangulaire a une aire de 270 m². Sa base mesure 30 m.\nQuelle est la hauteur de ce triangle ?",
         "answer": "270 × 2 = 540\n540 ÷ 30 = **18 m**",
-        "questions": []
+        "questions": [
+            {
+                "response": "18",
+                "unit": "m"
+            }
+        ]
     },
     {
         "id": 140,
@@ -1799,7 +1983,12 @@
         "part": 3,
         "text": "Un article coûte 48 000 F. Le commerçant accorde une réduction de 25 %.\nQuel est le nouveau prix de l’article ?",
         "answer": "Réduction = 12 000 F\nPrix = **36 000 F**",
-        "questions": []
+        "questions": [
+            {
+                "response": "36000",
+                "unit": "F"
+            }
+        ]
     },
     {
         "id": 141,
@@ -1807,7 +1996,12 @@
         "part": 3,
         "text": "Une voiture consomme 6,5 litres pour 100 kilomètres.\nLe conducteur parcourt 350 kilomètres.\nCombien de litres d’essence a-t-il consommés ?",
         "answer": "6,5 × 3,5 = **22,75 L**",
-        "questions": []
+        "questions": [
+            {
+                "response": "22,75",
+                "unit": "L"
+            }
+        ]
     },
     {
         "id": 142,
@@ -1815,7 +2009,12 @@
         "part": 3,
         "text": "Un élève achète 6 livres à 8 500 F chacun.\nIl paie avec un billet de 60 000 F.\nCombien doit-on lui rendre ?",
         "answer": "6 × 8 500 = 51 000 F\n60 000 − 51 000 = **9 000 F**",
-        "questions": []
+        "questions": [
+            {
+                "response": "9000",
+                "unit": "F"
+            }
+        ]
     },
     {
         "id": 143,
@@ -1823,7 +2022,18 @@
         "part": 3,
         "text": "Un capital de 120 000 F est placé à 5 % pendant 2 ans.\nQuel est l’intérêt total obtenu ? Quelle est la somme finale ?",
         "answer": "Intérêt annuel = 6 000 F\nSur 2 ans = 12 000 F\nTotal = **132 000 F**",
-        "questions": []
+        "questions": [
+            {
+                "label": "Intérêt total",
+                "response": "12000",
+                "unit": "F"
+            },
+            {
+                "label": "Somme finale",
+                "response": "132000",
+                "unit": "F"
+            }
+        ]
     },
     {
         "id": 144,
@@ -1844,7 +2054,12 @@
         "part": 3,
         "text": "Un bassin contient 4 m³ d’eau.\nOn décide d’enlever 750 litres.\nCombien de litres d’eau reste-t-il dans le bassin ?",
         "answer": "4 m³ = 4 000 L\n4 000 − 750 = **3 250 L**",
-        "questions": []
+        "questions": [
+            {
+                "response": "3250",
+                "unit": "L"
+            }
+        ]
     },
     {
         "id": 146,
@@ -1866,7 +2081,12 @@
         "part": 3,
         "text": "Dans une classe de 42 élèves, les 3/7 sont des filles.\nParmi ces filles, les 2/3 portent des lunettes.\nCombien de filles portent des lunettes ?",
         "answer": "Filles : 18\n18 × 2 ÷ 3 = **12**",
-        "questions": []
+        "questions": [
+            {
+                "response": "12",
+                "unit": ""
+            }
+        ]
     },
     {
         "id": 148,
@@ -1874,7 +2094,12 @@
         "part": 3,
         "text": "Un carré a une aire de 1 024 cm².\nOn décide de construire une clôture autour.\nQuelle sera la longueur totale de la clôture ?",
         "answer": "Côté = 32 cm\nPérimètre = **128 cm**",
-        "questions": []
+        "questions": [
+            {
+                "response": "128",
+                "unit": "cm"
+            }
+        ]
     },
     {
         "id": 149,
@@ -1896,7 +2121,18 @@
         "part": 3,
         "text": "Un commerçant réalise un chiffre d’affaires de 3 500 000 F.\nSes dépenses représentent 72 % de cette somme.\nIl décide d’investir ensuite 1/4 de son bénéfice dans un nouveau projet.\nQuel est son bénéfice ? Quelle somme investit-il ?",
         "answer": "Dépenses = 2 520 000 F\nBénéfice = 980 000 F\n1/4 du bénéfice = **245 000 F**",
-        "questions": []
+        "questions": [
+            {
+                "label": "Bénéfice",
+                "response": "980000",
+                "unit": "F"
+            },
+            {
+                "label": "Investissement",
+                "response": "245000",
+                "unit": "F"
+            }
+        ]
     },
     {
         "id": 151,
@@ -2027,7 +2263,12 @@
         "part": 4,
         "text": "Un cycliste parcourt 90 km en 3 heures.\nQuelle est sa vitesse moyenne ?",
         "answer": "90 ÷ 3 = 30 km/h",
-        "questions": []
+        "questions": [
+            {
+                "response": "30",
+                "unit": "km/h"
+            }
+        ]
     },
     {
         "id": 158,
@@ -2050,8 +2291,8 @@
         "answer": "1,5 h\n5 × 1,5 = 7,5 km",
         "questions": [
             {
-                "response": "5",
-                "unit": "km"
+                "response": "1,5",
+                "unit": "h"
             }
         ]
     },
@@ -2061,7 +2302,12 @@
         "part": 4,
         "text": "Un camion parcourt 360 km à 90 km/h.\nCombien d’heures met-il ?",
         "answer": "360 ÷ 90 = 4 h\n## 🔵 MESURES AGRAIRES (161–168)",
-        "questions": []
+        "questions": [
+            {
+                "response": "4",
+                "unit": "h"
+            }
+        ]
     },
     {
         "id": 161,
@@ -2168,7 +2414,18 @@
         "part": 4,
         "text": "Un terrain de 6 ha est partagé en 3 parts égales.\nQuelle est la superficie d’une part en hectares et en m² ?",
         "answer": "6 ÷ 3 = 2 ha\n= 20 000 m²\n## 🔵 CAPACITÉS (169–176)",
-        "questions": []
+        "questions": [
+            {
+                "label": "Hectares",
+                "response": "2",
+                "unit": "ha"
+            },
+            {
+                "label": "m²",
+                "response": "20000",
+                "unit": "m²"
+            }
+        ]
     },
     {
         "id": 169,
@@ -2267,7 +2524,12 @@
         "part": 4,
         "text": "Une citerne contient 3 500 L.\nOn ajoute 1 500 L.\nQuelle est la capacité totale ?",
         "answer": "5 000 L\n## 🔵 BÉNÉFICES – POURCENTAGES – INTÉRÊTS (177–200)",
-        "questions": []
+        "questions": [
+            {
+                "response": "5000",
+                "unit": "L"
+            }
+        ]
     },
     {
         "id": 177,
@@ -2312,7 +2574,12 @@
         "part": 4,
         "text": "10 % de 2 500 élèves participent à une sortie.\nCombien d’élèves participent ?",
         "answer": "250 élèves",
-        "questions": []
+        "questions": [
+            {
+                "response": "250",
+                "unit": "élèves"
+            }
+        ]
     },
     {
         "id": 180,
